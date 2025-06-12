@@ -1,0 +1,8 @@
+job:
+  KIND: TrainingJob
+  inputs:
+    KIND: DeltalakeReader
+    path: "s3://dev-qto-catgorizer-wksp/qto-catgorizer-ml/data/delta/inputs"
+  targets:
+    KIND: DeltalakeReader
+    path: "s3://dev-qto-catgorizer-wksp/qto-catgorizer-ml/data/delta/target"

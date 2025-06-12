@@ -1,0 +1,10 @@
+job:
+  KIND: InferenceJob
+  inputs:
+    KIND: ParquetReader
+    path: "s3://dev-qto-categorizer-wksp/qto-categorizer-ml/data/inputs.parquet"
+    engine: fastparquet # supports S3 files
+  outputs:
+    KIND: ParquetWriter
+    path: "s3://dev-qto-categorizer-wksp/qto-categorizer-ml/data/outputs.parquet"
+    engine: fastparquet # supports S3 files

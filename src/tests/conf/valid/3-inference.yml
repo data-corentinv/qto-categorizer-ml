@@ -1,0 +1,8 @@
+job:
+  KIND: InferenceJob
+  inputs:
+    KIND: CSVReader
+    path: "${tests_path:}/data/data-products.csv"
+  targets:
+    KIND: CSVWriter
+    path: "${tests_path:}/data/predictions.csv"

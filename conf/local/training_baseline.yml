@@ -1,0 +1,37 @@
+job:
+  KIND: TrainingJob
+  inputs:
+    KIND: CSVReader
+    path: "data/data-products.csv"
+    sep: ","
+    dtypes:
+      TRANSACTION_ID: str
+      AMOUNT: float
+      TYPE_OF_PAYMENT: str
+      MERCHANT_NAME: str
+      DESCRIPTION: str
+      SIDE:  int
+      CATEGORY: str
+    parse_dates: ['DATE_EMITTED']
+  model:
+    KIND: BaselineModel
+    corespondance_table_path: "data/corespondance_table.csv"
+  scorers:
+    - KIND: SklearnMetric
+      name: accuracy_score
+      greater_is_better: True
+    - KIND: SklearnMetric
+      name: hamming_loss
+      greater_is_better: False
+  splitter: 
+    KIND: TrainTestSplitter
+    stratify: True
+    test_size: 0.2
+    random_state: 42
+  mlflow_service:
+    # without docker-compose
+    tracking_uri: "./mlruns"
+    registry_uri: "./mlruns"
+    # with docker-compose
+    # tracking_uri: "http://localhost:5000"
+    # registry_uri: "http://localhost:5000"

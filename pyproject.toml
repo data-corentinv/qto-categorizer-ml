@@ -1,0 +1,130 @@
+# https://python-poetry.org/docs/pyproject/
+
+# PACKAGE
+
+[project]
+name = "qto-categorizer-ml"
+version = "0.1.0dev1"
+description = "This is the ML pipeline code of categorized ML porject."
+readme = "README.md"
+authors = [
+    {name = "Corentin VASSEUR", email = "vasseur.corentin@gmail.com"},
+]
+urls = {repository = "https://github.com/data-corentinv/qto-categorized-ml"}
+requires-python = ">=3.10,<3.12"
+dynamic = ["dependencies"]
+
+# SCRIPTS
+
+[tool.poetry.scripts]
+qto-categorizer-ml = 'qto_categorizer_ml.scripts:main'
+
+# DEPENDENCIES
+
+[tool.poetry.dependencies]
+# Databricks Runtime: 14.3-LTS ML
+# python = "^3.10"
+mlflow-skinny = "~2.9.2"
+# Others: not in Databricks Runtime
+awswrangler = { extras = ["deltalake"], version = "^3.7.1" }
+boto3 = "^1.34.61"
+cloudpathlib = { extras = ["s3"], version = "^0.18.1" }
+fastparquet = "^2024.2.0"
+loguru = "^0.7.2"
+matplotlib = "^3.8.3"
+numpy = "^1.26.4"
+omegaconf = "^2.3.0"
+pandas = "^2.2.1"
+pandera = "^0.18.3"
+pyarrow = "^15.0.1"
+pydantic = "^2.6.4"
+pydantic-settings = "^2.2.1"
+s3fs = "<0.4" # required to read remote AWS S3 files with pandas
+scikit-learn = "^1.4.1"
+typing-extensions = "^4.10.0"
+
+# Extras: install optional dependencies in production
+moto = { version = "^5.0.3", optional = true }
+pytest = { version = "^8.1.1", optional = true }
+boto3-stubs = { extras = ["s3"], version = "^1.34.61", optional = true }
+gunicorn = "^23.0.0"
+skrub = "^0.5.4"
+transformers = "^4.52.4"
+
+[tool.poetry.extras]
+tests = ["moto", "pytest", "boto3-stubs"]
+
+# Groups: install additional dependencies in development
+[tool.poetry.group.dev.dependencies]
+bandit = "^1.7.8"
+boto3-stubs = { extras = ["s3"], version = "^1.34.61" }
+commitizen = "^3.18.3"
+coverage = "^7.4.3"
+ipykernel = "^6.29.3"
+moto = "^5.0.3"
+mypy = "^1.9.0"
+mypy-boto3 = "^1.34.61"
+myst-parser = "^2.0.0"
+pytest = "^8.1.1"
+pytest-cov = "^4.1.0"
+pytest-xdist = "^3.5.0"
+nbformat = "^5.10.2"
+pandera = { extras = ["mypy"], version = "^0.18.3" }
+ruff = "^0.3.3"
+sphinx = "^7.2.6"
+sphinx-rtd-theme = "^2.0.0"
+twine = "^5.0.0"
+
+# CONFIGURATIONS
+flask = "^3.1.1"
+jupyter = "^1.1.1"
+notebook = "^7.4.3"
+seaborn = "^0.13.2"
+
+[tool.bandit]
+targets = ["src"]
+
+[tool.commitizen]
+name = "cz_conventional_commits"
+tag_format = "v$version"
+version_scheme = "pep440"
+version_provider = "poetry"
+update_changelog_on_bump = false
+
+[tool.coverage.run]
+branch = true
+source = ["src"]
+omit = ["__main__.py"]
+
+[tool.mypy]
+pretty = true
+strict = true
+python_version = "3.10"
+ignore_missing_imports = true
+plugins = ["pandera.mypy", "pydantic.mypy", "numpy.typing.mypy_plugin"]
+
+[tool.pytest.ini_options]
+addopts = "--verbosity=2"
+pythonpath = ["src"]
+
+[tool.ruff]
+fix = true
+indent-width = 4
+line-length = 100
+target-version = "py310"
+exclude = ["notebooks/"]
+
+[tool.ruff.format]
+docstring-code-format = true
+
+[tool.ruff.lint.pydocstyle]
+convention = "google"
+
+[tool.ruff.lint.per-file-ignores]
+"tests/**/*.py" = ["D100", "D103"]
+
+# SYSTEMS
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

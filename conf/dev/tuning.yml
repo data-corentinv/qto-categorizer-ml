@@ -1,0 +1,12 @@
+job:
+  KIND: TuningJob
+  inputs:
+    KIND: GlueReader
+    table: "ml_inputs"
+    database: "dev_qto"
+    catalog_id: "111111111111"
+  targets:
+    KIND: GlueReader
+    table: "ml_target"
+    database: "dev_qto"
+    catalog_id: "111111111111"

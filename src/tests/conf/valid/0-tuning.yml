@@ -1,0 +1,8 @@
+job:
+  KIND: TuningJob
+  inputs:
+    KIND: CSVReader
+    path: "${tests_path:}/data/data-products.csv"
+  targets:
+    KIND: CSVReader
+    path: "${tests_path:}/data/data-products.csv"

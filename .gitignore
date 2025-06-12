@@ -1,0 +1,50 @@
+# https://git-scm.com/docs/gitignore
+
+# Build
+/dist/
+/build/
+
+# Future
+/.github/
+README_old.md
+databricks.yml
+
+# Cache
+.cache/
+.coverage*
+.mypy_cache/
+.ruff_cache/
+.pytest_cache/
+
+# Databricks
+/.databricks/
+
+# Docker
+/docker/.netrc
+
+# Docs
+/docs/build/
+/docs/source/_api/
+
+# Editors
+/.idea/
+/.vscode/
+.ipynb_checkpoints/
+
+# Environs
+.env
+/.venv/
+poetry.lock
+
+# Project
+/data/*
+/mlruns/*
+/reports/*
+!**/.gitkeep
+
+# Python
+*.py[cod]
+__pycache__/
+
+# Macos
+.DS_Store

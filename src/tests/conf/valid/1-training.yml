@@ -1,0 +1,5 @@
+job:
+  KIND: TrainingJob
+  inputs:
+    KIND: CSVReader
+    path: "${tests_path:}/data/data-products.csv"

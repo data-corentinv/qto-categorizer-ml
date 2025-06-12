@@ -1,0 +1,9 @@
+job:
+  KIND: TransitionJob
+  mlflow_service:
+    # without docker-compose
+    tracking_uri: "./mlruns"
+    registry_uri: "./mlruns"
+    # with docker-compose
+    # tracking_uri: "http://localhost:5000"
+    # registry_uri: "http://localhost:5000"

@@ -1,0 +1,26 @@
+job:
+  KIND: InferenceJob
+  version_or_stage: "2"
+  inputs:
+    KIND: CSVReader
+    path: "data/data-products-sample.csv"
+    sep: ","
+    dtypes:
+      TRANSACTION_ID: str
+      AMOUNT: float
+      TYPE_OF_PAYMENT: str
+      MERCHANT_NAME: str
+      DESCRIPTION: str
+      SIDE:  int
+      CATEGORY: str
+    parse_dates: ['DATE_EMITTED']
+  outputs:
+    KIND: CSVWriter
+    path: "data/batch_inference_outputs.csv"
+  mlflow_service:
+    # without docker-compose
+    tracking_uri: "./mlruns"
+    registry_uri: "./mlruns"
+    # with docker-compose
+    # tracking_uri: "http://localhost:5000"
+    # registry_uri: "http://localhost:5000"
