@@ -4,7 +4,7 @@
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
 project = "Qto Categorizer ML"
-version = "0.1.0dev1"
+version = "0.1.0dev2"
 release = version
 author = "Corentin Vasseur <vasseur.corentin@gmail.com>"
 copyright = "data-corentinv"
