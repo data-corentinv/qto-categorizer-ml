@@ -4,14 +4,14 @@
 #   * are used for development and testing, they don't have to be fully tested
 #   * should be published on the 'snapshot' artifact repository
 #   * Can be deleted once published on the 'snapshot' CA repository.
-# name: Publish snapshot artifacts
-# on: workflow_dispatch
+name: Publish snapshot artifacts
+on: workflow_dispatch
 
-# permissions:
-#   id-token: write
-#   contents: read
+permissions:
+  id-token: write
+  contents: read
 
-# env:
-#   ENV: snapshot
+env:
+  ENV: snapshot
 
 # jobs: # TODO: Add jobs
