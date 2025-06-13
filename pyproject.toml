@@ -4,7 +4,7 @@
 
 [project]
 name = "qto-categorizer-ml"
-version = "0.1.0dev2"
+version = "0.1.0"
 description = "This is the ML pipeline code of categorized ML porject."
 readme = "README.md"
 authors = [

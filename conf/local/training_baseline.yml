@@ -20,9 +20,6 @@ job:
     - KIND: SklearnMetric
       name: accuracy_score
       greater_is_better: True
-    - KIND: SklearnMetric
-      name: hamming_loss
-      greater_is_better: False
   splitter: 
     KIND: TrainTestSplitter
     stratify: True
