@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>qto_categorizer_ml.jobs.training &mdash; Qto Categorizer ML 0.1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css?v=fd3f3429" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../_static/documentation_options.js?v=01f34227"></script>
+        <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            Qto Categorizer ML
+          </a>
+              <div class="version">
+                0.1.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../markdown.html">Markdown</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../restructured.html">RestructuredText</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../_api/modules.html">qto_categorizer_ml</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Qto Categorizer ML</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">qto_categorizer_ml.jobs.training</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for qto_categorizer_ml.jobs.training</h1><div class="highlight"><pre>
+<span></span><span class="c1"># %% IMPORTS</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">T</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">pydantic</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pdt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">typing_extensions</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">TX</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">qto_categorizer_ml.core</span><span class="w"> </span><span class="kn">import</span> <span class="n">metrics</span><span class="p">,</span> <span class="n">models</span><span class="p">,</span> <span class="n">schemas</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">qto_categorizer_ml.io</span><span class="w"> </span><span class="kn">import</span> <span class="n">datasets</span><span class="p">,</span> <span class="n">registries</span><span class="p">,</span> <span class="n">services</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">qto_categorizer_ml.jobs</span><span class="w"> </span><span class="kn">import</span> <span class="n">base</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">qto_categorizer_ml.utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">signers</span><span class="p">,</span> <span class="n">splitters</span>
+
+<span class="c1"># %% JOBS</span>
+
+
+<div class="viewcode-block" id="TrainingJob">
+<a class="viewcode-back" href="../../../_api/qto_categorizer_ml.jobs.html#qto_categorizer_ml.jobs.training.TrainingJob">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">TrainingJob</span><span class="p">(</span><span class="n">base</span><span class="o">.</span><span class="n">Job</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Train and register a single AI/ML model.</span>
+
+<span class="sd">    Parameters:</span>
+<span class="sd">        run_config (services.MlflowService.RunConfig): run config.</span>
+<span class="sd">        inputs (datasets.ReaderKind): reader for the inputs data.</span>
+<span class="sd">        model (models.ModelKind): machine learning model to train.</span>
+<span class="sd">        scorers (metrics.MetricsKind): metrics for the scoring.</span>
+<span class="sd">        splitter (splitters.SplitterKind): data sets splitter.</span>
+<span class="sd">        saver (registries.SaverKind): model saver.</span>
+<span class="sd">        signer (signers.SignerKind): model signer.</span>
+<span class="sd">        registry (registries.RegisterKind): model register.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">KIND</span><span class="p">:</span> <span class="n">T</span><span class="o">.</span><span class="n">Literal</span><span class="p">[</span><span class="s2">&quot;TrainingJob&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;TrainingJob&quot;</span>
+
+    <span class="c1"># Run</span>
+    <span class="n">run_config</span><span class="p">:</span> <span class="n">services</span><span class="o">.</span><span class="n">MlflowService</span><span class="o">.</span><span class="n">RunConfig</span> <span class="o">=</span> <span class="n">services</span><span class="o">.</span><span class="n">MlflowService</span><span class="o">.</span><span class="n">RunConfig</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;Training&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Data</span>
+    <span class="n">inputs</span><span class="p">:</span> <span class="n">datasets</span><span class="o">.</span><span class="n">ReaderKind</span> <span class="o">=</span> <span class="n">pdt</span><span class="o">.</span><span class="n">Field</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">discriminator</span><span class="o">=</span><span class="s2">&quot;KIND&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Model</span>
+    <span class="n">model</span><span class="p">:</span> <span class="n">models</span><span class="o">.</span><span class="n">ModelKind</span> <span class="o">=</span> <span class="n">pdt</span><span class="o">.</span><span class="n">Field</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">discriminator</span><span class="o">=</span><span class="s2">&quot;KIND&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Metric</span>
+    <span class="n">scorers</span><span class="p">:</span> <span class="n">metrics</span><span class="o">.</span><span class="n">MetricsKind</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="n">metrics</span><span class="o">.</span><span class="n">SklearnMetric</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;accuracy_score&quot;</span><span class="p">,</span> <span class="n">greater_is_better</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="p">]</span>
+
+    <span class="c1"># Splitter</span>
+    <span class="n">splitter</span><span class="p">:</span> <span class="n">splitters</span><span class="o">.</span><span class="n">SplitterKind</span> <span class="o">=</span> <span class="n">pdt</span><span class="o">.</span><span class="n">Field</span><span class="p">(</span>
+        <span class="n">splitters</span><span class="o">.</span><span class="n">TrainTestSplitter</span><span class="p">(),</span> <span class="n">discriminator</span><span class="o">=</span><span class="s2">&quot;KIND&quot;</span>
+    <span class="p">)</span>
+
+    <span class="c1"># Saver</span>
+    <span class="n">saver</span><span class="p">:</span> <span class="n">registries</span><span class="o">.</span><span class="n">SaverKind</span> <span class="o">=</span> <span class="n">pdt</span><span class="o">.</span><span class="n">Field</span><span class="p">(</span><span class="n">registries</span><span class="o">.</span><span class="n">CustomSaver</span><span class="p">(),</span> <span class="n">discriminator</span><span class="o">=</span><span class="s2">&quot;KIND&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Signer</span>
+    <span class="n">signer</span><span class="p">:</span> <span class="n">signers</span><span class="o">.</span><span class="n">SignerKind</span> <span class="o">=</span> <span class="n">pdt</span><span class="o">.</span><span class="n">Field</span><span class="p">(</span><span class="n">signers</span><span class="o">.</span><span class="n">InferSigner</span><span class="p">(),</span> <span class="n">discriminator</span><span class="o">=</span><span class="s2">&quot;KIND&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Registrer</span>
+    <span class="c1"># - avoid shadowing pydantic `register` pydantic function</span>
+    <span class="n">registry</span><span class="p">:</span> <span class="n">registries</span><span class="o">.</span><span class="n">RegisterKind</span> <span class="o">=</span> <span class="n">pdt</span><span class="o">.</span><span class="n">Field</span><span class="p">(</span><span class="n">registries</span><span class="o">.</span><span class="n">MlflowRegister</span><span class="p">(),</span> <span class="n">discriminator</span><span class="o">=</span><span class="s2">&quot;KIND&quot;</span><span class="p">)</span>
+
+<div class="viewcode-block" id="TrainingJob.run">
+<a class="viewcode-back" href="../../../_api/qto_categorizer_ml.jobs.html#qto_categorizer_ml.jobs.training.TrainingJob.run">[docs]</a>
+    <span class="nd">@TX</span><span class="o">.</span><span class="n">override</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">base</span><span class="o">.</span><span class="n">Locals</span><span class="p">:</span>
+        <span class="c1"># services</span>
+        <span class="c1"># - logger</span>
+        <span class="n">logger</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">logger_service</span><span class="o">.</span><span class="n">logger</span><span class="p">()</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;With logger: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">logger</span><span class="p">)</span>
+        <span class="c1"># - mlflow</span>
+        <span class="n">client</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">mlflow_service</span><span class="o">.</span><span class="n">client</span><span class="p">()</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;With client: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">client</span><span class="p">)</span>
+
+        <span class="k">with</span> <span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">mlflow_service</span><span class="o">.</span><span class="n">run_context</span><span class="p">(</span><span class="n">config</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">run_config</span><span class="p">)</span> <span class="k">as</span> <span class="n">run</span><span class="p">,</span>
+        <span class="p">):</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;With Mlflow Run: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">run</span><span class="o">.</span><span class="n">info</span><span class="p">)</span>
+            <span class="c1"># data</span>
+            <span class="c1"># - read inputs, targets</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Read inputs: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">inputs</span><span class="p">)</span>
+            <span class="n">inputs_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">inputs</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+            <span class="c1"># - feature selections</span>
+            <span class="n">features</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;AMOUNT&quot;</span><span class="p">,</span> <span class="s2">&quot;TYPE_OF_PAYMENT&quot;</span><span class="p">,</span> <span class="s2">&quot;MERCHANT_NAME&quot;</span><span class="p">,</span> <span class="s2">&quot;DESCRIPTION&quot;</span><span class="p">]</span>
+            <span class="n">target</span> <span class="o">=</span> <span class="s2">&quot;CATEGORY&quot;</span>
+            <span class="n">inputs</span> <span class="o">=</span> <span class="n">inputs_</span><span class="p">[</span><span class="n">features</span> <span class="o">+</span> <span class="p">[</span><span class="n">target</span><span class="p">]]</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">()</span>
+            <span class="n">targets</span> <span class="o">=</span> <span class="n">inputs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">target</span><span class="p">)</span>
+            <span class="n">inputs</span> <span class="o">=</span> <span class="n">schemas</span><span class="o">.</span><span class="n">FeatInputsSchema</span><span class="o">.</span><span class="n">check</span><span class="p">(</span><span class="n">inputs</span><span class="p">)</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;- Inputs shape: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">inputs</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+            <span class="c1"># - missing values cleaning</span>
+            <span class="n">inputs</span><span class="p">[</span><span class="s2">&quot;MERCHANT_NAME&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">inputs</span><span class="o">.</span><span class="n">MERCHANT_NAME</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="s2">&quot;No marchant&quot;</span><span class="p">)</span>
+            <span class="n">inputs</span><span class="p">[</span><span class="s2">&quot;DESCRIPTION&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">inputs</span><span class="o">.</span><span class="n">DESCRIPTION</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="s2">&quot;No Description&quot;</span><span class="p">)</span>
+            <span class="n">inputs</span><span class="p">[</span><span class="s2">&quot;TYPE_OF_PAYMENT&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">inputs</span><span class="o">.</span><span class="n">TYPE_OF_PAYMENT</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="s2">&quot;No type payment&quot;</span><span class="p">)</span>
+
+            <span class="c1"># splitter</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;With splitter: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">splitter</span><span class="p">)</span>
+            <span class="c1"># - index</span>
+            <span class="n">train_index</span><span class="p">,</span> <span class="n">test_index</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">splitter</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">inputs</span><span class="o">=</span><span class="n">inputs</span><span class="p">,</span> <span class="n">targets</span><span class="o">=</span><span class="n">targets</span><span class="p">))</span>
+            <span class="c1"># - inputs</span>
+            <span class="n">inputs_train</span> <span class="o">=</span> <span class="n">T</span><span class="o">.</span><span class="n">cast</span><span class="p">(</span><span class="n">schemas</span><span class="o">.</span><span class="n">FeatInputsSchema</span><span class="p">,</span> <span class="n">inputs</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">train_index</span><span class="p">][</span><span class="n">features</span><span class="p">])</span>
+            <span class="n">inputs_test</span> <span class="o">=</span> <span class="n">T</span><span class="o">.</span><span class="n">cast</span><span class="p">(</span><span class="n">schemas</span><span class="o">.</span><span class="n">FeatInputsSchema</span><span class="p">,</span> <span class="n">inputs</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">test_index</span><span class="p">][</span><span class="n">features</span><span class="p">])</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;- Inputs train shape: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">inputs_train</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;- Inputs test shape: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">inputs_test</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+            <span class="c1"># - targets</span>
+            <span class="n">targets_train</span> <span class="o">=</span> <span class="n">T</span><span class="o">.</span><span class="n">cast</span><span class="p">(</span><span class="n">schemas</span><span class="o">.</span><span class="n">Targets</span><span class="p">,</span> <span class="n">targets</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">train_index</span><span class="p">])</span>
+            <span class="n">targets_test</span> <span class="o">=</span> <span class="n">T</span><span class="o">.</span><span class="n">cast</span><span class="p">(</span><span class="n">schemas</span><span class="o">.</span><span class="n">Targets</span><span class="p">,</span> <span class="n">targets</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">test_index</span><span class="p">])</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;- Targets train shape: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">targets_train</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;- Targets test shape: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">targets_test</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+
+            <span class="c1"># model</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Fit model: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">inputs</span><span class="o">=</span><span class="n">inputs_train</span><span class="p">,</span> <span class="n">targets</span><span class="o">=</span><span class="n">targets_train</span><span class="p">)</span>
+
+            <span class="c1"># outputs</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Predict outputs: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">inputs_test</span><span class="p">))</span>
+            <span class="n">outputs_test</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">inputs</span><span class="o">=</span><span class="n">inputs_test</span><span class="p">)</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;- Outputs test shape: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">outputs_test</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+
+            <span class="c1"># scorers</span>
+            <span class="k">for</span> <span class="n">scorer</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">scorers</span><span class="p">:</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Compute metric: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">scorer</span><span class="p">)</span>
+                <span class="n">targets_test_encoded</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">_encode_target</span><span class="p">(</span><span class="n">targets_test</span><span class="p">)</span>
+                <span class="n">outputs_test_encoded</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">_encode_target</span><span class="p">(</span><span class="n">outputs_test</span><span class="p">)</span>
+                <span class="n">score</span> <span class="o">=</span> <span class="n">scorer</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">targets</span><span class="o">=</span><span class="n">targets_test_encoded</span><span class="p">,</span> <span class="n">outputs</span><span class="o">=</span><span class="n">outputs_test_encoded</span><span class="p">)</span>
+                <span class="n">client</span><span class="o">.</span><span class="n">log_metric</span><span class="p">(</span><span class="n">run_id</span><span class="o">=</span><span class="n">run</span><span class="o">.</span><span class="n">info</span><span class="o">.</span><span class="n">run_id</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="n">scorer</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="n">score</span><span class="p">)</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;- Metric score: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">score</span><span class="p">)</span>
+
+            <span class="c1"># fit models on entire dataset before saving into mlflow model registry</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Train model on entire dataset..&quot;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">inputs</span><span class="o">=</span><span class="n">inputs</span><span class="p">,</span> <span class="n">targets</span><span class="o">=</span><span class="n">targets</span><span class="p">)</span>
+
+            <span class="c1"># signer</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Sign model: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">signer</span><span class="p">)</span>
+            <span class="n">model_signature</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">signer</span><span class="o">.</span><span class="n">sign</span><span class="p">(</span>
+                <span class="n">inputs</span><span class="o">=</span><span class="n">inputs_test</span><span class="p">[</span><span class="n">features</span><span class="p">]</span><span class="o">.</span><span class="n">dropna</span><span class="p">(),</span> <span class="n">outputs</span><span class="o">=</span><span class="n">outputs_test</span>
+            <span class="p">)</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;- Model signature: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">model_signature</span><span class="o">.</span><span class="n">to_dict</span><span class="p">())</span>
+
+            <span class="c1"># saver</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Save model: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">saver</span><span class="p">)</span>
+            <span class="n">model_info</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">saver</span><span class="o">.</span><span class="n">save</span><span class="p">(</span>
+                <span class="n">model</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="p">,</span> <span class="n">signature</span><span class="o">=</span><span class="n">model_signature</span><span class="p">,</span> <span class="n">input_example</span><span class="o">=</span><span class="n">inputs</span>
+            <span class="p">)</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;- Model URI: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">model_info</span><span class="o">.</span><span class="n">model_uri</span><span class="p">)</span>
+
+            <span class="c1"># register</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Register model: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">registry</span><span class="p">)</span>
+            <span class="n">model_version</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">registry</span><span class="o">.</span><span class="n">register</span><span class="p">(</span>
+                <span class="n">name</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">mlflow_service</span><span class="o">.</span><span class="n">registry_name</span><span class="p">,</span> <span class="n">model_uri</span><span class="o">=</span><span class="n">model_info</span><span class="o">.</span><span class="n">model_uri</span>
+            <span class="p">)</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;- Model version: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">model_version</span><span class="p">)</span>
+        <span class="k">return</span> <span class="nb">locals</span><span class="p">()</span></div>
+</div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright data-corentinv.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

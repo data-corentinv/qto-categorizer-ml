@@ -1,0 +1,37 @@
+qto\_categorizer\_ml.core package
+=================================
+
+Submodules
+----------
+
+qto\_categorizer\_ml.core.metrics module
+----------------------------------------
+
+.. automodule:: qto_categorizer_ml.core.metrics
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+qto\_categorizer\_ml.core.models module
+---------------------------------------
+
+.. automodule:: qto_categorizer_ml.core.models
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+qto\_categorizer\_ml.core.schemas module
+----------------------------------------
+
+.. automodule:: qto_categorizer_ml.core.schemas
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Module contents
+---------------
+
+.. automodule:: qto_categorizer_ml.core
+   :members:
+   :undoc-members:
+   :show-inheritance:

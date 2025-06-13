@@ -1,0 +1,1502 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>qto_categorizer_ml.io package &mdash; Qto Categorizer ML 0.1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=fd3f3429" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=01f34227"></script>
+        <script src="../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="qto_categorizer_ml.jobs package" href="qto_categorizer_ml.jobs.html" />
+    <link rel="prev" title="qto_categorizer_ml.core package" href="qto_categorizer_ml.core.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Qto Categorizer ML
+          </a>
+              <div class="version">
+                0.1.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../markdown.html">Markdown</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../restructured.html">RestructuredText</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">qto_categorizer_ml</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="qto_categorizer_ml.html">qto_categorizer_ml package</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="qto_categorizer_ml.core.html">qto_categorizer_ml.core package</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">qto_categorizer_ml.io package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="qto_categorizer_ml.jobs.html">qto_categorizer_ml.jobs package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="qto_categorizer_ml.utils.html">qto_categorizer_ml.utils package</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Qto Categorizer ML</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">qto_categorizer_ml</a></li>
+          <li class="breadcrumb-item"><a href="qto_categorizer_ml.html">qto_categorizer_ml package</a></li>
+      <li class="breadcrumb-item active">qto_categorizer_ml.io package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/_api/qto_categorizer_ml.io.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="qto-categorizer-ml-io-package">
+<h1>qto_categorizer_ml.io package<a class="headerlink" href="#qto-categorizer-ml-io-package" title="Link to this heading"></a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
+</section>
+<section id="module-qto_categorizer_ml.io.configs">
+<span id="qto-categorizer-ml-io-configs-module"></span><h2>qto_categorizer_ml.io.configs module<a class="headerlink" href="#module-qto_categorizer_ml.io.configs" title="Link to this heading"></a></h2>
+<p>Parse, merge, and convert config objects.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="qto_categorizer_ml.io.configs.merge_configs">
+<span class="sig-prename descclassname"><span class="pre">qto_categorizer_ml.io.configs.</span></span><span class="sig-name descname"><span class="pre">merge_configs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">configs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><span class="pre">ListConfig</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">DictConfig</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ListConfig</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">DictConfig</span></span></span><a class="reference internal" href="../_modules/qto_categorizer_ml/io/configs.html#merge_configs"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#qto_categorizer_ml.io.configs.merge_configs" title="Link to this definition"></a></dt>
+<dd><p>Merge a list of config into a single config.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>configs</strong> (<em>T.Sequence</em><em>[</em><a class="reference internal" href="qto_categorizer_ml.core.html#qto_categorizer_ml.core.schemas.FeatInputsSchema.Config" title="qto_categorizer_ml.core.schemas.FeatInputsSchema.Config"><em>Config</em></a><em>]</em>) – list of configs.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>representation of the merged config objects.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="qto_categorizer_ml.core.html#qto_categorizer_ml.core.schemas.FeatInputsSchema.Config" title="qto_categorizer_ml.core.schemas.FeatInputsSchema.Config">Config</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="qto_categorizer_ml.io.configs.parse_file">
+<span class="sig-prename descclassname"><span class="pre">qto_categorizer_ml.io.configs.</span></span><span class="sig-name descname"><span class="pre">parse_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ListConfig</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">DictConfig</span></span></span><a class="reference internal" href="../_modules/qto_categorizer_ml/io/configs.html#parse_file"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#qto_categorizer_ml.io.configs.parse_file" title="Link to this definition"></a></dt>
+<dd><p>Parse a config file from a path.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>path</strong> (<em>str</em>) – path to local or S3 config.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>representation of the config file.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="qto_categorizer_ml.core.html#qto_categorizer_ml.core.schemas.FeatInputsSchema.Config" title="qto_categorizer_ml.core.schemas.FeatInputsSchema.Config">Config</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="qto_categorizer_ml.io.configs.parse_string">
+<span class="sig-prename descclassname"><span class="pre">qto_categorizer_ml.io.configs.</span></span><span class="sig-name descname"><span class="pre">parse_string</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">string</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ListConfig</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">DictConfig</span></span></span><a class="reference internal" href="../_modules/qto_categorizer_ml/io/configs.html#parse_string"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#qto_categorizer_ml.io.configs.parse_string" title="Link to this definition"></a></dt>
+<dd><p>Parse the given config string.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>string</strong> (<em>str</em>) – content of config string.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>representation of the config string.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="qto_categorizer_ml.core.html#qto_categorizer_ml.core.schemas.FeatInputsSchema.Config" title="qto_categorizer_ml.core.schemas.FeatInputsSchema.Config">Config</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="qto_categorizer_ml.io.configs.to_object">
+<span class="sig-prename descclassname"><span class="pre">qto_categorizer_ml.io.configs.</span></span><span class="sig-name descname"><span class="pre">to_object</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ListConfig</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">DictConfig</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">resolve</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">object</span></span></span><a class="reference internal" href="../_modules/qto_categorizer_ml/io/configs.html#to_object"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#qto_categorizer_ml.io.configs.to_object" title="Link to this definition"></a></dt>
+<dd><p>Convert a config object to a python object.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>config</strong> (<a class="reference internal" href="qto_categorizer_ml.core.html#qto_categorizer_ml.core.schemas.FeatInputsSchema.Config" title="qto_categorizer_ml.core.schemas.FeatInputsSchema.Config"><em>Config</em></a>) – representation of the config.</p></li>
+<li><p><strong>resolve</strong> (<em>bool</em>) – resolve variables. Defaults to True.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>conversion of the config to a python object.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>object</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-qto_categorizer_ml.io.datasets">
+<span id="qto-categorizer-ml-io-datasets-module"></span><h2>qto_categorizer_ml.io.datasets module<a class="headerlink" href="#module-qto_categorizer_ml.io.datasets" title="Link to this heading"></a></h2>
+<p>Read/Write datasets from/to external sources/destinations.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="qto_categorizer_ml.io.datasets.CSVReader">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">qto_categorizer_ml.io.datasets.</span></span><span class="sig-name descname"><span class="pre">CSVReader</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">KIND</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Literal</span><span class="p"><span class="pre">[</span></span><span class="s"><span class="pre">'CSVReader'</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'CSVReader'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sep</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">','</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dtypes</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">{}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parse_dates</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">[]</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/qto_categorizer_ml/io/datasets.html#CSVReader"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#qto_categorizer_ml.io.datasets.CSVReader" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#qto_categorizer_ml.io.datasets.Reader" title="qto_categorizer_ml.io.datasets.Reader"><code class="xref py py-class docutils literal notranslate"><span class="pre">Reader</span></code></a></p>
+<p>Read a dataframe from a csv file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>path</strong> (<em>str</em>) – local path to the dataset.</p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qto_categorizer_ml.io.datasets.CSVReader.KIND">
+<span class="sig-name descname"><span class="pre">KIND</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Literal</span><span class="p"><span class="pre">[</span></span><span class="s"><span class="pre">'CSVReader'</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#qto_categorizer_ml.io.datasets.CSVReader.KIND" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qto_categorizer_ml.io.datasets.CSVReader.dtypes">
+<span class="sig-name descname"><span class="pre">dtypes</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">dict</span></em><a class="headerlink" href="#qto_categorizer_ml.io.datasets.CSVReader.dtypes" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qto_categorizer_ml.io.datasets.CSVReader.model_config">
+<span class="sig-name descname"><span class="pre">model_config</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">ConfigDict</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'extra':</span> <span class="pre">'forbid',</span> <span class="pre">'frozen':</span> <span class="pre">True,</span> <span class="pre">'strict':</span> <span class="pre">True}</span></em><a class="headerlink" href="#qto_categorizer_ml.io.datasets.CSVReader.model_config" title="Link to this definition"></a></dt>
+<dd><p>Configuration for the model, should be a dictionary conforming to [<cite>ConfigDict</cite>][pydantic.config.ConfigDict].</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qto_categorizer_ml.io.datasets.CSVReader.parse_dates">
+<span class="sig-name descname"><span class="pre">parse_dates</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">list</span></em><a class="headerlink" href="#qto_categorizer_ml.io.datasets.CSVReader.parse_dates" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qto_categorizer_ml.io.datasets.CSVReader.path">
+<span class="sig-name descname"><span class="pre">path</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#qto_categorizer_ml.io.datasets.CSVReader.path" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="qto_categorizer_ml.io.datasets.CSVReader.read">
+<span class="sig-name descname"><span class="pre">read</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DataFrame</span></span></span><a class="reference internal" href="../_modules/qto_categorizer_ml/io/datasets.html#CSVReader.read"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#qto_categorizer_ml.io.datasets.CSVReader.read" title="Link to this definition"></a></dt>
+<dd><p>Read a dataframe from a dataset.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dataframe representation.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>pd.DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qto_categorizer_ml.io.datasets.CSVReader.sep">
+<span class="sig-name descname"><span class="pre">sep</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#qto_categorizer_ml.io.datasets.CSVReader.sep" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="qto_categorizer_ml.io.datasets.CSVWriter">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">qto_categorizer_ml.io.datasets.</span></span><span class="sig-name descname"><span class="pre">CSVWriter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">KIND</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Literal</span><span class="p"><span class="pre">[</span></span><span class="s"><span class="pre">'CSVWriter'</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'CSVWriter'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">header</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/qto_categorizer_ml/io/datasets.html#CSVWriter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#qto_categorizer_ml.io.datasets.CSVWriter" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#qto_categorizer_ml.io.datasets.Writer" title="qto_categorizer_ml.io.datasets.Writer"><code class="xref py py-class docutils literal notranslate"><span class="pre">Writer</span></code></a></p>
+<p>Writer a dataframe to a csv file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>path</strong> (<em>str</em>) – local or S3 path to the dataset.</p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qto_categorizer_ml.io.datasets.CSVWriter.KIND">
+<span class="sig-name descname"><span class="pre">KIND</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Literal</span><span class="p"><span class="pre">[</span></span><span class="s"><span class="pre">'CSVWriter'</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#qto_categorizer_ml.io.datasets.CSVWriter.KIND" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qto_categorizer_ml.io.datasets.CSVWriter.header">
+<span class="sig-name descname"><span class="pre">header</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#qto_categorizer_ml.io.datasets.CSVWriter.header" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qto_categorizer_ml.io.datasets.CSVWriter.index">
+<span class="sig-name descname"><span class="pre">index</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#qto_categorizer_ml.io.datasets.CSVWriter.index" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qto_categorizer_ml.io.datasets.CSVWriter.model_config">
+<span class="sig-name descname"><span class="pre">model_config</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">ConfigDict</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'extra':</span> <span class="pre">'forbid',</span> <span class="pre">'frozen':</span> <span class="pre">True,</span> <span class="pre">'strict':</span> <span class="pre">True}</span></em><a class="headerlink" href="#qto_categorizer_ml.io.datasets.CSVWriter.model_config" title="Link to this definition"></a></dt>
+<dd><p>Configuration for the model, should be a dictionary conforming to [<cite>ConfigDict</cite>][pydantic.config.ConfigDict].</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qto_categorizer_ml.io.datasets.CSVWriter.path">
+<span class="sig-name descname"><span class="pre">path</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#qto_categorizer_ml.io.datasets.CSVWriter.path" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="qto_categorizer_ml.io.datasets.CSVWriter.write">
+<span class="sig-name descname"><span class="pre">write</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/qto_categorizer_ml/io/datasets.html#CSVWriter.write"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#qto_categorizer_ml.io.datasets.CSVWriter.write" title="Link to this definition"></a></dt>
+<dd><p>Write a dataframe to a dataset.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>data</strong> (<em>pd.DataFrame</em>) – dataframe representation.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="qto_categorizer_ml.io.datasets.DeltalakeReader">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">qto_categorizer_ml.io.datasets.</span></span><span class="sig-name descname"><span class="pre">DeltalakeReader</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">KIND</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Literal</span><span class="p"><span class="pre">[</span></span><span class="s"><span class="pre">'DeltalakeReader'</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'DeltalakeReader'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/qto_categorizer_ml/io/datasets.html#DeltalakeReader"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#qto_categorizer_ml.io.datasets.DeltalakeReader" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#qto_categorizer_ml.io.datasets.Reader" title="qto_categorizer_ml.io.datasets.Reader"><code class="xref py py-class docutils literal notranslate"><span class="pre">Reader</span></code></a></p>
+<p>Read a dataframe from the delta lake.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>path</strong> (<em>str</em>) – S3 path to the delta lake file.</p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qto_categorizer_ml.io.datasets.DeltalakeReader.KIND">
+<span class="sig-name descname"><span class="pre">KIND</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Literal</span><span class="p"><span class="pre">[</span></span><span class="s"><span class="pre">'DeltalakeReader'</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#qto_categorizer_ml.io.datasets.DeltalakeReader.KIND" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qto_categorizer_ml.io.datasets.DeltalakeReader.model_config">
+<span class="sig-name descname"><span class="pre">model_config</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">ConfigDict</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'extra':</span> <span class="pre">'forbid',</span> <span class="pre">'frozen':</span> <span class="pre">True,</span> <span class="pre">'strict':</span> <span class="pre">True}</span></em><a class="headerlink" href="#qto_categorizer_ml.io.datasets.DeltalakeReader.model_config" title="Link to this definition"></a></dt>
+<dd><p>Configuration for the model, should be a dictionary conforming to [<cite>ConfigDict</cite>][pydantic.config.ConfigDict].</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qto_categorizer_ml.io.datasets.DeltalakeReader.path">
+<span class="sig-name descname"><span class="pre">path</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#qto_categorizer_ml.io.datasets.DeltalakeReader.path" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="qto_categorizer_ml.io.datasets.DeltalakeReader.read">
+<span class="sig-name descname"><span class="pre">read</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DataFrame</span></span></span><a class="reference internal" href="../_modules/qto_categorizer_ml/io/datasets.html#DeltalakeReader.read"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#qto_categorizer_ml.io.datasets.DeltalakeReader.read" title="Link to this definition"></a></dt>
+<dd><p>Read a dataframe from a dataset.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dataframe representation.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>pd.DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="qto_categorizer_ml.io.datasets.DeltalakeWriter">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">qto_categorizer_ml.io.datasets.</span></span><span class="sig-name descname"><span class="pre">DeltalakeWriter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">KIND</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Literal</span><span class="p"><span class="pre">[</span></span><span class="s"><span class="pre">'DeltalakeWriter'</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'DeltalakeWriter'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/qto_categorizer_ml/io/datasets.html#DeltalakeWriter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#qto_categorizer_ml.io.datasets.DeltalakeWriter" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#qto_categorizer_ml.io.datasets.Writer" title="qto_categorizer_ml.io.datasets.Writer"><code class="xref py py-class docutils literal notranslate"><span class="pre">Writer</span></code></a></p>
+<p>Write a dataframe to the delta lake.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>path</strong> (<em>str</em>) – S3 path to the delta lake file.</p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qto_categorizer_ml.io.datasets.DeltalakeWriter.KIND">
+<span class="sig-name descname"><span class="pre">KIND</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Literal</span><span class="p"><span class="pre">[</span></span><span class="s"><span class="pre">'DeltalakeWriter'</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#qto_categorizer_ml.io.datasets.DeltalakeWriter.KIND" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qto_categorizer_ml.io.datasets.DeltalakeWriter.model_config">
+<span class="sig-name descname"><span class="pre">model_config</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">ConfigDict</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'extra':</span> <span class="pre">'forbid',</span> <span class="pre">'frozen':</span> <span class="pre">True,</span> <span class="pre">'strict':</span> <span class="pre">True}</span></em><a class="headerlink" href="#qto_categorizer_ml.io.datasets.DeltalakeWriter.model_config" title="Link to this definition"></a></dt>
+<dd><p>Configuration for the model, should be a dictionary conforming to [<cite>ConfigDict</cite>][pydantic.config.ConfigDict].</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qto_categorizer_ml.io.datasets.DeltalakeWriter.path">
+<span class="sig-name descname"><span class="pre">path</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#qto_categorizer_ml.io.datasets.DeltalakeWriter.path" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="qto_categorizer_ml.io.datasets.DeltalakeWriter.write">
+<span class="sig-name descname"><span class="pre">write</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/qto_categorizer_ml/io/datasets.html#DeltalakeWriter.write"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#qto_categorizer_ml.io.datasets.DeltalakeWriter.write" title="Link to this definition"></a></dt>
+<dd><p>Write a dataframe to a dataset.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>data</strong> (<em>pd.DataFrame</em>) – dataframe representation.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="qto_categorizer_ml.io.datasets.GlueReader">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">qto_categorizer_ml.io.datasets.</span></span><span class="sig-name descname"><span class="pre">GlueReader</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">KIND</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Literal</span><span class="p"><span class="pre">[</span></span><span class="s"><span class="pre">'GlueReader'</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'GlueReader'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">table</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">database</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">catalog_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'123456789'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/qto_categorizer_ml/io/datasets.html#GlueReader"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#qto_categorizer_ml.io.datasets.GlueReader" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#qto_categorizer_ml.io.datasets.Reader" title="qto_categorizer_ml.io.datasets.Reader"><code class="xref py py-class docutils literal notranslate"><span class="pre">Reader</span></code></a></p>
+<p>Read a dataframe from a glue table.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>table</strong> (<em>str</em>) – name of the table.</p></li>
+<li><p><strong>database</strong> (<em>str</em>) – name of the database.</p></li>
+<li><p><strong>catalog_id</strong> (<em>str</em><em>, </em><em>optional</em>) – data catalog ID.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qto_categorizer_ml.io.datasets.GlueReader.KIND">
+<span class="sig-name descname"><span class="pre">KIND</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Literal</span><span class="p"><span class="pre">[</span></span><span class="s"><span class="pre">'GlueReader'</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#qto_categorizer_ml.io.datasets.GlueReader.KIND" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qto_categorizer_ml.io.datasets.GlueReader.catalog_id">
+<span class="sig-name descname"><span class="pre">catalog_id</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#qto_categorizer_ml.io.datasets.GlueReader.catalog_id" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qto_categorizer_ml.io.datasets.GlueReader.database">
+<span class="sig-name descname"><span class="pre">database</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#qto_categorizer_ml.io.datasets.GlueReader.database" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qto_categorizer_ml.io.datasets.GlueReader.model_config">
+<span class="sig-name descname"><span class="pre">model_config</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">ConfigDict</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'extra':</span> <span class="pre">'forbid',</span> <span class="pre">'frozen':</span> <span class="pre">True,</span> <span class="pre">'strict':</span> <span class="pre">True}</span></em><a class="headerlink" href="#qto_categorizer_ml.io.datasets.GlueReader.model_config" title="Link to this definition"></a></dt>
+<dd><p>Configuration for the model, should be a dictionary conforming to [<cite>ConfigDict</cite>][pydantic.config.ConfigDict].</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="qto_categorizer_ml.io.datasets.GlueReader.read">
+<span class="sig-name descname"><span class="pre">read</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DataFrame</span></span></span><a class="reference internal" href="../_modules/qto_categorizer_ml/io/datasets.html#GlueReader.read"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#qto_categorizer_ml.io.datasets.GlueReader.read" title="Link to this definition"></a></dt>
+<dd><p>Read a dataframe from a dataset.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dataframe representation.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>pd.DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qto_categorizer_ml.io.datasets.GlueReader.table">
+<span class="sig-name descname"><span class="pre">table</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#qto_categorizer_ml.io.datasets.GlueReader.table" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="qto_categorizer_ml.io.datasets.GlueWriter">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">qto_categorizer_ml.io.datasets.</span></span><span class="sig-name descname"><span class="pre">GlueWriter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">KIND</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Literal</span><span class="p"><span class="pre">[</span></span><span class="s"><span class="pre">'GlueWriter'</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'GlueWriter'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">table</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">database</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">catalog_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'123456789'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Literal</span><span class="p"><span class="pre">[</span></span><span class="s"><span class="pre">'append'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'overwrite'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'overwrite_partitions'</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'overwrite'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">glue_table_settings</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/qto_categorizer_ml/io/datasets.html#GlueWriter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#qto_categorizer_ml.io.datasets.GlueWriter" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#qto_categorizer_ml.io.datasets.Writer" title="qto_categorizer_ml.io.datasets.Writer"><code class="xref py py-class docutils literal notranslate"><span class="pre">Writer</span></code></a></p>
+<p>Write a dataframe to a glue table.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>table</strong> (<em>str</em>) – name of the table.</p></li>
+<li><p><strong>database</strong> (<em>str</em>) – name of the database.</p></li>
+<li><p><strong>catalog_id</strong> (<em>str</em><em>, </em><em>optional</em>) – data catalog ID.</p></li>
+<li><p><strong>mode</strong> (<em>GlueWritingMode</em>) – write mode for the table.</p></li>
+<li><p><strong>path</strong> (<em>str</em><em> | </em><em>None</em>) – associated S3 path (only for creation).</p></li>
+<li><p><strong>glue_table_settings</strong> (<em>dict</em><em>[</em><em>str</em><em>, </em><em>T.Any</em><em>] </em><em>| </em><em>None</em>) – settings for the table.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qto_categorizer_ml.io.datasets.GlueWriter.KIND">
+<span class="sig-name descname"><span class="pre">KIND</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Literal</span><span class="p"><span class="pre">[</span></span><span class="s"><span class="pre">'GlueWriter'</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#qto_categorizer_ml.io.datasets.GlueWriter.KIND" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qto_categorizer_ml.io.datasets.GlueWriter.catalog_id">
+<span class="sig-name descname"><span class="pre">catalog_id</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#qto_categorizer_ml.io.datasets.GlueWriter.catalog_id" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qto_categorizer_ml.io.datasets.GlueWriter.database">
+<span class="sig-name descname"><span class="pre">database</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#qto_categorizer_ml.io.datasets.GlueWriter.database" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qto_categorizer_ml.io.datasets.GlueWriter.glue_table_settings">
+<span class="sig-name descname"><span class="pre">glue_table_settings</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#qto_categorizer_ml.io.datasets.GlueWriter.glue_table_settings" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qto_categorizer_ml.io.datasets.GlueWriter.mode">
+<span class="sig-name descname"><span class="pre">mode</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Literal</span><span class="p"><span class="pre">[</span></span><span class="s"><span class="pre">'append'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'overwrite'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'overwrite_partitions'</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#qto_categorizer_ml.io.datasets.GlueWriter.mode" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qto_categorizer_ml.io.datasets.GlueWriter.model_config">
+<span class="sig-name descname"><span class="pre">model_config</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">ConfigDict</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'extra':</span> <span class="pre">'forbid',</span> <span class="pre">'frozen':</span> <span class="pre">True,</span> <span class="pre">'strict':</span> <span class="pre">True}</span></em><a class="headerlink" href="#qto_categorizer_ml.io.datasets.GlueWriter.model_config" title="Link to this definition"></a></dt>
+<dd><p>Configuration for the model, should be a dictionary conforming to [<cite>ConfigDict</cite>][pydantic.config.ConfigDict].</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qto_categorizer_ml.io.datasets.GlueWriter.path">
+<span class="sig-name descname"><span class="pre">path</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#qto_categorizer_ml.io.datasets.GlueWriter.path" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qto_categorizer_ml.io.datasets.GlueWriter.table">
+<span class="sig-name descname"><span class="pre">table</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#qto_categorizer_ml.io.datasets.GlueWriter.table" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="qto_categorizer_ml.io.datasets.GlueWriter.write">
+<span class="sig-name descname"><span class="pre">write</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/qto_categorizer_ml/io/datasets.html#GlueWriter.write"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#qto_categorizer_ml.io.datasets.GlueWriter.write" title="Link to this definition"></a></dt>
+<dd><p>Write a dataframe to a dataset.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>data</strong> (<em>pd.DataFrame</em>) – dataframe representation.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="qto_categorizer_ml.io.datasets.ParquetReader">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">qto_categorizer_ml.io.datasets.</span></span><span class="sig-name descname"><span class="pre">ParquetReader</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">KIND</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Literal</span><span class="p"><span class="pre">[</span></span><span class="s"><span class="pre">'ParquetReader'</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'ParquetReader'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">engine</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Literal</span><span class="p"><span class="pre">[</span></span><span class="s"><span class="pre">'auto'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'pyarrow'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'fastparquet'</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'fastparquet'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/qto_categorizer_ml/io/datasets.html#ParquetReader"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#qto_categorizer_ml.io.datasets.ParquetReader" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#qto_categorizer_ml.io.datasets.Reader" title="qto_categorizer_ml.io.datasets.Reader"><code class="xref py py-class docutils literal notranslate"><span class="pre">Reader</span></code></a></p>
+<p>Read a dataframe from a parquet file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>path</strong> (<em>str</em>) – local or S3 path to the dataset.</p></li>
+<li><p><strong>engine</strong> (<em>ParquetEngine</em>) – parquet engine to use.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qto_categorizer_ml.io.datasets.ParquetReader.KIND">
+<span class="sig-name descname"><span class="pre">KIND</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Literal</span><span class="p"><span class="pre">[</span></span><span class="s"><span class="pre">'ParquetReader'</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#qto_categorizer_ml.io.datasets.ParquetReader.KIND" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qto_categorizer_ml.io.datasets.ParquetReader.engine">
+<span class="sig-name descname"><span class="pre">engine</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Literal</span><span class="p"><span class="pre">[</span></span><span class="s"><span class="pre">'auto'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'pyarrow'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'fastparquet'</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#qto_categorizer_ml.io.datasets.ParquetReader.engine" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qto_categorizer_ml.io.datasets.ParquetReader.model_config">
+<span class="sig-name descname"><span class="pre">model_config</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">ConfigDict</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'extra':</span> <span class="pre">'forbid',</span> <span class="pre">'frozen':</span> <span class="pre">True,</span> <span class="pre">'strict':</span> <span class="pre">True}</span></em><a class="headerlink" href="#qto_categorizer_ml.io.datasets.ParquetReader.model_config" title="Link to this definition"></a></dt>
+<dd><p>Configuration for the model, should be a dictionary conforming to [<cite>ConfigDict</cite>][pydantic.config.ConfigDict].</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qto_categorizer_ml.io.datasets.ParquetReader.path">
+<span class="sig-name descname"><span class="pre">path</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#qto_categorizer_ml.io.datasets.ParquetReader.path" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="qto_categorizer_ml.io.datasets.ParquetReader.read">
+<span class="sig-name descname"><span class="pre">read</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DataFrame</span></span></span><a class="reference internal" href="../_modules/qto_categorizer_ml/io/datasets.html#ParquetReader.read"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#qto_categorizer_ml.io.datasets.ParquetReader.read" title="Link to this definition"></a></dt>
+<dd><p>Read a dataframe from a dataset.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dataframe representation.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>pd.DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="qto_categorizer_ml.io.datasets.ParquetWriter">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">qto_categorizer_ml.io.datasets.</span></span><span class="sig-name descname"><span class="pre">ParquetWriter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">KIND</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Literal</span><span class="p"><span class="pre">[</span></span><span class="s"><span class="pre">'ParquetWriter'</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'ParquetWriter'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">engine</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Literal</span><span class="p"><span class="pre">[</span></span><span class="s"><span class="pre">'auto'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'pyarrow'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'fastparquet'</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'fastparquet'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/qto_categorizer_ml/io/datasets.html#ParquetWriter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#qto_categorizer_ml.io.datasets.ParquetWriter" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#qto_categorizer_ml.io.datasets.Writer" title="qto_categorizer_ml.io.datasets.Writer"><code class="xref py py-class docutils literal notranslate"><span class="pre">Writer</span></code></a></p>
+<p>Writer a dataframe to a parquet file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>path</strong> (<em>str</em>) – local or S3 path to the dataset.</p></li>
+<li><p><strong>engine</strong> (<em>ParquetEngine</em>) – parquet engine to use.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qto_categorizer_ml.io.datasets.ParquetWriter.KIND">
+<span class="sig-name descname"><span class="pre">KIND</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Literal</span><span class="p"><span class="pre">[</span></span><span class="s"><span class="pre">'ParquetWriter'</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#qto_categorizer_ml.io.datasets.ParquetWriter.KIND" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qto_categorizer_ml.io.datasets.ParquetWriter.engine">
+<span class="sig-name descname"><span class="pre">engine</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Literal</span><span class="p"><span class="pre">[</span></span><span class="s"><span class="pre">'auto'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'pyarrow'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'fastparquet'</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#qto_categorizer_ml.io.datasets.ParquetWriter.engine" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qto_categorizer_ml.io.datasets.ParquetWriter.model_config">
+<span class="sig-name descname"><span class="pre">model_config</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">ConfigDict</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'extra':</span> <span class="pre">'forbid',</span> <span class="pre">'frozen':</span> <span class="pre">True,</span> <span class="pre">'strict':</span> <span class="pre">True}</span></em><a class="headerlink" href="#qto_categorizer_ml.io.datasets.ParquetWriter.model_config" title="Link to this definition"></a></dt>
+<dd><p>Configuration for the model, should be a dictionary conforming to [<cite>ConfigDict</cite>][pydantic.config.ConfigDict].</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qto_categorizer_ml.io.datasets.ParquetWriter.path">
+<span class="sig-name descname"><span class="pre">path</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#qto_categorizer_ml.io.datasets.ParquetWriter.path" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="qto_categorizer_ml.io.datasets.ParquetWriter.write">
+<span class="sig-name descname"><span class="pre">write</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/qto_categorizer_ml/io/datasets.html#ParquetWriter.write"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#qto_categorizer_ml.io.datasets.ParquetWriter.write" title="Link to this definition"></a></dt>
+<dd><p>Write a dataframe to a dataset.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>data</strong> (<em>pd.DataFrame</em>) – dataframe representation.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="qto_categorizer_ml.io.datasets.Reader">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">qto_categorizer_ml.io.datasets.</span></span><span class="sig-name descname"><span class="pre">Reader</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">KIND</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/qto_categorizer_ml/io/datasets.html#Reader"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#qto_categorizer_ml.io.datasets.Reader" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">BaseModel</span></code></p>
+<p>Base class for a dataset reader.</p>
+<p>Use a reader to load a dataset in memory.
+e.g., to read file, database, cloud storage, …</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qto_categorizer_ml.io.datasets.Reader.KIND">
+<span class="sig-name descname"><span class="pre">KIND</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#qto_categorizer_ml.io.datasets.Reader.KIND" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qto_categorizer_ml.io.datasets.Reader.model_config">
+<span class="sig-name descname"><span class="pre">model_config</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">ConfigDict</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'extra':</span> <span class="pre">'forbid',</span> <span class="pre">'frozen':</span> <span class="pre">True,</span> <span class="pre">'strict':</span> <span class="pre">True}</span></em><a class="headerlink" href="#qto_categorizer_ml.io.datasets.Reader.model_config" title="Link to this definition"></a></dt>
+<dd><p>Configuration for the model, should be a dictionary conforming to [<cite>ConfigDict</cite>][pydantic.config.ConfigDict].</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="qto_categorizer_ml.io.datasets.Reader.read">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">read</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DataFrame</span></span></span><a class="reference internal" href="../_modules/qto_categorizer_ml/io/datasets.html#Reader.read"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#qto_categorizer_ml.io.datasets.Reader.read" title="Link to this definition"></a></dt>
+<dd><p>Read a dataframe from a dataset.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dataframe representation.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>pd.DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="qto_categorizer_ml.io.datasets.Writer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">qto_categorizer_ml.io.datasets.</span></span><span class="sig-name descname"><span class="pre">Writer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">KIND</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/qto_categorizer_ml/io/datasets.html#Writer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#qto_categorizer_ml.io.datasets.Writer" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">BaseModel</span></code></p>
+<p>Base class for a dataset writer.</p>
+<p>Use a writer to save a dataset from memory.
+e.g., to write file, database, cloud storage, …</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qto_categorizer_ml.io.datasets.Writer.KIND">
+<span class="sig-name descname"><span class="pre">KIND</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#qto_categorizer_ml.io.datasets.Writer.KIND" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qto_categorizer_ml.io.datasets.Writer.model_config">
+<span class="sig-name descname"><span class="pre">model_config</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">ConfigDict</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'extra':</span> <span class="pre">'forbid',</span> <span class="pre">'frozen':</span> <span class="pre">True,</span> <span class="pre">'strict':</span> <span class="pre">True}</span></em><a class="headerlink" href="#qto_categorizer_ml.io.datasets.Writer.model_config" title="Link to this definition"></a></dt>
+<dd><p>Configuration for the model, should be a dictionary conforming to [<cite>ConfigDict</cite>][pydantic.config.ConfigDict].</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="qto_categorizer_ml.io.datasets.Writer.write">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">write</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/qto_categorizer_ml/io/datasets.html#Writer.write"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#qto_categorizer_ml.io.datasets.Writer.write" title="Link to this definition"></a></dt>
+<dd><p>Write a dataframe to a dataset.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>data</strong> (<em>pd.DataFrame</em>) – dataframe representation.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-qto_categorizer_ml.io.registries">
+<span id="qto-categorizer-ml-io-registries-module"></span><h2>qto_categorizer_ml.io.registries module<a class="headerlink" href="#module-qto_categorizer_ml.io.registries" title="Link to this heading"></a></h2>
+<p>Adapters, savers, loaders, and registers for models in Mlflow Registry.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="qto_categorizer_ml.io.registries.BuiltinLoader">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">qto_categorizer_ml.io.registries.</span></span><span class="sig-name descname"><span class="pre">BuiltinLoader</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">KIND</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Literal</span><span class="p"><span class="pre">[</span></span><span class="s"><span class="pre">'BuiltinLoader'</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'BuiltinLoader'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/qto_categorizer_ml/io/registries.html#BuiltinLoader"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#qto_categorizer_ml.io.registries.BuiltinLoader" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#qto_categorizer_ml.io.registries.Loader" title="qto_categorizer_ml.io.registries.Loader"><code class="xref py py-class docutils literal notranslate"><span class="pre">Loader</span></code></a></p>
+<p>Loader for built-in models using the Mlflow PyFunc module.</p>
+<p>Note: use Mlflow PyFunc instead of flavors to use standard API.</p>
+<p><a class="reference external" href="https://mlflow.org/docs/latest/models.html#built-in-model-flavors">https://mlflow.org/docs/latest/models.html#built-in-model-flavors</a></p>
+<dl class="py class">
+<dt class="sig sig-object py" id="qto_categorizer_ml.io.registries.BuiltinLoader.Adapter">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Adapter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">PyFuncModel</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/qto_categorizer_ml/io/registries.html#BuiltinLoader.Adapter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#qto_categorizer_ml.io.registries.BuiltinLoader.Adapter" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#qto_categorizer_ml.io.registries.Loader.Adapter" title="qto_categorizer_ml.io.registries.Loader.Adapter"><code class="xref py py-class docutils literal notranslate"><span class="pre">Adapter</span></code></a></p>
+<p>Adapt a builtin model for the project inference.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="qto_categorizer_ml.io.registries.BuiltinLoader.Adapter.predict">
+<span class="sig-name descname"><span class="pre">predict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">inputs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="qto_categorizer_ml.core.html#qto_categorizer_ml.core.schemas.InputsSchema" title="qto_categorizer_ml.core.schemas.InputsSchema"><span class="pre">InputsSchema</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DataFrame</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="qto_categorizer_ml.core.html#qto_categorizer_ml.core.schemas.OutputsSchema" title="qto_categorizer_ml.core.schemas.OutputsSchema"><span class="pre">OutputsSchema</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/qto_categorizer_ml/io/registries.html#BuiltinLoader.Adapter.predict"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#qto_categorizer_ml.io.registries.BuiltinLoader.Adapter.predict" title="Link to this definition"></a></dt>
+<dd><p>Generate predictions with the internal model for the given inputs.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>inputs</strong> (<em>schemas.Inputs</em>) – validated inputs for the project model.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>validated outputs of the project model.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>schemas.Outputs</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qto_categorizer_ml.io.registries.BuiltinLoader.KIND">
+<span class="sig-name descname"><span class="pre">KIND</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Literal</span><span class="p"><span class="pre">[</span></span><span class="s"><span class="pre">'BuiltinLoader'</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#qto_categorizer_ml.io.registries.BuiltinLoader.KIND" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="qto_categorizer_ml.io.registries.BuiltinLoader.load">
+<span class="sig-name descname"><span class="pre">load</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">uri</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#qto_categorizer_ml.io.registries.BuiltinLoader.Adapter" title="qto_categorizer_ml.io.registries.BuiltinLoader.Adapter"><span class="pre">Adapter</span></a></span></span><a class="reference internal" href="../_modules/qto_categorizer_ml/io/registries.html#BuiltinLoader.load"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#qto_categorizer_ml.io.registries.BuiltinLoader.load" title="Link to this definition"></a></dt>
+<dd><p>Load a model from the model registry.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>uri</strong> (<em>str</em>) – URI of a model to load.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>model loaded.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#qto_categorizer_ml.io.registries.Loader.Adapter" title="qto_categorizer_ml.io.registries.Loader.Adapter">Loader.Adapter</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qto_categorizer_ml.io.registries.BuiltinLoader.model_config">
+<span class="sig-name descname"><span class="pre">model_config</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">ConfigDict</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'extra':</span> <span class="pre">'forbid',</span> <span class="pre">'frozen':</span> <span class="pre">True,</span> <span class="pre">'strict':</span> <span class="pre">True}</span></em><a class="headerlink" href="#qto_categorizer_ml.io.registries.BuiltinLoader.model_config" title="Link to this definition"></a></dt>
+<dd><p>Configuration for the model, should be a dictionary conforming to [<cite>ConfigDict</cite>][pydantic.config.ConfigDict].</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="qto_categorizer_ml.io.registries.BuiltinSaver">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">qto_categorizer_ml.io.registries.</span></span><span class="sig-name descname"><span class="pre">BuiltinSaver</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">KIND</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Literal</span><span class="p"><span class="pre">[</span></span><span class="s"><span class="pre">'BuiltinSaver'</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'BuiltinSaver'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'model'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">flavor</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/qto_categorizer_ml/io/registries.html#BuiltinSaver"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#qto_categorizer_ml.io.registries.BuiltinSaver" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#qto_categorizer_ml.io.registries.Saver" title="qto_categorizer_ml.io.registries.Saver"><code class="xref py py-class docutils literal notranslate"><span class="pre">Saver</span></code></a></p>
+<p>Saver for built-in models using an Mlflow flavor module.</p>
+<p><a class="reference external" href="https://mlflow.org/docs/latest/models.html#built-in-model-flavors">https://mlflow.org/docs/latest/models.html#built-in-model-flavors</a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>flavor</strong> (<em>str</em>) – Mlflow flavor module to use for the serialization.</p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qto_categorizer_ml.io.registries.BuiltinSaver.KIND">
+<span class="sig-name descname"><span class="pre">KIND</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Literal</span><span class="p"><span class="pre">[</span></span><span class="s"><span class="pre">'BuiltinSaver'</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#qto_categorizer_ml.io.registries.BuiltinSaver.KIND" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qto_categorizer_ml.io.registries.BuiltinSaver.flavor">
+<span class="sig-name descname"><span class="pre">flavor</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#qto_categorizer_ml.io.registries.BuiltinSaver.flavor" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qto_categorizer_ml.io.registries.BuiltinSaver.model_config">
+<span class="sig-name descname"><span class="pre">model_config</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">ConfigDict</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'extra':</span> <span class="pre">'forbid',</span> <span class="pre">'frozen':</span> <span class="pre">True,</span> <span class="pre">'strict':</span> <span class="pre">True}</span></em><a class="headerlink" href="#qto_categorizer_ml.io.registries.BuiltinSaver.model_config" title="Link to this definition"></a></dt>
+<dd><p>Configuration for the model, should be a dictionary conforming to [<cite>ConfigDict</cite>][pydantic.config.ConfigDict].</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="qto_categorizer_ml.io.registries.BuiltinSaver.save">
+<span class="sig-name descname"><span class="pre">save</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="qto_categorizer_ml.core.html#qto_categorizer_ml.core.models.Model" title="qto_categorizer_ml.core.models.Model"><span class="pre">Model</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">signature</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ModelSignature</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">input_example</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="qto_categorizer_ml.core.html#qto_categorizer_ml.core.schemas.InputsSchema" title="qto_categorizer_ml.core.schemas.InputsSchema"><span class="pre">InputsSchema</span></a><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ModelVersion</span></span></span><a class="reference internal" href="../_modules/qto_categorizer_ml/io/registries.html#BuiltinSaver.save"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#qto_categorizer_ml.io.registries.BuiltinSaver.save" title="Link to this definition"></a></dt>
+<dd><p>Save a model in the model registry.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>model</strong> (<a class="reference internal" href="qto_categorizer_ml.core.html#qto_categorizer_ml.core.models.Model" title="qto_categorizer_ml.core.models.Model"><em>models.Model</em></a>) – project model to save.</p></li>
+<li><p><strong>signature</strong> (<em>signers.Signature</em>) – model signature.</p></li>
+<li><p><strong>input_example</strong> (<em>schemas.Inputs</em>) – sample of inputs.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>model saving information.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Info</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="qto_categorizer_ml.io.registries.CustomLoader">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">qto_categorizer_ml.io.registries.</span></span><span class="sig-name descname"><span class="pre">CustomLoader</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">KIND</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Literal</span><span class="p"><span class="pre">[</span></span><span class="s"><span class="pre">'CustomLoader'</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'CustomLoader'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/qto_categorizer_ml/io/registries.html#CustomLoader"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#qto_categorizer_ml.io.registries.CustomLoader" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#qto_categorizer_ml.io.registries.Loader" title="qto_categorizer_ml.io.registries.Loader"><code class="xref py py-class docutils literal notranslate"><span class="pre">Loader</span></code></a></p>
+<p>Loader for custom models using the Mlflow PyFunc module.</p>
+<p><a class="reference external" href="https://mlflow.org/docs/latest/python_api/mlflow.pyfunc.html">https://mlflow.org/docs/latest/python_api/mlflow.pyfunc.html</a></p>
+<dl class="py class">
+<dt class="sig sig-object py" id="qto_categorizer_ml.io.registries.CustomLoader.Adapter">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Adapter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">PyFuncModel</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/qto_categorizer_ml/io/registries.html#CustomLoader.Adapter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#qto_categorizer_ml.io.registries.CustomLoader.Adapter" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#qto_categorizer_ml.io.registries.Loader.Adapter" title="qto_categorizer_ml.io.registries.Loader.Adapter"><code class="xref py py-class docutils literal notranslate"><span class="pre">Adapter</span></code></a></p>
+<p>Adapt a custom model for the project inference.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="qto_categorizer_ml.io.registries.CustomLoader.Adapter.predict">
+<span class="sig-name descname"><span class="pre">predict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">inputs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="qto_categorizer_ml.core.html#qto_categorizer_ml.core.schemas.InputsSchema" title="qto_categorizer_ml.core.schemas.InputsSchema"><span class="pre">InputsSchema</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DataFrame</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="qto_categorizer_ml.core.html#qto_categorizer_ml.core.schemas.OutputsSchema" title="qto_categorizer_ml.core.schemas.OutputsSchema"><span class="pre">OutputsSchema</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/qto_categorizer_ml/io/registries.html#CustomLoader.Adapter.predict"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#qto_categorizer_ml.io.registries.CustomLoader.Adapter.predict" title="Link to this definition"></a></dt>
+<dd><p>Generate predictions with the internal model for the given inputs.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>inputs</strong> (<em>schemas.Inputs</em>) – validated inputs for the project model.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>validated outputs of the project model.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>schemas.Outputs</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qto_categorizer_ml.io.registries.CustomLoader.KIND">
+<span class="sig-name descname"><span class="pre">KIND</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Literal</span><span class="p"><span class="pre">[</span></span><span class="s"><span class="pre">'CustomLoader'</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#qto_categorizer_ml.io.registries.CustomLoader.KIND" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="qto_categorizer_ml.io.registries.CustomLoader.load">
+<span class="sig-name descname"><span class="pre">load</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">uri</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#qto_categorizer_ml.io.registries.CustomLoader.Adapter" title="qto_categorizer_ml.io.registries.CustomLoader.Adapter"><span class="pre">Adapter</span></a></span></span><a class="reference internal" href="../_modules/qto_categorizer_ml/io/registries.html#CustomLoader.load"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#qto_categorizer_ml.io.registries.CustomLoader.load" title="Link to this definition"></a></dt>
+<dd><p>Load a model from the model registry.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>uri</strong> (<em>str</em>) – URI of a model to load.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>model loaded.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#qto_categorizer_ml.io.registries.Loader.Adapter" title="qto_categorizer_ml.io.registries.Loader.Adapter">Loader.Adapter</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qto_categorizer_ml.io.registries.CustomLoader.model_config">
+<span class="sig-name descname"><span class="pre">model_config</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">ConfigDict</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'extra':</span> <span class="pre">'forbid',</span> <span class="pre">'frozen':</span> <span class="pre">True,</span> <span class="pre">'strict':</span> <span class="pre">True}</span></em><a class="headerlink" href="#qto_categorizer_ml.io.registries.CustomLoader.model_config" title="Link to this definition"></a></dt>
+<dd><p>Configuration for the model, should be a dictionary conforming to [<cite>ConfigDict</cite>][pydantic.config.ConfigDict].</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="qto_categorizer_ml.io.registries.CustomSaver">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">qto_categorizer_ml.io.registries.</span></span><span class="sig-name descname"><span class="pre">CustomSaver</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">KIND</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Literal</span><span class="p"><span class="pre">[</span></span><span class="s"><span class="pre">'CustomSaver'</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'CustomSaver'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'model'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/qto_categorizer_ml/io/registries.html#CustomSaver"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#qto_categorizer_ml.io.registries.CustomSaver" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#qto_categorizer_ml.io.registries.Saver" title="qto_categorizer_ml.io.registries.Saver"><code class="xref py py-class docutils literal notranslate"><span class="pre">Saver</span></code></a></p>
+<p>Saver for project models using the Mlflow PyFunc module.</p>
+<p><a class="reference external" href="https://mlflow.org/docs/latest/python_api/mlflow.pyfunc.html">https://mlflow.org/docs/latest/python_api/mlflow.pyfunc.html</a></p>
+<dl class="py class">
+<dt class="sig sig-object py" id="qto_categorizer_ml.io.registries.CustomSaver.Adapter">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Adapter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="qto_categorizer_ml.core.html#qto_categorizer_ml.core.models.Model" title="qto_categorizer_ml.core.models.Model"><span class="pre">Model</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/qto_categorizer_ml/io/registries.html#CustomSaver.Adapter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#qto_categorizer_ml.io.registries.CustomSaver.Adapter" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">PythonModel</span></code></p>
+<p>Adapt a custom model to the Mlflow PyFunc flavor for saving operations.</p>
+<p><a class="reference external" href="https://mlflow.org/docs/latest/python_api/mlflow.pyfunc.html">https://mlflow.org/docs/latest/python_api/mlflow.pyfunc.html</a>?#mlflow.pyfunc.PythonModel</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="qto_categorizer_ml.io.registries.CustomSaver.Adapter.predict">
+<span class="sig-name descname"><span class="pre">predict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">context</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">PythonModelContext</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model_input</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="qto_categorizer_ml.core.html#qto_categorizer_ml.core.schemas.InputsSchema" title="qto_categorizer_ml.core.schemas.InputsSchema"><span class="pre">InputsSchema</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">params</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DataFrame</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="qto_categorizer_ml.core.html#qto_categorizer_ml.core.schemas.OutputsSchema" title="qto_categorizer_ml.core.schemas.OutputsSchema"><span class="pre">OutputsSchema</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/qto_categorizer_ml/io/registries.html#CustomSaver.Adapter.predict"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#qto_categorizer_ml.io.registries.CustomSaver.Adapter.predict" title="Link to this definition"></a></dt>
+<dd><p>Generate predictions with a custom model for the given inputs.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>context</strong> (<em>mlflow.pyfunc.PythonModelContext</em>) – mlflow context.</p></li>
+<li><p><strong>model_input</strong> (<em>schemas.Inputs</em>) – inputs for the mlflow model.</p></li>
+<li><p><strong>params</strong> (<em>dict</em><em>[</em><em>str</em><em>, </em><em>T.Any</em><em>] </em><em>| </em><em>None</em>) – additional parameters.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>validated outputs of the project model.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>schemas.Outputs</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qto_categorizer_ml.io.registries.CustomSaver.KIND">
+<span class="sig-name descname"><span class="pre">KIND</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Literal</span><span class="p"><span class="pre">[</span></span><span class="s"><span class="pre">'CustomSaver'</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#qto_categorizer_ml.io.registries.CustomSaver.KIND" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qto_categorizer_ml.io.registries.CustomSaver.model_config">
+<span class="sig-name descname"><span class="pre">model_config</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">ConfigDict</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'extra':</span> <span class="pre">'forbid',</span> <span class="pre">'frozen':</span> <span class="pre">True,</span> <span class="pre">'strict':</span> <span class="pre">True}</span></em><a class="headerlink" href="#qto_categorizer_ml.io.registries.CustomSaver.model_config" title="Link to this definition"></a></dt>
+<dd><p>Configuration for the model, should be a dictionary conforming to [<cite>ConfigDict</cite>][pydantic.config.ConfigDict].</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="qto_categorizer_ml.io.registries.CustomSaver.save">
+<span class="sig-name descname"><span class="pre">save</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="qto_categorizer_ml.core.html#qto_categorizer_ml.core.models.Model" title="qto_categorizer_ml.core.models.Model"><span class="pre">Model</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">signature</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ModelSignature</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">input_example</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="qto_categorizer_ml.core.html#qto_categorizer_ml.core.schemas.InputsSchema" title="qto_categorizer_ml.core.schemas.InputsSchema"><span class="pre">InputsSchema</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ModelInfo</span></span></span><a class="reference internal" href="../_modules/qto_categorizer_ml/io/registries.html#CustomSaver.save"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#qto_categorizer_ml.io.registries.CustomSaver.save" title="Link to this definition"></a></dt>
+<dd><p>Save a model in the model registry.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>model</strong> (<a class="reference internal" href="qto_categorizer_ml.core.html#qto_categorizer_ml.core.models.Model" title="qto_categorizer_ml.core.models.Model"><em>models.Model</em></a>) – project model to save.</p></li>
+<li><p><strong>signature</strong> (<em>signers.Signature</em>) – model signature.</p></li>
+<li><p><strong>input_example</strong> (<em>schemas.Inputs</em>) – sample of inputs.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>model saving information.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Info</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="qto_categorizer_ml.io.registries.Loader">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">qto_categorizer_ml.io.registries.</span></span><span class="sig-name descname"><span class="pre">Loader</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">KIND</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/qto_categorizer_ml/io/registries.html#Loader"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#qto_categorizer_ml.io.registries.Loader" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">BaseModel</span></code></p>
+<p>Base class for loading models from registry.</p>
+<p>Separate model definition from deserialization.
+e.g., to switch between deserialization flavors.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="qto_categorizer_ml.io.registries.Loader.Adapter">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Adapter</span></span><a class="reference internal" href="../_modules/qto_categorizer_ml/io/registries.html#Loader.Adapter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#qto_categorizer_ml.io.registries.Loader.Adapter" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code></p>
+<p>Adapt any model for the project inference.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="qto_categorizer_ml.io.registries.Loader.Adapter.predict">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">predict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">inputs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="qto_categorizer_ml.core.html#qto_categorizer_ml.core.schemas.InputsSchema" title="qto_categorizer_ml.core.schemas.InputsSchema"><span class="pre">InputsSchema</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DataFrame</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="qto_categorizer_ml.core.html#qto_categorizer_ml.core.schemas.OutputsSchema" title="qto_categorizer_ml.core.schemas.OutputsSchema"><span class="pre">OutputsSchema</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/qto_categorizer_ml/io/registries.html#Loader.Adapter.predict"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#qto_categorizer_ml.io.registries.Loader.Adapter.predict" title="Link to this definition"></a></dt>
+<dd><p>Generate predictions with the internal model for the given inputs.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>inputs</strong> (<em>schemas.Inputs</em>) – validated inputs for the project model.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>validated outputs of the project model.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>schemas.Outputs</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qto_categorizer_ml.io.registries.Loader.KIND">
+<span class="sig-name descname"><span class="pre">KIND</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#qto_categorizer_ml.io.registries.Loader.KIND" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="qto_categorizer_ml.io.registries.Loader.load">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">load</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">uri</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#qto_categorizer_ml.io.registries.Loader.Adapter" title="qto_categorizer_ml.io.registries.Loader.Adapter"><span class="pre">Adapter</span></a></span></span><a class="reference internal" href="../_modules/qto_categorizer_ml/io/registries.html#Loader.load"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#qto_categorizer_ml.io.registries.Loader.load" title="Link to this definition"></a></dt>
+<dd><p>Load a model from the model registry.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>uri</strong> (<em>str</em>) – URI of a model to load.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>model loaded.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#qto_categorizer_ml.io.registries.Loader.Adapter" title="qto_categorizer_ml.io.registries.Loader.Adapter">Loader.Adapter</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qto_categorizer_ml.io.registries.Loader.model_config">
+<span class="sig-name descname"><span class="pre">model_config</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">ConfigDict</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'extra':</span> <span class="pre">'forbid',</span> <span class="pre">'frozen':</span> <span class="pre">True,</span> <span class="pre">'strict':</span> <span class="pre">True}</span></em><a class="headerlink" href="#qto_categorizer_ml.io.registries.Loader.model_config" title="Link to this definition"></a></dt>
+<dd><p>Configuration for the model, should be a dictionary conforming to [<cite>ConfigDict</cite>][pydantic.config.ConfigDict].</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="qto_categorizer_ml.io.registries.MlflowRegister">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">qto_categorizer_ml.io.registries.</span></span><span class="sig-name descname"><span class="pre">MlflowRegister</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">KIND</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Literal</span><span class="p"><span class="pre">[</span></span><span class="s"><span class="pre">'MlflowRegister'</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'MlflowRegister'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tags</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/qto_categorizer_ml/io/registries.html#MlflowRegister"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#qto_categorizer_ml.io.registries.MlflowRegister" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#qto_categorizer_ml.io.registries.Register" title="qto_categorizer_ml.io.registries.Register"><code class="xref py py-class docutils literal notranslate"><span class="pre">Register</span></code></a></p>
+<p>Register for models in the Mlflow Model Registry.</p>
+<p><a class="reference external" href="https://mlflow.org/docs/latest/model-registry.html">https://mlflow.org/docs/latest/model-registry.html</a></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qto_categorizer_ml.io.registries.MlflowRegister.KIND">
+<span class="sig-name descname"><span class="pre">KIND</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Literal</span><span class="p"><span class="pre">[</span></span><span class="s"><span class="pre">'MlflowRegister'</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#qto_categorizer_ml.io.registries.MlflowRegister.KIND" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qto_categorizer_ml.io.registries.MlflowRegister.model_config">
+<span class="sig-name descname"><span class="pre">model_config</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">ConfigDict</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'extra':</span> <span class="pre">'forbid',</span> <span class="pre">'frozen':</span> <span class="pre">True,</span> <span class="pre">'strict':</span> <span class="pre">True}</span></em><a class="headerlink" href="#qto_categorizer_ml.io.registries.MlflowRegister.model_config" title="Link to this definition"></a></dt>
+<dd><p>Configuration for the model, should be a dictionary conforming to [<cite>ConfigDict</cite>][pydantic.config.ConfigDict].</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="qto_categorizer_ml.io.registries.MlflowRegister.register">
+<span class="sig-name descname"><span class="pre">register</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model_uri</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ModelVersion</span></span></span><a class="reference internal" href="../_modules/qto_categorizer_ml/io/registries.html#MlflowRegister.register"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#qto_categorizer_ml.io.registries.MlflowRegister.register" title="Link to this definition"></a></dt>
+<dd><p>Register a model given its location (URI).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<em>str</em>) – name of the model to register.</p></li>
+<li><p><strong>model_uri</strong> (<em>str</em>) – URI of a model to register.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>information about the registered model.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Version</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="qto_categorizer_ml.io.registries.Register">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">qto_categorizer_ml.io.registries.</span></span><span class="sig-name descname"><span class="pre">Register</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">KIND</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tags</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/qto_categorizer_ml/io/registries.html#Register"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#qto_categorizer_ml.io.registries.Register" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">BaseModel</span></code></p>
+<p>Base class for registring models to a location.</p>
+<p>Separate model definition from its registration.
+e.g., to change the model registry backend.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>tags</strong> (<em>dict</em><em>[</em><em>str</em><em>, </em><em>T.Any</em><em>]</em>) – tags for the model.</p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qto_categorizer_ml.io.registries.Register.KIND">
+<span class="sig-name descname"><span class="pre">KIND</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#qto_categorizer_ml.io.registries.Register.KIND" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qto_categorizer_ml.io.registries.Register.model_config">
+<span class="sig-name descname"><span class="pre">model_config</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">ConfigDict</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'extra':</span> <span class="pre">'forbid',</span> <span class="pre">'frozen':</span> <span class="pre">True,</span> <span class="pre">'strict':</span> <span class="pre">True}</span></em><a class="headerlink" href="#qto_categorizer_ml.io.registries.Register.model_config" title="Link to this definition"></a></dt>
+<dd><p>Configuration for the model, should be a dictionary conforming to [<cite>ConfigDict</cite>][pydantic.config.ConfigDict].</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="qto_categorizer_ml.io.registries.Register.register">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">register</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model_uri</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ModelVersion</span></span></span><a class="reference internal" href="../_modules/qto_categorizer_ml/io/registries.html#Register.register"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#qto_categorizer_ml.io.registries.Register.register" title="Link to this definition"></a></dt>
+<dd><p>Register a model given its location (URI).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<em>str</em>) – name of the model to register.</p></li>
+<li><p><strong>model_uri</strong> (<em>str</em>) – URI of a model to register.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>information about the registered model.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Version</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qto_categorizer_ml.io.registries.Register.tags">
+<span class="sig-name descname"><span class="pre">tags</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#qto_categorizer_ml.io.registries.Register.tags" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qto_categorizer_ml.io.registries.RegisterKind">
+<span class="sig-prename descclassname"><span class="pre">qto_categorizer_ml.io.registries.</span></span><span class="sig-name descname"><span class="pre">RegisterKind</span></span><a class="headerlink" href="#qto_categorizer_ml.io.registries.RegisterKind" title="Link to this definition"></a></dt>
+<dd><p>alias of <a class="reference internal" href="#qto_categorizer_ml.io.registries.MlflowRegister" title="qto_categorizer_ml.io.registries.MlflowRegister"><code class="xref py py-class docutils literal notranslate"><span class="pre">MlflowRegister</span></code></a></p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="qto_categorizer_ml.io.registries.Saver">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">qto_categorizer_ml.io.registries.</span></span><span class="sig-name descname"><span class="pre">Saver</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">KIND</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'model'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/qto_categorizer_ml/io/registries.html#Saver"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#qto_categorizer_ml.io.registries.Saver" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">BaseModel</span></code></p>
+<p>Base class for saving models in registry.</p>
+<p>Separate model definition from serialization.
+e.g., to switch between serialization flavors.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>path</strong> (<em>str</em>) – model path inside the Mlflow store.</p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qto_categorizer_ml.io.registries.Saver.KIND">
+<span class="sig-name descname"><span class="pre">KIND</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#qto_categorizer_ml.io.registries.Saver.KIND" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qto_categorizer_ml.io.registries.Saver.model_config">
+<span class="sig-name descname"><span class="pre">model_config</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">ConfigDict</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'extra':</span> <span class="pre">'forbid',</span> <span class="pre">'frozen':</span> <span class="pre">True,</span> <span class="pre">'strict':</span> <span class="pre">True}</span></em><a class="headerlink" href="#qto_categorizer_ml.io.registries.Saver.model_config" title="Link to this definition"></a></dt>
+<dd><p>Configuration for the model, should be a dictionary conforming to [<cite>ConfigDict</cite>][pydantic.config.ConfigDict].</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qto_categorizer_ml.io.registries.Saver.path">
+<span class="sig-name descname"><span class="pre">path</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#qto_categorizer_ml.io.registries.Saver.path" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="qto_categorizer_ml.io.registries.Saver.save">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">save</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="qto_categorizer_ml.core.html#qto_categorizer_ml.core.models.Model" title="qto_categorizer_ml.core.models.Model"><span class="pre">Model</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">signature</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ModelSignature</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">input_example</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="qto_categorizer_ml.core.html#qto_categorizer_ml.core.schemas.InputsSchema" title="qto_categorizer_ml.core.schemas.InputsSchema"><span class="pre">InputsSchema</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ModelInfo</span></span></span><a class="reference internal" href="../_modules/qto_categorizer_ml/io/registries.html#Saver.save"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#qto_categorizer_ml.io.registries.Saver.save" title="Link to this definition"></a></dt>
+<dd><p>Save a model in the model registry.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>model</strong> (<a class="reference internal" href="qto_categorizer_ml.core.html#qto_categorizer_ml.core.models.Model" title="qto_categorizer_ml.core.models.Model"><em>models.Model</em></a>) – project model to save.</p></li>
+<li><p><strong>signature</strong> (<em>signers.Signature</em>) – model signature.</p></li>
+<li><p><strong>input_example</strong> (<em>schemas.Inputs</em>) – sample of inputs.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>model saving information.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Info</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="qto_categorizer_ml.io.registries.uri_for_model">
+<span class="sig-prename descclassname"><span class="pre">qto_categorizer_ml.io.registries.</span></span><span class="sig-name descname"><span class="pre">uri_for_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">version_or_stage</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="../_modules/qto_categorizer_ml/io/registries.html#uri_for_model"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#qto_categorizer_ml.io.registries.uri_for_model" title="Link to this definition"></a></dt>
+<dd><p>Create a model URI from a model name and version/stage.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>model_name</strong> (<em>str</em>) – name of the model.</p></li>
+<li><p><strong>version_or_stage</strong> (<em>str</em>) – version or stage.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>model URI (models:/model_name/version_or_stage).</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-qto_categorizer_ml.io.services">
+<span id="qto-categorizer-ml-io-services-module"></span><h2>qto_categorizer_ml.io.services module<a class="headerlink" href="#module-qto_categorizer_ml.io.services" title="Link to this heading"></a></h2>
+<p>Manage global context during program execution.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="qto_categorizer_ml.io.services.AWSService">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">qto_categorizer_ml.io.services.</span></span><span class="sig-name descname"><span class="pre">AWSService</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">region_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'eu-west-1'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">profile_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/qto_categorizer_ml/io/services.html#AWSService"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#qto_categorizer_ml.io.services.AWSService" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#qto_categorizer_ml.io.services.Service" title="qto_categorizer_ml.io.services.Service"><code class="xref py py-class docutils literal notranslate"><span class="pre">Service</span></code></a></p>
+<p>Service for AWS accounts.</p>
+<p><a class="reference external" href="https://boto3.amazonaws.com/v1/documentation/api/latest/reference/core/session.html">https://boto3.amazonaws.com/v1/documentation/api/latest/reference/core/session.html</a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>region_name</strong> (<em>str</em>) – AWS region name.</p></li>
+<li><p><strong>profile_name</strong> (<em>str</em>) – AWS profile name.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qto_categorizer_ml.io.services.AWSService.model_config">
+<span class="sig-name descname"><span class="pre">model_config</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">ConfigDict</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'extra':</span> <span class="pre">'forbid',</span> <span class="pre">'frozen':</span> <span class="pre">True,</span> <span class="pre">'strict':</span> <span class="pre">True}</span></em><a class="headerlink" href="#qto_categorizer_ml.io.services.AWSService.model_config" title="Link to this definition"></a></dt>
+<dd><p>Configuration for the model, should be a dictionary conforming to [<cite>ConfigDict</cite>][pydantic.config.ConfigDict].</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qto_categorizer_ml.io.services.AWSService.profile_name">
+<span class="sig-name descname"><span class="pre">profile_name</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">T.Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#qto_categorizer_ml.io.services.AWSService.profile_name" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qto_categorizer_ml.io.services.AWSService.region_name">
+<span class="sig-name descname"><span class="pre">region_name</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#qto_categorizer_ml.io.services.AWSService.region_name" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="qto_categorizer_ml.io.services.AWSService.session">
+<span class="sig-name descname"><span class="pre">session</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Session</span></span></span><a class="reference internal" href="../_modules/qto_categorizer_ml/io/services.html#AWSService.session"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#qto_categorizer_ml.io.services.AWSService.session" title="Link to this definition"></a></dt>
+<dd><p>Return a new AWS session.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>a new AWS session.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>boto3.Session</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="qto_categorizer_ml.io.services.AWSService.start">
+<span class="sig-name descname"><span class="pre">start</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/qto_categorizer_ml/io/services.html#AWSService.start"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#qto_categorizer_ml.io.services.AWSService.start" title="Link to this definition"></a></dt>
+<dd><p>Start the service.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="qto_categorizer_ml.io.services.LoggerService">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">qto_categorizer_ml.io.services.</span></span><span class="sig-name descname"><span class="pre">LoggerService</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sink</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'stderr'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">level</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'DEBUG'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">format</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'&lt;green&gt;[{time:YYYY-MM-DD</span> <span class="pre">HH:mm:ss.SSS}]&lt;/green&gt;&lt;level&gt;[{level}]&lt;/level&gt;&lt;cyan&gt;[{name}:{function}:{line}]&lt;/cyan&gt;</span> <span class="pre">&lt;level&gt;{message}&lt;/level&gt;'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">colorize</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">serialize</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">backtrace</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">diagnose</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">catch</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/qto_categorizer_ml/io/services.html#LoggerService"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#qto_categorizer_ml.io.services.LoggerService" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#qto_categorizer_ml.io.services.Service" title="qto_categorizer_ml.io.services.Service"><code class="xref py py-class docutils literal notranslate"><span class="pre">Service</span></code></a></p>
+<p>Service for logging messages.</p>
+<p><a class="reference external" href="https://loguru.readthedocs.io/en/stable/api/logger.html">https://loguru.readthedocs.io/en/stable/api/logger.html</a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>sink</strong> (<em>str</em>) – logging output.</p></li>
+<li><p><strong>level</strong> (<em>str</em>) – logging level.</p></li>
+<li><p><strong>format</strong> (<em>str</em>) – logging format.</p></li>
+<li><p><strong>colorize</strong> (<em>bool</em>) – colorize output.</p></li>
+<li><p><strong>serialize</strong> (<em>bool</em>) – convert to JSON.</p></li>
+<li><p><strong>backtrace</strong> (<em>bool</em>) – enable exception trace.</p></li>
+<li><p><strong>diagnose</strong> (<em>bool</em>) – enable variable display.</p></li>
+<li><p><strong>catch</strong> (<em>bool</em>) – catch errors during log handling.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qto_categorizer_ml.io.services.LoggerService.backtrace">
+<span class="sig-name descname"><span class="pre">backtrace</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#qto_categorizer_ml.io.services.LoggerService.backtrace" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qto_categorizer_ml.io.services.LoggerService.catch">
+<span class="sig-name descname"><span class="pre">catch</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#qto_categorizer_ml.io.services.LoggerService.catch" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qto_categorizer_ml.io.services.LoggerService.colorize">
+<span class="sig-name descname"><span class="pre">colorize</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#qto_categorizer_ml.io.services.LoggerService.colorize" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qto_categorizer_ml.io.services.LoggerService.diagnose">
+<span class="sig-name descname"><span class="pre">diagnose</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#qto_categorizer_ml.io.services.LoggerService.diagnose" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qto_categorizer_ml.io.services.LoggerService.format">
+<span class="sig-name descname"><span class="pre">format</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#qto_categorizer_ml.io.services.LoggerService.format" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qto_categorizer_ml.io.services.LoggerService.level">
+<span class="sig-name descname"><span class="pre">level</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#qto_categorizer_ml.io.services.LoggerService.level" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="qto_categorizer_ml.io.services.LoggerService.logger">
+<span class="sig-name descname"><span class="pre">logger</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">loguru.Logger</span></span></span><a class="reference internal" href="../_modules/qto_categorizer_ml/io/services.html#LoggerService.logger"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#qto_categorizer_ml.io.services.LoggerService.logger" title="Link to this definition"></a></dt>
+<dd><p>Return the main logger.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>the main logger.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>loguru.Logger</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qto_categorizer_ml.io.services.LoggerService.model_config">
+<span class="sig-name descname"><span class="pre">model_config</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">ConfigDict</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'extra':</span> <span class="pre">'forbid',</span> <span class="pre">'frozen':</span> <span class="pre">True,</span> <span class="pre">'strict':</span> <span class="pre">True}</span></em><a class="headerlink" href="#qto_categorizer_ml.io.services.LoggerService.model_config" title="Link to this definition"></a></dt>
+<dd><p>Configuration for the model, should be a dictionary conforming to [<cite>ConfigDict</cite>][pydantic.config.ConfigDict].</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qto_categorizer_ml.io.services.LoggerService.serialize">
+<span class="sig-name descname"><span class="pre">serialize</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#qto_categorizer_ml.io.services.LoggerService.serialize" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qto_categorizer_ml.io.services.LoggerService.sink">
+<span class="sig-name descname"><span class="pre">sink</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#qto_categorizer_ml.io.services.LoggerService.sink" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="qto_categorizer_ml.io.services.LoggerService.start">
+<span class="sig-name descname"><span class="pre">start</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/qto_categorizer_ml/io/services.html#LoggerService.start"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#qto_categorizer_ml.io.services.LoggerService.start" title="Link to this definition"></a></dt>
+<dd><p>Start the service.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="qto_categorizer_ml.io.services.MlflowService">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">qto_categorizer_ml.io.services.</span></span><span class="sig-name descname"><span class="pre">MlflowService</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tracking_uri</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'databricks'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">registry_uri</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'databricks'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">experiment_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'/experiments/qto-categorizer/qto-categorizer-xp-tracking-ml'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">registry_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'qto-categorizer-ml'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">autolog_disable</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">autolog_disable_for_unsupported_versions</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">autolog_exclusive</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">autolog_log_input_examples</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">autolog_log_model_signatures</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">autolog_log_models</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">autolog_log_datasets</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">autolog_silent</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/qto_categorizer_ml/io/services.html#MlflowService"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#qto_categorizer_ml.io.services.MlflowService" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#qto_categorizer_ml.io.services.Service" title="qto_categorizer_ml.io.services.Service"><code class="xref py py-class docutils literal notranslate"><span class="pre">Service</span></code></a></p>
+<p>Service for Mlflow tracking and registry.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>tracking_uri</strong> (<em>str</em>) – the URI for the Mlflow tracking server.</p></li>
+<li><p><strong>registry_uri</strong> (<em>str</em>) – the URI for the Mlflow model registry.</p></li>
+<li><p><strong>experiment_name</strong> (<em>str</em>) – the name of tracking experiment.</p></li>
+<li><p><strong>registry_name</strong> (<em>str</em>) – the name of model registry.</p></li>
+<li><p><strong>autolog_disable</strong> (<em>bool</em>) – disable autologging.</p></li>
+<li><p><strong>autolog_disable_for_unsupported_versions</strong> (<em>bool</em>) – disable autologging for unsupported versions.</p></li>
+<li><p><strong>autolog_exclusive</strong> (<em>bool</em>) – If True, enables exclusive autologging.</p></li>
+<li><p><strong>autolog_log_input_examples</strong> (<em>bool</em>) – If True, logs input examples during autologging.</p></li>
+<li><p><strong>autolog_log_model_signatures</strong> (<em>bool</em>) – If True, logs model signatures during autologging.</p></li>
+<li><p><strong>autolog_log_models</strong> (<em>bool</em>) – If True, enables logging of models during autologging.</p></li>
+<li><p><strong>autolog_log_datasets</strong> (<em>bool</em>) – If True, logs datasets used during autologging.</p></li>
+<li><p><strong>autolog_silent</strong> (<em>bool</em>) – If True, suppresses all Mlflow warnings during autologging.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py class">
+<dt class="sig sig-object py" id="qto_categorizer_ml.io.services.MlflowService.RunConfig">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">RunConfig</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">description</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tags</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">log_system_metrics</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/qto_categorizer_ml/io/services.html#MlflowService.RunConfig"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#qto_categorizer_ml.io.services.MlflowService.RunConfig" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">BaseModel</span></code></p>
+<p>Run configuration for Mlflow tracking.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<em>str</em>) – name of the run.</p></li>
+<li><p><strong>description</strong> (<em>str</em><em> | </em><em>None</em>) – description of the run.</p></li>
+<li><p><strong>tags</strong> (<em>dict</em><em>[</em><em>str</em><em>, </em><em>T.Any</em><em>] </em><em>| </em><em>None</em>) – tags for the run.</p></li>
+<li><p><strong>log_system_metrics</strong> (<em>bool</em><em> | </em><em>None</em>) – enable system metrics logging.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qto_categorizer_ml.io.services.MlflowService.RunConfig.description">
+<span class="sig-name descname"><span class="pre">description</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#qto_categorizer_ml.io.services.MlflowService.RunConfig.description" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qto_categorizer_ml.io.services.MlflowService.RunConfig.log_system_metrics">
+<span class="sig-name descname"><span class="pre">log_system_metrics</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#qto_categorizer_ml.io.services.MlflowService.RunConfig.log_system_metrics" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qto_categorizer_ml.io.services.MlflowService.RunConfig.model_config">
+<span class="sig-name descname"><span class="pre">model_config</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">ConfigDict</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'extra':</span> <span class="pre">'forbid',</span> <span class="pre">'frozen':</span> <span class="pre">True,</span> <span class="pre">'strict':</span> <span class="pre">True}</span></em><a class="headerlink" href="#qto_categorizer_ml.io.services.MlflowService.RunConfig.model_config" title="Link to this definition"></a></dt>
+<dd><p>Configuration for the model, should be a dictionary conforming to [<cite>ConfigDict</cite>][pydantic.config.ConfigDict].</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qto_categorizer_ml.io.services.MlflowService.RunConfig.name">
+<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#qto_categorizer_ml.io.services.MlflowService.RunConfig.name" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qto_categorizer_ml.io.services.MlflowService.RunConfig.tags">
+<span class="sig-name descname"><span class="pre">tags</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">T.Any</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#qto_categorizer_ml.io.services.MlflowService.RunConfig.tags" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qto_categorizer_ml.io.services.MlflowService.autolog_disable">
+<span class="sig-name descname"><span class="pre">autolog_disable</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#qto_categorizer_ml.io.services.MlflowService.autolog_disable" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qto_categorizer_ml.io.services.MlflowService.autolog_disable_for_unsupported_versions">
+<span class="sig-name descname"><span class="pre">autolog_disable_for_unsupported_versions</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#qto_categorizer_ml.io.services.MlflowService.autolog_disable_for_unsupported_versions" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qto_categorizer_ml.io.services.MlflowService.autolog_exclusive">
+<span class="sig-name descname"><span class="pre">autolog_exclusive</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#qto_categorizer_ml.io.services.MlflowService.autolog_exclusive" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qto_categorizer_ml.io.services.MlflowService.autolog_log_datasets">
+<span class="sig-name descname"><span class="pre">autolog_log_datasets</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#qto_categorizer_ml.io.services.MlflowService.autolog_log_datasets" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qto_categorizer_ml.io.services.MlflowService.autolog_log_input_examples">
+<span class="sig-name descname"><span class="pre">autolog_log_input_examples</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#qto_categorizer_ml.io.services.MlflowService.autolog_log_input_examples" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qto_categorizer_ml.io.services.MlflowService.autolog_log_model_signatures">
+<span class="sig-name descname"><span class="pre">autolog_log_model_signatures</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#qto_categorizer_ml.io.services.MlflowService.autolog_log_model_signatures" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qto_categorizer_ml.io.services.MlflowService.autolog_log_models">
+<span class="sig-name descname"><span class="pre">autolog_log_models</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#qto_categorizer_ml.io.services.MlflowService.autolog_log_models" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qto_categorizer_ml.io.services.MlflowService.autolog_silent">
+<span class="sig-name descname"><span class="pre">autolog_silent</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#qto_categorizer_ml.io.services.MlflowService.autolog_silent" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="qto_categorizer_ml.io.services.MlflowService.client">
+<span class="sig-name descname"><span class="pre">client</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">MlflowClient</span></span></span><a class="reference internal" href="../_modules/qto_categorizer_ml/io/services.html#MlflowService.client"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#qto_categorizer_ml.io.services.MlflowService.client" title="Link to this definition"></a></dt>
+<dd><p>Return a new Mlflow client.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>the mlflow client.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>MlflowClient</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qto_categorizer_ml.io.services.MlflowService.experiment_name">
+<span class="sig-name descname"><span class="pre">experiment_name</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#qto_categorizer_ml.io.services.MlflowService.experiment_name" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qto_categorizer_ml.io.services.MlflowService.model_config">
+<span class="sig-name descname"><span class="pre">model_config</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">ConfigDict</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'extra':</span> <span class="pre">'forbid',</span> <span class="pre">'frozen':</span> <span class="pre">True,</span> <span class="pre">'strict':</span> <span class="pre">True}</span></em><a class="headerlink" href="#qto_categorizer_ml.io.services.MlflowService.model_config" title="Link to this definition"></a></dt>
+<dd><p>Configuration for the model, should be a dictionary conforming to [<cite>ConfigDict</cite>][pydantic.config.ConfigDict].</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qto_categorizer_ml.io.services.MlflowService.registry_name">
+<span class="sig-name descname"><span class="pre">registry_name</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#qto_categorizer_ml.io.services.MlflowService.registry_name" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qto_categorizer_ml.io.services.MlflowService.registry_uri">
+<span class="sig-name descname"><span class="pre">registry_uri</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#qto_categorizer_ml.io.services.MlflowService.registry_uri" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="qto_categorizer_ml.io.services.MlflowService.run_context">
+<span class="sig-name descname"><span class="pre">run_context</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#qto_categorizer_ml.io.services.MlflowService.RunConfig" title="qto_categorizer_ml.io.services.MlflowService.RunConfig"><span class="pre">RunConfig</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">T.Generator</span><span class="p"><span class="pre">[</span></span><span class="pre">mlflow.ActiveRun</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/qto_categorizer_ml/io/services.html#MlflowService.run_context"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#qto_categorizer_ml.io.services.MlflowService.run_context" title="Link to this definition"></a></dt>
+<dd><p>Yield an active Mlflow run and exit afterwards.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>config</strong> (<a class="reference internal" href="#qto_categorizer_ml.io.services.MlflowService.RunConfig" title="qto_categorizer_ml.io.services.MlflowService.RunConfig"><em>RunConfig</em></a>) – run configuration.</p>
+</dd>
+<dt class="field-even">Yields<span class="colon">:</span></dt>
+<dd class="field-even"><p><em>T.Generator[mlflow.ActiveRun, None, None]</em> – active run context. Will be closed
+at the end of context.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="qto_categorizer_ml.io.services.MlflowService.start">
+<span class="sig-name descname"><span class="pre">start</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/qto_categorizer_ml/io/services.html#MlflowService.start"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#qto_categorizer_ml.io.services.MlflowService.start" title="Link to this definition"></a></dt>
+<dd><p>Start the service.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qto_categorizer_ml.io.services.MlflowService.tracking_uri">
+<span class="sig-name descname"><span class="pre">tracking_uri</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#qto_categorizer_ml.io.services.MlflowService.tracking_uri" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="qto_categorizer_ml.io.services.Service">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">qto_categorizer_ml.io.services.</span></span><span class="sig-name descname"><span class="pre">Service</span></span><a class="reference internal" href="../_modules/qto_categorizer_ml/io/services.html#Service"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#qto_categorizer_ml.io.services.Service" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">BaseModel</span></code></p>
+<p>Base class for a global service.</p>
+<p>Use services to manage global contexts.
+e.g., logger object, mlflow client, spark context, …</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qto_categorizer_ml.io.services.Service.model_config">
+<span class="sig-name descname"><span class="pre">model_config</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">ConfigDict</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'extra':</span> <span class="pre">'forbid',</span> <span class="pre">'frozen':</span> <span class="pre">True,</span> <span class="pre">'strict':</span> <span class="pre">True}</span></em><a class="headerlink" href="#qto_categorizer_ml.io.services.Service.model_config" title="Link to this definition"></a></dt>
+<dd><p>Configuration for the model, should be a dictionary conforming to [<cite>ConfigDict</cite>][pydantic.config.ConfigDict].</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="qto_categorizer_ml.io.services.Service.start">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">start</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/qto_categorizer_ml/io/services.html#Service.start"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#qto_categorizer_ml.io.services.Service.start" title="Link to this definition"></a></dt>
+<dd><p>Start the service.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="qto_categorizer_ml.io.services.Service.stop">
+<span class="sig-name descname"><span class="pre">stop</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/qto_categorizer_ml/io/services.html#Service.stop"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#qto_categorizer_ml.io.services.Service.stop" title="Link to this definition"></a></dt>
+<dd><p>Stop the service.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-qto_categorizer_ml.io">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-qto_categorizer_ml.io" title="Link to this heading"></a></h2>
+<p>Components related to external operations.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="qto_categorizer_ml.core.html" class="btn btn-neutral float-left" title="qto_categorizer_ml.core package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="qto_categorizer_ml.jobs.html" class="btn btn-neutral float-right" title="qto_categorizer_ml.jobs package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright data-corentinv.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

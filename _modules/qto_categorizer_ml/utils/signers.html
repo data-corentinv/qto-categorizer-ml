@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>qto_categorizer_ml.utils.signers &mdash; Qto Categorizer ML 0.1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css?v=fd3f3429" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../_static/documentation_options.js?v=01f34227"></script>
+        <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            Qto Categorizer ML
+          </a>
+              <div class="version">
+                0.1.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../markdown.html">Markdown</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../restructured.html">RestructuredText</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../_api/modules.html">qto_categorizer_ml</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Qto Categorizer ML</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">qto_categorizer_ml.utils.signers</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for qto_categorizer_ml.utils.signers</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;Generate signatures for AI/ML models.&quot;&quot;&quot;</span>
+
+<span class="c1"># %% IMPORTS</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">abc</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">T</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">mlflow</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pydantic</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pdt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">typing_extensions</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">TX</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">mlflow.models</span><span class="w"> </span><span class="kn">import</span> <span class="n">signature</span> <span class="k">as</span> <span class="n">ms</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">mlflow.types</span><span class="w"> </span><span class="kn">import</span> <span class="n">schema</span> <span class="k">as</span> <span class="n">mlflow_schemas</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">qto_categorizer_ml.core</span><span class="w"> </span><span class="kn">import</span> <span class="n">schemas</span>
+
+<span class="c1"># %% TYPES</span>
+
+<span class="n">Signature</span><span class="p">:</span> <span class="n">T</span><span class="o">.</span><span class="n">TypeAlias</span> <span class="o">=</span> <span class="n">ms</span><span class="o">.</span><span class="n">ModelSignature</span>
+
+<span class="c1"># %% SIGNERS</span>
+
+
+<div class="viewcode-block" id="Signer">
+<a class="viewcode-back" href="../../../_api/qto_categorizer_ml.utils.html#qto_categorizer_ml.utils.signers.Signer">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">Signer</span><span class="p">(</span><span class="n">abc</span><span class="o">.</span><span class="n">ABC</span><span class="p">,</span> <span class="n">pdt</span><span class="o">.</span><span class="n">BaseModel</span><span class="p">,</span> <span class="n">strict</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">frozen</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">extra</span><span class="o">=</span><span class="s2">&quot;forbid&quot;</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Base class for generating model signatures.</span>
+
+<span class="sd">    Note: allow to switch between signing strategies.</span>
+<span class="sd">    e.g., automatic inference, manual signatures, pandera schemas.</span>
+
+<span class="sd">    https://mlflow.org/docs/latest/models.html#model-signature-and-input-example</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">KIND</span><span class="p">:</span> <span class="nb">str</span>
+
+<div class="viewcode-block" id="Signer.sign">
+<a class="viewcode-back" href="../../../_api/qto_categorizer_ml.utils.html#qto_categorizer_ml.utils.signers.Signer.sign">[docs]</a>
+    <span class="nd">@abc</span><span class="o">.</span><span class="n">abstractmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">sign</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">inputs</span><span class="p">:</span> <span class="n">schemas</span><span class="o">.</span><span class="n">Inputs</span><span class="p">,</span> <span class="n">outputs</span><span class="p">:</span> <span class="n">schemas</span><span class="o">.</span><span class="n">Outputs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Signature</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Generate a model signature from its inputs/outputs.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            inputs (schemas.Inputs): inputs data.</span>
+<span class="sd">            outputs (schemas.Outputs): outputs data.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            Signature: signature of the model.</span>
+<span class="sd">        &quot;&quot;&quot;</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="InferSigner">
+<a class="viewcode-back" href="../../../_api/qto_categorizer_ml.utils.html#qto_categorizer_ml.utils.signers.InferSigner">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">InferSigner</span><span class="p">(</span><span class="n">Signer</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Generate model signatures from inputs/outputs data.&quot;&quot;&quot;</span>
+
+    <span class="n">KIND</span><span class="p">:</span> <span class="n">T</span><span class="o">.</span><span class="n">Literal</span><span class="p">[</span><span class="s2">&quot;InferSigner&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;InferSigner&quot;</span>
+
+<div class="viewcode-block" id="InferSigner.sign">
+<a class="viewcode-back" href="../../../_api/qto_categorizer_ml.utils.html#qto_categorizer_ml.utils.signers.InferSigner.sign">[docs]</a>
+    <span class="nd">@TX</span><span class="o">.</span><span class="n">override</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">sign</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">inputs</span><span class="p">:</span> <span class="n">schemas</span><span class="o">.</span><span class="n">Inputs</span><span class="p">,</span> <span class="n">outputs</span><span class="p">:</span> <span class="n">schemas</span><span class="o">.</span><span class="n">Outputs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Signature</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">mlflow</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">infer_signature</span><span class="p">(</span><span class="n">model_input</span><span class="o">=</span><span class="n">inputs</span><span class="p">,</span> <span class="n">model_output</span><span class="o">=</span><span class="n">outputs</span><span class="p">)</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="ManualSigner">
+<a class="viewcode-back" href="../../../_api/qto_categorizer_ml.utils.html#qto_categorizer_ml.utils.signers.ManualSigner">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">ManualSigner</span><span class="p">(</span><span class="n">Signer</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Generate model signatures from manual specifications.</span>
+
+<span class="sd">    https://mlflow.org/docs/latest/python_api/mlflow.models.html#mlflow.models.Signature.from_dict</span>
+
+<span class="sd">    Parameters:</span>
+<span class="sd">        inputs_specs (list[dict[str, T.Any]]): inputs specifications.</span>
+<span class="sd">        outputs_specs (list[dict[str, T.Any]]): outputs specifications.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">KIND</span><span class="p">:</span> <span class="n">T</span><span class="o">.</span><span class="n">Literal</span><span class="p">[</span><span class="s2">&quot;ManualSigner&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;ManualSigner&quot;</span>
+
+    <span class="n">inputs_specs</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">T</span><span class="o">.</span><span class="n">Any</span><span class="p">]]</span>
+    <span class="n">outputs_specs</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">T</span><span class="o">.</span><span class="n">Any</span><span class="p">]]</span>
+
+<div class="viewcode-block" id="ManualSigner.sign">
+<a class="viewcode-back" href="../../../_api/qto_categorizer_ml.utils.html#qto_categorizer_ml.utils.signers.ManualSigner.sign">[docs]</a>
+    <span class="nd">@TX</span><span class="o">.</span><span class="n">override</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">sign</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">inputs</span><span class="p">:</span> <span class="n">schemas</span><span class="o">.</span><span class="n">Inputs</span><span class="p">,</span> <span class="n">outputs</span><span class="p">:</span> <span class="n">schemas</span><span class="o">.</span><span class="n">Outputs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Signature</span><span class="p">:</span>
+        <span class="c1"># note: mlflow only supports JSON strings</span>
+        <span class="n">inputs_json</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">inputs_specs</span><span class="p">)</span>
+        <span class="n">outputs_json</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">outputs_specs</span><span class="p">)</span>
+        <span class="n">signature_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;inputs&quot;</span><span class="p">:</span> <span class="n">inputs_json</span><span class="p">,</span> <span class="s2">&quot;outputs&quot;</span><span class="p">:</span> <span class="n">outputs_json</span><span class="p">}</span>
+        <span class="n">signature</span> <span class="o">=</span> <span class="n">Signature</span><span class="o">.</span><span class="n">from_dict</span><span class="p">(</span><span class="n">signature_dict</span><span class="o">=</span><span class="n">signature_dict</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">signature</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="PanderaSigner">
+<a class="viewcode-back" href="../../../_api/qto_categorizer_ml.utils.html#qto_categorizer_ml.utils.signers.PanderaSigner">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">PanderaSigner</span><span class="p">(</span><span class="n">Signer</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Generate model signatures from Pandera inputs/outputs schemas.</span>
+
+<span class="sd">    Mapping from Pandera to Mlflow dtypes (only for supported types)</span>
+<span class="sd">    - pandera: https://github.com/unionai-oss/pandera/blob/main/pandera/dtypes.py</span>
+<span class="sd">    - mlflow: https://mlflow.org/docs/latest/python_api/mlflow.types.html#mlflow.types.DataType</span>
+
+<span class="sd">    Parameters:</span>
+<span class="sd">        inputs_schema_name (str): name of the inputs schema.</span>
+<span class="sd">        outputs_schema_name (str): name of the outputs schema.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">KIND</span><span class="p">:</span> <span class="n">T</span><span class="o">.</span><span class="n">Literal</span><span class="p">[</span><span class="s2">&quot;PanderaSigner&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;PanderaSigner&quot;</span>
+
+    <span class="n">inputs_schema_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">schemas</span><span class="o">.</span><span class="n">InputsSchema</span><span class="o">.</span><span class="vm">__name__</span>
+    <span class="n">outputs_schema_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">schemas</span><span class="o">.</span><span class="n">OutputsSchema</span><span class="o">.</span><span class="vm">__name__</span>
+
+    <span class="n">PANDERA_MLFLOW_MAPPING</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;bool&quot;</span><span class="p">:</span> <span class="s2">&quot;boolean&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;int&quot;</span><span class="p">:</span> <span class="s2">&quot;long&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;int8&quot;</span><span class="p">:</span> <span class="s2">&quot;integer&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;int16&quot;</span><span class="p">:</span> <span class="s2">&quot;integer&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;int32&quot;</span><span class="p">:</span> <span class="s2">&quot;integer&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;int64&quot;</span><span class="p">:</span> <span class="s2">&quot;long&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;uint&quot;</span><span class="p">:</span> <span class="s2">&quot;long&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;uint8&quot;</span><span class="p">:</span> <span class="s2">&quot;integer&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;uint16&quot;</span><span class="p">:</span> <span class="s2">&quot;integer&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;uint32&quot;</span><span class="p">:</span> <span class="s2">&quot;integer&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;uint64&quot;</span><span class="p">:</span> <span class="s2">&quot;long&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;float&quot;</span><span class="p">:</span> <span class="s2">&quot;float&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;float16&quot;</span><span class="p">:</span> <span class="s2">&quot;float&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;float32&quot;</span><span class="p">:</span> <span class="s2">&quot;float&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;float64&quot;</span><span class="p">:</span> <span class="s2">&quot;double&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;category&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;string&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;date&quot;</span><span class="p">:</span> <span class="s2">&quot;datetime&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;timestamp&quot;</span><span class="p">:</span> <span class="s2">&quot;datetime&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;datetime&quot;</span><span class="p">:</span> <span class="s2">&quot;datetime&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;binary&quot;</span><span class="p">:</span> <span class="s2">&quot;binary&quot;</span><span class="p">,</span>
+    <span class="p">}</span>
+
+<div class="viewcode-block" id="PanderaSigner.check_schema_name">
+<a class="viewcode-back" href="../../../_api/qto_categorizer_ml.utils.html#qto_categorizer_ml.utils.signers.PanderaSigner.check_schema_name">[docs]</a>
+    <span class="nd">@pdt</span><span class="o">.</span><span class="n">field_validator</span><span class="p">(</span><span class="s2">&quot;inputs_schema_name&quot;</span><span class="p">,</span> <span class="s2">&quot;outputs_schema_name&quot;</span><span class="p">)</span>
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">check_schema_name</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Validate the schema name exists and is a valid schema subclasses.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            value (str): value to validate.</span>
+
+<span class="sd">        Raises:</span>
+<span class="sd">            ValueError: schema does not exists or is not a valid schema subclass.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            str: validated value.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">schema</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">schemas</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">schema</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="ow">not</span> <span class="nb">issubclass</span><span class="p">(</span><span class="n">schema</span><span class="p">,</span> <span class="n">schemas</span><span class="o">.</span><span class="n">Schema</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Schema name was not found in module. Got: </span><span class="si">{</span><span class="n">value</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">value</span></div>
+
+
+<div class="viewcode-block" id="PanderaSigner.sign">
+<a class="viewcode-back" href="../../../_api/qto_categorizer_ml.utils.html#qto_categorizer_ml.utils.signers.PanderaSigner.sign">[docs]</a>
+    <span class="nd">@TX</span><span class="o">.</span><span class="n">override</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">sign</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">inputs</span><span class="p">:</span> <span class="n">schemas</span><span class="o">.</span><span class="n">Inputs</span><span class="p">,</span> <span class="n">outputs</span><span class="p">:</span> <span class="n">schemas</span><span class="o">.</span><span class="n">Outputs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Signature</span><span class="p">:</span>
+        <span class="n">pandera_inputs_schema</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">schemas</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">inputs_schema_name</span><span class="p">)</span>
+        <span class="n">pandera_outputs_schema</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">schemas</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">outputs_schema_name</span><span class="p">)</span>
+        <span class="n">mlflow_inputs_schema</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_convert_pandera_to_mlflow</span><span class="p">(</span><span class="n">pandera_inputs_schema</span><span class="p">)</span>
+        <span class="n">mlflow_outputs_schema</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_convert_pandera_to_mlflow</span><span class="p">(</span><span class="n">pandera_outputs_schema</span><span class="p">)</span>
+        <span class="n">signature</span> <span class="o">=</span> <span class="n">Signature</span><span class="p">(</span><span class="n">inputs</span><span class="o">=</span><span class="n">mlflow_inputs_schema</span><span class="p">,</span> <span class="n">outputs</span><span class="o">=</span><span class="n">mlflow_outputs_schema</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">signature</span></div>
+
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_convert_pandera_to_mlflow</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pandera_schema</span><span class="p">:</span> <span class="n">schemas</span><span class="o">.</span><span class="n">Schema</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">mlflow_schemas</span><span class="o">.</span><span class="n">Schema</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Convert Pandera schema to Mlflow schema using dtype mapping.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            pandera_schema (schemas.Schema): schema to convert.</span>
+
+<span class="sd">        Raises:</span>
+<span class="sd">            ValueError: schema contains unsupported dtypes.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            mlflow_schemas.Schema: converted schema.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">mlflow_col_specs</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">pandera_col_specs</span> <span class="o">=</span> <span class="n">pandera_schema</span><span class="o">.</span><span class="n">to_schema</span><span class="p">()</span><span class="o">.</span><span class="n">columns</span>
+        <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">pandera_col_spec</span> <span class="ow">in</span> <span class="n">pandera_col_specs</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="n">optional</span> <span class="o">=</span> <span class="ow">not</span> <span class="n">pandera_col_spec</span><span class="o">.</span><span class="n">required</span>
+            <span class="n">pandera_dtype_name</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">pandera_col_spec</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
+            <span class="n">mlflow_dtype_name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">PANDERA_MLFLOW_MAPPING</span><span class="p">[</span><span class="n">pandera_dtype_name</span><span class="p">]</span>
+            <span class="n">mlflow_col_spec</span> <span class="o">=</span> <span class="n">mlflow_schemas</span><span class="o">.</span><span class="n">ColSpec</span><span class="p">(</span>
+                <span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span> <span class="n">optional</span><span class="o">=</span><span class="n">optional</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="n">mlflow_dtype_name</span>
+            <span class="p">)</span>
+            <span class="n">mlflow_col_specs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">mlflow_col_spec</span><span class="p">)</span>
+        <span class="n">mlflow_schema</span> <span class="o">=</span> <span class="n">mlflow_schemas</span><span class="o">.</span><span class="n">Schema</span><span class="p">(</span><span class="n">mlflow_col_specs</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">mlflow_schema</span></div>
+
+
+
+<span class="n">SignerKind</span> <span class="o">=</span> <span class="n">InferSigner</span> <span class="o">|</span> <span class="n">ManualSigner</span> <span class="o">|</span> <span class="n">PanderaSigner</span>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright data-corentinv.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

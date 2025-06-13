@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>qto_categorizer_ml.core.schemas &mdash; Qto Categorizer ML 0.1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css?v=fd3f3429" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../_static/documentation_options.js?v=01f34227"></script>
+        <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            Qto Categorizer ML
+          </a>
+              <div class="version">
+                0.1.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../markdown.html">Markdown</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../restructured.html">RestructuredText</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../_api/modules.html">qto_categorizer_ml</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Qto Categorizer ML</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">qto_categorizer_ml.core.schemas</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for qto_categorizer_ml.core.schemas</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;Define and validate dataframe schemas.&quot;&quot;&quot;</span>
+
+<span class="c1"># %% IMPORTS</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">datetime</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">T</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandera</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pa</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandera.typing</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">papd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandera.typing.common</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">padt</span>
+
+<span class="c1"># %% TYPES</span>
+
+<span class="n">TSchema</span> <span class="o">=</span> <span class="n">T</span><span class="o">.</span><span class="n">TypeVar</span><span class="p">(</span><span class="s2">&quot;TSchema&quot;</span><span class="p">,</span> <span class="n">bound</span><span class="o">=</span><span class="s2">&quot;pa.DataFrameModel&quot;</span><span class="p">)</span>
+
+<span class="c1"># %% SCHEMAS</span>
+
+
+<div class="viewcode-block" id="Schema">
+<a class="viewcode-back" href="../../../_api/qto_categorizer_ml.core.html#qto_categorizer_ml.core.schemas.Schema">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">Schema</span><span class="p">(</span><span class="n">pa</span><span class="o">.</span><span class="n">DataFrameModel</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Base class for a dataframe schema.</span>
+
+<span class="sd">    Use a schema to type your dataframe object.</span>
+<span class="sd">    e.g., to communicate and validate its fields.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="Schema.Config">
+<a class="viewcode-back" href="../../../_api/qto_categorizer_ml.core.html#qto_categorizer_ml.core.schemas.Schema.Config">[docs]</a>
+    <span class="k">class</span><span class="w"> </span><span class="nc">Config</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Default configurations for all schemas.</span>
+
+<span class="sd">        Parameters:</span>
+<span class="sd">            coerce (bool): convert data type if possible.</span>
+<span class="sd">            strict (bool): ensure the data type is correct.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">coerce</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="n">strict</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span></div>
+
+
+<div class="viewcode-block" id="Schema.check">
+<a class="viewcode-back" href="../../../_api/qto_categorizer_ml.core.html#qto_categorizer_ml.core.schemas.Schema.check">[docs]</a>
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">check</span><span class="p">(</span><span class="bp">cls</span><span class="p">:</span> <span class="n">T</span><span class="o">.</span><span class="n">Type</span><span class="p">[</span><span class="n">TSchema</span><span class="p">],</span> <span class="n">data</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">papd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">[</span><span class="n">TSchema</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Check the dataframe with this schema.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            data (pd.DataFrame): dataframe to check.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            papd.DataFrame[TSchema]: validated dataframe.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">T</span><span class="o">.</span><span class="n">cast</span><span class="p">(</span><span class="n">papd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">[</span><span class="n">TSchema</span><span class="p">],</span> <span class="bp">cls</span><span class="o">.</span><span class="n">validate</span><span class="p">(</span><span class="n">data</span><span class="p">))</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="InputsSchema">
+<a class="viewcode-back" href="../../../_api/qto_categorizer_ml.core.html#qto_categorizer_ml.core.schemas.InputsSchema">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">InputsSchema</span><span class="p">(</span><span class="n">Schema</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Schema for the project inputs.&quot;&quot;&quot;</span>
+
+    <span class="n">TRANSACTION_ID</span><span class="p">:</span> <span class="n">papd</span><span class="o">.</span><span class="n">Series</span><span class="p">[</span><span class="n">padt</span><span class="o">.</span><span class="n">String</span><span class="p">]</span>
+    <span class="n">DATE_EMITTED</span><span class="p">:</span> <span class="n">papd</span><span class="o">.</span><span class="n">Series</span><span class="p">[</span><span class="n">padt</span><span class="o">.</span><span class="n">DateTime</span><span class="p">]</span> <span class="o">=</span> <span class="n">pa</span><span class="o">.</span><span class="n">Field</span><span class="p">(</span>
+        <span class="n">ge</span><span class="o">=</span><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2023</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">31</span><span class="p">),</span> <span class="n">le</span><span class="o">=</span><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2024</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">30</span><span class="p">)</span>
+    <span class="p">)</span>
+    <span class="n">AMOUNT</span><span class="p">:</span> <span class="n">papd</span><span class="o">.</span><span class="n">Series</span><span class="p">[</span><span class="n">padt</span><span class="o">.</span><span class="n">Float</span><span class="p">]</span> <span class="o">=</span> <span class="n">pa</span><span class="o">.</span><span class="n">Field</span><span class="p">(</span><span class="n">gt</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">TYPE_OF_PAYMENT</span><span class="p">:</span> <span class="n">papd</span><span class="o">.</span><span class="n">Series</span><span class="p">[</span><span class="n">padt</span><span class="o">.</span><span class="n">String</span><span class="p">]</span> <span class="o">=</span> <span class="n">pa</span><span class="o">.</span><span class="n">Field</span><span class="p">(</span><span class="n">nullable</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">MERCHANT_NAME</span><span class="p">:</span> <span class="n">papd</span><span class="o">.</span><span class="n">Series</span><span class="p">[</span><span class="n">padt</span><span class="o">.</span><span class="n">String</span><span class="p">]</span> <span class="o">=</span> <span class="n">pa</span><span class="o">.</span><span class="n">Field</span><span class="p">(</span><span class="n">nullable</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">DESCRIPTION</span><span class="p">:</span> <span class="n">papd</span><span class="o">.</span><span class="n">Series</span><span class="p">[</span><span class="n">padt</span><span class="o">.</span><span class="n">String</span><span class="p">]</span> <span class="o">=</span> <span class="n">pa</span><span class="o">.</span><span class="n">Field</span><span class="p">(</span><span class="n">nullable</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">SIDE</span><span class="p">:</span> <span class="n">papd</span><span class="o">.</span><span class="n">Series</span><span class="p">[</span><span class="n">padt</span><span class="o">.</span><span class="n">Int</span><span class="p">]</span> <span class="o">=</span> <span class="n">pa</span><span class="o">.</span><span class="n">Field</span><span class="p">(</span><span class="n">nullable</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">CATEGORY</span><span class="p">:</span> <span class="n">papd</span><span class="o">.</span><span class="n">Series</span><span class="p">[</span><span class="n">padt</span><span class="o">.</span><span class="n">String</span><span class="p">]</span></div>
+
+
+
+<div class="viewcode-block" id="FeatInputsSchema">
+<a class="viewcode-back" href="../../../_api/qto_categorizer_ml.core.html#qto_categorizer_ml.core.schemas.FeatInputsSchema">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">FeatInputsSchema</span><span class="p">(</span><span class="n">Schema</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Schema for the project inputs.&quot;&quot;&quot;</span>
+
+    <span class="n">AMOUNT</span><span class="p">:</span> <span class="n">papd</span><span class="o">.</span><span class="n">Series</span><span class="p">[</span><span class="n">padt</span><span class="o">.</span><span class="n">Float</span><span class="p">]</span> <span class="o">=</span> <span class="n">pa</span><span class="o">.</span><span class="n">Field</span><span class="p">(</span><span class="n">gt</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">TYPE_OF_PAYMENT</span><span class="p">:</span> <span class="n">papd</span><span class="o">.</span><span class="n">Series</span><span class="p">[</span><span class="n">padt</span><span class="o">.</span><span class="n">String</span><span class="p">]</span> <span class="o">=</span> <span class="n">pa</span><span class="o">.</span><span class="n">Field</span><span class="p">(</span><span class="n">nullable</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">MERCHANT_NAME</span><span class="p">:</span> <span class="n">papd</span><span class="o">.</span><span class="n">Series</span><span class="p">[</span><span class="n">padt</span><span class="o">.</span><span class="n">String</span><span class="p">]</span> <span class="o">=</span> <span class="n">pa</span><span class="o">.</span><span class="n">Field</span><span class="p">(</span><span class="n">nullable</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">DESCRIPTION</span><span class="p">:</span> <span class="n">papd</span><span class="o">.</span><span class="n">Series</span><span class="p">[</span><span class="n">padt</span><span class="o">.</span><span class="n">String</span><span class="p">]</span> <span class="o">=</span> <span class="n">pa</span><span class="o">.</span><span class="n">Field</span><span class="p">(</span><span class="n">nullable</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span></div>
+
+
+
+<span class="n">Inputs</span> <span class="o">=</span> <span class="n">papd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">[</span><span class="n">InputsSchema</span><span class="p">]</span>
+
+
+<div class="viewcode-block" id="TargetsSchema">
+<a class="viewcode-back" href="../../../_api/qto_categorizer_ml.core.html#qto_categorizer_ml.core.schemas.TargetsSchema">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">TargetsSchema</span><span class="p">(</span><span class="n">Schema</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Schema for the project targets.&quot;&quot;&quot;</span>
+
+    <span class="n">CATEGORY</span><span class="p">:</span> <span class="n">papd</span><span class="o">.</span><span class="n">Series</span><span class="p">[</span><span class="n">padt</span><span class="o">.</span><span class="n">String</span><span class="p">]</span></div>
+
+
+
+<span class="n">Targets</span> <span class="o">=</span> <span class="n">papd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">[</span><span class="n">TargetsSchema</span><span class="p">]</span>
+
+
+<div class="viewcode-block" id="OutputsSchema">
+<a class="viewcode-back" href="../../../_api/qto_categorizer_ml.core.html#qto_categorizer_ml.core.schemas.OutputsSchema">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">OutputsSchema</span><span class="p">(</span><span class="n">Schema</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Schema for the project outputs.&quot;&quot;&quot;</span>
+
+    <span class="n">prediction</span><span class="p">:</span> <span class="n">papd</span><span class="o">.</span><span class="n">Series</span><span class="p">[</span><span class="n">padt</span><span class="o">.</span><span class="n">String</span><span class="p">]</span></div>
+
+
+
+<span class="n">Outputs</span> <span class="o">=</span> <span class="n">papd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">[</span><span class="n">OutputsSchema</span><span class="p">]</span>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright data-corentinv.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

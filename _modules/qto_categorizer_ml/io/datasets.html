@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>qto_categorizer_ml.io.datasets &mdash; Qto Categorizer ML 0.1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css?v=fd3f3429" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../_static/documentation_options.js?v=01f34227"></script>
+        <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            Qto Categorizer ML
+          </a>
+              <div class="version">
+                0.1.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../markdown.html">Markdown</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../restructured.html">RestructuredText</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../_api/modules.html">qto_categorizer_ml</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Qto Categorizer ML</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">qto_categorizer_ml.io.datasets</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for qto_categorizer_ml.io.datasets</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;Read/Write datasets from/to external sources/destinations.&quot;&quot;&quot;</span>
+
+<span class="c1"># %% IMPORTS</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">abc</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">T</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">awswrangler</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">wr</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pydantic</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pdt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">typing_extensions</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">TX</span>
+
+<span class="c1"># %% TYPES</span>
+
+<span class="n">ParquetEngine</span> <span class="o">=</span> <span class="n">T</span><span class="o">.</span><span class="n">Literal</span><span class="p">[</span><span class="s2">&quot;auto&quot;</span><span class="p">,</span> <span class="s2">&quot;pyarrow&quot;</span><span class="p">,</span> <span class="s2">&quot;fastparquet&quot;</span><span class="p">]</span>
+<span class="n">GlueWritingMode</span> <span class="o">=</span> <span class="n">T</span><span class="o">.</span><span class="n">Literal</span><span class="p">[</span><span class="s2">&quot;append&quot;</span><span class="p">,</span> <span class="s2">&quot;overwrite&quot;</span><span class="p">,</span> <span class="s2">&quot;overwrite_partitions&quot;</span><span class="p">]</span>
+
+<span class="c1"># %% READERS</span>
+
+
+<div class="viewcode-block" id="Reader">
+<a class="viewcode-back" href="../../../_api/qto_categorizer_ml.io.html#qto_categorizer_ml.io.datasets.Reader">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">Reader</span><span class="p">(</span><span class="n">abc</span><span class="o">.</span><span class="n">ABC</span><span class="p">,</span> <span class="n">pdt</span><span class="o">.</span><span class="n">BaseModel</span><span class="p">,</span> <span class="n">strict</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">frozen</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">extra</span><span class="o">=</span><span class="s2">&quot;forbid&quot;</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Base class for a dataset reader.</span>
+
+<span class="sd">    Use a reader to load a dataset in memory.</span>
+<span class="sd">    e.g., to read file, database, cloud storage, ...</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">KIND</span><span class="p">:</span> <span class="nb">str</span>
+
+<div class="viewcode-block" id="Reader.read">
+<a class="viewcode-back" href="../../../_api/qto_categorizer_ml.io.html#qto_categorizer_ml.io.datasets.Reader.read">[docs]</a>
+    <span class="nd">@abc</span><span class="o">.</span><span class="n">abstractmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">read</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Read a dataframe from a dataset.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            pd.DataFrame: dataframe representation.</span>
+<span class="sd">        &quot;&quot;&quot;</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="ParquetReader">
+<a class="viewcode-back" href="../../../_api/qto_categorizer_ml.io.html#qto_categorizer_ml.io.datasets.ParquetReader">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">ParquetReader</span><span class="p">(</span><span class="n">Reader</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Read a dataframe from a parquet file.</span>
+
+<span class="sd">    Parameters:</span>
+<span class="sd">        path (str): local or S3 path to the dataset.</span>
+<span class="sd">        engine (ParquetEngine): parquet engine to use.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">KIND</span><span class="p">:</span> <span class="n">T</span><span class="o">.</span><span class="n">Literal</span><span class="p">[</span><span class="s2">&quot;ParquetReader&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;ParquetReader&quot;</span>
+
+    <span class="n">path</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">engine</span><span class="p">:</span> <span class="n">ParquetEngine</span> <span class="o">=</span> <span class="s2">&quot;fastparquet&quot;</span>
+
+<div class="viewcode-block" id="ParquetReader.read">
+<a class="viewcode-back" href="../../../_api/qto_categorizer_ml.io.html#qto_categorizer_ml.io.datasets.ParquetReader.read">[docs]</a>
+    <span class="nd">@TX</span><span class="o">.</span><span class="n">override</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">read</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_parquet</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">path</span><span class="p">,</span> <span class="n">engine</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">engine</span><span class="p">)</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="GlueReader">
+<a class="viewcode-back" href="../../../_api/qto_categorizer_ml.io.html#qto_categorizer_ml.io.datasets.GlueReader">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">GlueReader</span><span class="p">(</span><span class="n">Reader</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Read a dataframe from a glue table.</span>
+
+<span class="sd">    Parameters:</span>
+<span class="sd">        table (str): name of the table.</span>
+<span class="sd">        database (str): name of the database.</span>
+<span class="sd">        catalog_id (str, optional): data catalog ID.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">KIND</span><span class="p">:</span> <span class="n">T</span><span class="o">.</span><span class="n">Literal</span><span class="p">[</span><span class="s2">&quot;GlueReader&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;GlueReader&quot;</span>
+
+    <span class="n">table</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">database</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">catalog_id</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;123456789&quot;</span>
+
+<div class="viewcode-block" id="GlueReader.read">
+<a class="viewcode-back" href="../../../_api/qto_categorizer_ml.io.html#qto_categorizer_ml.io.datasets.GlueReader.read">[docs]</a>
+    <span class="nd">@TX</span><span class="o">.</span><span class="n">override</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">read</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">wr</span><span class="o">.</span><span class="n">s3</span><span class="o">.</span><span class="n">read_parquet_table</span><span class="p">(</span>
+            <span class="n">table</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">table</span><span class="p">,</span> <span class="n">database</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">database</span><span class="p">,</span> <span class="n">catalog_id</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">catalog_id</span>
+        <span class="p">)</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="DeltalakeReader">
+<a class="viewcode-back" href="../../../_api/qto_categorizer_ml.io.html#qto_categorizer_ml.io.datasets.DeltalakeReader">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">DeltalakeReader</span><span class="p">(</span><span class="n">Reader</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Read a dataframe from the delta lake.</span>
+
+<span class="sd">    Parameters:</span>
+<span class="sd">        path (str): S3 path to the delta lake file.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">KIND</span><span class="p">:</span> <span class="n">T</span><span class="o">.</span><span class="n">Literal</span><span class="p">[</span><span class="s2">&quot;DeltalakeReader&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;DeltalakeReader&quot;</span>
+
+    <span class="n">path</span><span class="p">:</span> <span class="nb">str</span>
+
+<div class="viewcode-block" id="DeltalakeReader.read">
+<a class="viewcode-back" href="../../../_api/qto_categorizer_ml.io.html#qto_categorizer_ml.io.datasets.DeltalakeReader.read">[docs]</a>
+    <span class="nd">@TX</span><span class="o">.</span><span class="n">override</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">read</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">wr</span><span class="o">.</span><span class="n">s3</span><span class="o">.</span><span class="n">read_deltalake</span><span class="p">(</span><span class="n">path</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">path</span><span class="p">)</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="CSVReader">
+<a class="viewcode-back" href="../../../_api/qto_categorizer_ml.io.html#qto_categorizer_ml.io.datasets.CSVReader">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">CSVReader</span><span class="p">(</span><span class="n">Reader</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Read a dataframe from a csv file.</span>
+
+<span class="sd">    Parameters:</span>
+<span class="sd">        path (str): local path to the dataset.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">KIND</span><span class="p">:</span> <span class="n">T</span><span class="o">.</span><span class="n">Literal</span><span class="p">[</span><span class="s2">&quot;CSVReader&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;CSVReader&quot;</span>
+
+    <span class="n">path</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">sep</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;,&quot;</span>
+    <span class="n">dtypes</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="n">parse_dates</span><span class="p">:</span> <span class="nb">list</span> <span class="o">=</span> <span class="p">[]</span>
+
+<div class="viewcode-block" id="CSVReader.read">
+<a class="viewcode-back" href="../../../_api/qto_categorizer_ml.io.html#qto_categorizer_ml.io.datasets.CSVReader.read">[docs]</a>
+    <span class="nd">@TX</span><span class="o">.</span><span class="n">override</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">read</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">path</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">sep</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">dtypes</span><span class="p">,</span> <span class="n">parse_dates</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">parse_dates</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">data</span></div>
+</div>
+
+
+
+<span class="n">ReaderKind</span> <span class="o">=</span> <span class="n">ParquetReader</span> <span class="o">|</span> <span class="n">GlueReader</span> <span class="o">|</span> <span class="n">DeltalakeReader</span> <span class="o">|</span> <span class="n">CSVReader</span>
+
+<span class="c1"># %% WRITERS</span>
+
+
+<div class="viewcode-block" id="Writer">
+<a class="viewcode-back" href="../../../_api/qto_categorizer_ml.io.html#qto_categorizer_ml.io.datasets.Writer">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">Writer</span><span class="p">(</span><span class="n">abc</span><span class="o">.</span><span class="n">ABC</span><span class="p">,</span> <span class="n">pdt</span><span class="o">.</span><span class="n">BaseModel</span><span class="p">,</span> <span class="n">strict</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">frozen</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">extra</span><span class="o">=</span><span class="s2">&quot;forbid&quot;</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Base class for a dataset writer.</span>
+
+<span class="sd">    Use a writer to save a dataset from memory.</span>
+<span class="sd">    e.g., to write file, database, cloud storage, ...</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">KIND</span><span class="p">:</span> <span class="nb">str</span>
+
+<div class="viewcode-block" id="Writer.write">
+<a class="viewcode-back" href="../../../_api/qto_categorizer_ml.io.html#qto_categorizer_ml.io.datasets.Writer.write">[docs]</a>
+    <span class="nd">@abc</span><span class="o">.</span><span class="n">abstractmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">write</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Write a dataframe to a dataset.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            data (pd.DataFrame): dataframe representation.</span>
+<span class="sd">        &quot;&quot;&quot;</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="ParquetWriter">
+<a class="viewcode-back" href="../../../_api/qto_categorizer_ml.io.html#qto_categorizer_ml.io.datasets.ParquetWriter">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">ParquetWriter</span><span class="p">(</span><span class="n">Writer</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Writer a dataframe to a parquet file.</span>
+
+<span class="sd">    Parameters:</span>
+<span class="sd">        path (str): local or S3 path to the dataset.</span>
+<span class="sd">        engine (ParquetEngine): parquet engine to use.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">KIND</span><span class="p">:</span> <span class="n">T</span><span class="o">.</span><span class="n">Literal</span><span class="p">[</span><span class="s2">&quot;ParquetWriter&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;ParquetWriter&quot;</span>
+
+    <span class="n">path</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">engine</span><span class="p">:</span> <span class="n">ParquetEngine</span> <span class="o">=</span> <span class="s2">&quot;fastparquet&quot;</span>
+
+<div class="viewcode-block" id="ParquetWriter.write">
+<a class="viewcode-back" href="../../../_api/qto_categorizer_ml.io.html#qto_categorizer_ml.io.datasets.ParquetWriter.write">[docs]</a>
+    <span class="nd">@TX</span><span class="o">.</span><span class="n">override</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">write</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">to_parquet</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">path</span><span class="p">,</span> <span class="n">engine</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">engine</span><span class="p">)</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="GlueWriter">
+<a class="viewcode-back" href="../../../_api/qto_categorizer_ml.io.html#qto_categorizer_ml.io.datasets.GlueWriter">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">GlueWriter</span><span class="p">(</span><span class="n">Writer</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Write a dataframe to a glue table.</span>
+
+<span class="sd">    Parameters:</span>
+<span class="sd">        table (str): name of the table.</span>
+<span class="sd">        database (str): name of the database.</span>
+<span class="sd">        catalog_id (str, optional): data catalog ID.</span>
+<span class="sd">        mode (GlueWritingMode): write mode for the table.</span>
+<span class="sd">        path (str | None): associated S3 path (only for creation).</span>
+<span class="sd">        glue_table_settings (dict[str, T.Any] | None): settings for the table.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">KIND</span><span class="p">:</span> <span class="n">T</span><span class="o">.</span><span class="n">Literal</span><span class="p">[</span><span class="s2">&quot;GlueWriter&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;GlueWriter&quot;</span>
+
+    <span class="n">table</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">database</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">catalog_id</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;123456789&quot;</span>
+    <span class="n">mode</span><span class="p">:</span> <span class="n">GlueWritingMode</span> <span class="o">=</span> <span class="s2">&quot;overwrite&quot;</span>
+    <span class="n">path</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">glue_table_settings</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">T</span><span class="o">.</span><span class="n">Any</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+
+<div class="viewcode-block" id="GlueWriter.write">
+<a class="viewcode-back" href="../../../_api/qto_categorizer_ml.io.html#qto_categorizer_ml.io.datasets.GlueWriter.write">[docs]</a>
+    <span class="nd">@TX</span><span class="o">.</span><span class="n">override</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">write</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">settings</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="n">T</span><span class="o">.</span><span class="n">cast</span><span class="p">(</span><span class="n">wr</span><span class="o">.</span><span class="n">typing</span><span class="o">.</span><span class="n">GlueTableSettings</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">glue_table_settings</span><span class="p">)</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">glue_table_settings</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+            <span class="k">else</span> <span class="kc">None</span>
+        <span class="p">)</span>
+        <span class="n">wr</span><span class="o">.</span><span class="n">s3</span><span class="o">.</span><span class="n">to_parquet</span><span class="p">(</span>
+            <span class="n">df</span><span class="o">=</span><span class="n">data</span><span class="p">,</span>
+            <span class="n">dataset</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+            <span class="n">mode</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">mode</span><span class="p">,</span>
+            <span class="n">path</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">path</span><span class="p">,</span>
+            <span class="n">table</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">table</span><span class="p">,</span>
+            <span class="n">database</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">database</span><span class="p">,</span>
+            <span class="n">catalog_id</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">catalog_id</span><span class="p">,</span>
+            <span class="n">glue_table_settings</span><span class="o">=</span><span class="n">settings</span><span class="p">,</span>
+        <span class="p">)</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="CSVWriter">
+<a class="viewcode-back" href="../../../_api/qto_categorizer_ml.io.html#qto_categorizer_ml.io.datasets.CSVWriter">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">CSVWriter</span><span class="p">(</span><span class="n">Writer</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Writer a dataframe to a csv file.</span>
+
+<span class="sd">    Parameters:</span>
+<span class="sd">        path (str): local or S3 path to the dataset.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">KIND</span><span class="p">:</span> <span class="n">T</span><span class="o">.</span><span class="n">Literal</span><span class="p">[</span><span class="s2">&quot;CSVWriter&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;CSVWriter&quot;</span>
+
+    <span class="n">path</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">header</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="n">index</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+
+<div class="viewcode-block" id="CSVWriter.write">
+<a class="viewcode-back" href="../../../_api/qto_categorizer_ml.io.html#qto_categorizer_ml.io.datasets.CSVWriter.write">[docs]</a>
+    <span class="nd">@TX</span><span class="o">.</span><span class="n">override</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">write</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">path</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">header</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">index</span><span class="p">)</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="DeltalakeWriter">
+<a class="viewcode-back" href="../../../_api/qto_categorizer_ml.io.html#qto_categorizer_ml.io.datasets.DeltalakeWriter">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">DeltalakeWriter</span><span class="p">(</span><span class="n">Writer</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Write a dataframe to the delta lake.</span>
+
+<span class="sd">    Parameters:</span>
+<span class="sd">        path (str): S3 path to the delta lake file.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">KIND</span><span class="p">:</span> <span class="n">T</span><span class="o">.</span><span class="n">Literal</span><span class="p">[</span><span class="s2">&quot;DeltalakeWriter&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;DeltalakeWriter&quot;</span>
+
+    <span class="n">path</span><span class="p">:</span> <span class="nb">str</span>
+
+<div class="viewcode-block" id="DeltalakeWriter.write">
+<a class="viewcode-back" href="../../../_api/qto_categorizer_ml.io.html#qto_categorizer_ml.io.datasets.DeltalakeWriter.write">[docs]</a>
+    <span class="nd">@TX</span><span class="o">.</span><span class="n">override</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">write</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="c1"># s3_allow_unsafe_rename is required whever the file exists or not</span>
+        <span class="n">wr</span><span class="o">.</span><span class="n">s3</span><span class="o">.</span><span class="n">to_deltalake</span><span class="p">(</span><span class="n">df</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">path</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">path</span><span class="p">,</span> <span class="n">s3_allow_unsafe_rename</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span></div>
+</div>
+
+
+
+<span class="n">WriterKind</span> <span class="o">=</span> <span class="n">ParquetWriter</span> <span class="o">|</span> <span class="n">GlueWriter</span> <span class="o">|</span> <span class="n">DeltalakeWriter</span> <span class="o">|</span> <span class="n">CSVWriter</span>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright data-corentinv.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

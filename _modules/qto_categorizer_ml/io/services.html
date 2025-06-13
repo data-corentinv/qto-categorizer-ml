@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>qto_categorizer_ml.io.services &mdash; Qto Categorizer ML 0.1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css?v=fd3f3429" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../_static/documentation_options.js?v=01f34227"></script>
+        <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            Qto Categorizer ML
+          </a>
+              <div class="version">
+                0.1.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../markdown.html">Markdown</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../restructured.html">RestructuredText</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../_api/modules.html">qto_categorizer_ml</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Qto Categorizer ML</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">qto_categorizer_ml.io.services</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for qto_categorizer_ml.io.services</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;Manage global context during program execution.&quot;&quot;&quot;</span>
+
+<span class="c1"># %% IMPORTS</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">__future__</span><span class="w"> </span><span class="kn">import</span> <span class="n">annotations</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">abc</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">contextlib</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">ctx</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">T</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">boto3</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">loguru</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">mlflow</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">mlflow.tracking</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">mt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pydantic</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pdt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">typing_extensions</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">TX</span>
+
+<span class="c1"># %% SERVICES</span>
+
+
+<div class="viewcode-block" id="Service">
+<a class="viewcode-back" href="../../../_api/qto_categorizer_ml.io.html#qto_categorizer_ml.io.services.Service">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">Service</span><span class="p">(</span><span class="n">abc</span><span class="o">.</span><span class="n">ABC</span><span class="p">,</span> <span class="n">pdt</span><span class="o">.</span><span class="n">BaseModel</span><span class="p">,</span> <span class="n">strict</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">frozen</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">extra</span><span class="o">=</span><span class="s2">&quot;forbid&quot;</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Base class for a global service.</span>
+
+<span class="sd">    Use services to manage global contexts.</span>
+<span class="sd">    e.g., logger object, mlflow client, spark context, ...</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="Service.start">
+<a class="viewcode-back" href="../../../_api/qto_categorizer_ml.io.html#qto_categorizer_ml.io.services.Service.start">[docs]</a>
+    <span class="nd">@abc</span><span class="o">.</span><span class="n">abstractmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">start</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Start the service.&quot;&quot;&quot;</span></div>
+
+
+<div class="viewcode-block" id="Service.stop">
+<a class="viewcode-back" href="../../../_api/qto_categorizer_ml.io.html#qto_categorizer_ml.io.services.Service.stop">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">stop</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Stop the service.&quot;&quot;&quot;</span></div>
+</div>
+
+        <span class="c1"># does nothing by default</span>
+
+
+<div class="viewcode-block" id="AWSService">
+<a class="viewcode-back" href="../../../_api/qto_categorizer_ml.io.html#qto_categorizer_ml.io.services.AWSService">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">AWSService</span><span class="p">(</span><span class="n">Service</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Service for AWS accounts.</span>
+
+<span class="sd">    https://boto3.amazonaws.com/v1/documentation/api/latest/reference/core/session.html</span>
+
+<span class="sd">    Parameters:</span>
+<span class="sd">        region_name (str): AWS region name.</span>
+<span class="sd">        profile_name (str): AWS profile name.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">region_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;eu-west-1&quot;</span>
+    <span class="n">profile_name</span><span class="p">:</span> <span class="n">T</span><span class="o">.</span><span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+
+<div class="viewcode-block" id="AWSService.start">
+<a class="viewcode-back" href="../../../_api/qto_categorizer_ml.io.html#qto_categorizer_ml.io.services.AWSService.start">[docs]</a>
+    <span class="nd">@TX</span><span class="o">.</span><span class="n">override</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">start</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">boto3</span><span class="o">.</span><span class="n">setup_default_session</span><span class="p">(</span><span class="n">region_name</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">region_name</span><span class="p">,</span> <span class="n">profile_name</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">profile_name</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="AWSService.session">
+<a class="viewcode-back" href="../../../_api/qto_categorizer_ml.io.html#qto_categorizer_ml.io.services.AWSService.session">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">session</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">boto3</span><span class="o">.</span><span class="n">Session</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Return a new AWS session.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            boto3.Session: a new AWS session.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">boto3</span><span class="o">.</span><span class="n">Session</span><span class="p">(</span><span class="n">region_name</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">region_name</span><span class="p">,</span> <span class="n">profile_name</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">profile_name</span><span class="p">)</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="LoggerService">
+<a class="viewcode-back" href="../../../_api/qto_categorizer_ml.io.html#qto_categorizer_ml.io.services.LoggerService">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">LoggerService</span><span class="p">(</span><span class="n">Service</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Service for logging messages.</span>
+
+<span class="sd">    https://loguru.readthedocs.io/en/stable/api/logger.html</span>
+
+<span class="sd">    Parameters:</span>
+<span class="sd">        sink (str): logging output.</span>
+<span class="sd">        level (str): logging level.</span>
+<span class="sd">        format (str): logging format.</span>
+<span class="sd">        colorize (bool): colorize output.</span>
+<span class="sd">        serialize (bool): convert to JSON.</span>
+<span class="sd">        backtrace (bool): enable exception trace.</span>
+<span class="sd">        diagnose (bool): enable variable display.</span>
+<span class="sd">        catch (bool): catch errors during log handling.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">sink</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;stderr&quot;</span>
+    <span class="n">level</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;DEBUG&quot;</span>
+    <span class="nb">format</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="s2">&quot;&lt;green&gt;[{time:YYYY-MM-DD HH:mm:ss.SSS}]&lt;/green&gt;&quot;</span>
+        <span class="s2">&quot;&lt;level&gt;[</span><span class="si">{level}</span><span class="s2">]&lt;/level&gt;&quot;</span>
+        <span class="s2">&quot;&lt;cyan&gt;[</span><span class="si">{name}</span><span class="s2">:</span><span class="si">{function}</span><span class="s2">:</span><span class="si">{line}</span><span class="s2">]&lt;/cyan&gt;&quot;</span>
+        <span class="s2">&quot; &lt;level&gt;</span><span class="si">{message}</span><span class="s2">&lt;/level&gt;&quot;</span>
+    <span class="p">)</span>
+    <span class="n">colorize</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="n">serialize</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">backtrace</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="n">diagnose</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">catch</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span>
+
+<div class="viewcode-block" id="LoggerService.start">
+<a class="viewcode-back" href="../../../_api/qto_categorizer_ml.io.html#qto_categorizer_ml.io.services.LoggerService.start">[docs]</a>
+    <span class="nd">@TX</span><span class="o">.</span><span class="n">override</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">start</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">loguru</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">remove</span><span class="p">()</span>
+        <span class="n">config</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model_dump</span><span class="p">()</span>
+        <span class="c1"># use standard sinks or keep the original</span>
+        <span class="n">sinks</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;stderr&quot;</span><span class="p">:</span> <span class="n">sys</span><span class="o">.</span><span class="n">stderr</span><span class="p">,</span> <span class="s2">&quot;stdout&quot;</span><span class="p">:</span> <span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="p">}</span>
+        <span class="n">config</span><span class="p">[</span><span class="s2">&quot;sink&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">sinks</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">config</span><span class="p">[</span><span class="s2">&quot;sink&quot;</span><span class="p">],</span> <span class="n">config</span><span class="p">[</span><span class="s2">&quot;sink&quot;</span><span class="p">])</span>
+        <span class="n">loguru</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="o">**</span><span class="n">config</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="LoggerService.logger">
+<a class="viewcode-back" href="../../../_api/qto_categorizer_ml.io.html#qto_categorizer_ml.io.services.LoggerService.logger">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">logger</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">loguru</span><span class="o">.</span><span class="n">Logger</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Return the main logger.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            loguru.Logger: the main logger.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">loguru</span><span class="o">.</span><span class="n">logger</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="MlflowService">
+<a class="viewcode-back" href="../../../_api/qto_categorizer_ml.io.html#qto_categorizer_ml.io.services.MlflowService">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">MlflowService</span><span class="p">(</span><span class="n">Service</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Service for Mlflow tracking and registry.</span>
+
+<span class="sd">    Parameters:</span>
+<span class="sd">        tracking_uri (str): the URI for the Mlflow tracking server.</span>
+<span class="sd">        registry_uri (str): the URI for the Mlflow model registry.</span>
+<span class="sd">        experiment_name (str): the name of tracking experiment.</span>
+<span class="sd">        registry_name (str): the name of model registry.</span>
+<span class="sd">        autolog_disable (bool): disable autologging.</span>
+<span class="sd">        autolog_disable_for_unsupported_versions (bool): disable autologging for unsupported versions.</span>
+<span class="sd">        autolog_exclusive (bool): If True, enables exclusive autologging.</span>
+<span class="sd">        autolog_log_input_examples (bool): If True, logs input examples during autologging.</span>
+<span class="sd">        autolog_log_model_signatures (bool): If True, logs model signatures during autologging.</span>
+<span class="sd">        autolog_log_models (bool): If True, enables logging of models during autologging.</span>
+<span class="sd">        autolog_log_datasets (bool): If True, logs datasets used during autologging.</span>
+<span class="sd">        autolog_silent (bool): If True, suppresses all Mlflow warnings during autologging.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="MlflowService.RunConfig">
+<a class="viewcode-back" href="../../../_api/qto_categorizer_ml.io.html#qto_categorizer_ml.io.services.MlflowService.RunConfig">[docs]</a>
+    <span class="k">class</span><span class="w"> </span><span class="nc">RunConfig</span><span class="p">(</span><span class="n">pdt</span><span class="o">.</span><span class="n">BaseModel</span><span class="p">,</span> <span class="n">strict</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">frozen</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">extra</span><span class="o">=</span><span class="s2">&quot;forbid&quot;</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Run configuration for Mlflow tracking.</span>
+
+<span class="sd">        Parameters:</span>
+<span class="sd">            name (str): name of the run.</span>
+<span class="sd">            description (str | None): description of the run.</span>
+<span class="sd">            tags (dict[str, T.Any] | None): tags for the run.</span>
+<span class="sd">            log_system_metrics (bool | None): enable system metrics logging.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">name</span><span class="p">:</span> <span class="nb">str</span>
+        <span class="n">description</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="n">tags</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">T</span><span class="o">.</span><span class="n">Any</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="n">log_system_metrics</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span></div>
+
+
+    <span class="c1"># server uri</span>
+    <span class="n">tracking_uri</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;databricks&quot;</span>
+    <span class="n">registry_uri</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;databricks&quot;</span>
+    <span class="c1"># experiment</span>
+    <span class="n">experiment_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;/experiments/qto-categorizer/qto-categorizer-xp-tracking-ml&quot;</span>
+    <span class="c1"># reg. model</span>
+    <span class="n">registry_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;qto-categorizer-ml&quot;</span>
+    <span class="c1"># autolog</span>
+    <span class="n">autolog_disable</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">autolog_disable_for_unsupported_versions</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">autolog_exclusive</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">autolog_log_input_examples</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="n">autolog_log_model_signatures</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="n">autolog_log_models</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">autolog_log_datasets</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">autolog_silent</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+
+<div class="viewcode-block" id="MlflowService.start">
+<a class="viewcode-back" href="../../../_api/qto_categorizer_ml.io.html#qto_categorizer_ml.io.services.MlflowService.start">[docs]</a>
+    <span class="nd">@TX</span><span class="o">.</span><span class="n">override</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">start</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="c1"># server uri</span>
+        <span class="n">mlflow</span><span class="o">.</span><span class="n">set_tracking_uri</span><span class="p">(</span><span class="n">uri</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">tracking_uri</span><span class="p">)</span>
+        <span class="n">mlflow</span><span class="o">.</span><span class="n">set_registry_uri</span><span class="p">(</span><span class="n">uri</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">registry_uri</span><span class="p">)</span>
+        <span class="c1"># experiment</span>
+        <span class="n">mlflow</span><span class="o">.</span><span class="n">set_experiment</span><span class="p">(</span><span class="n">experiment_name</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">experiment_name</span><span class="p">)</span>
+        <span class="c1"># autologging</span>
+        <span class="n">mlflow</span><span class="o">.</span><span class="n">autolog</span><span class="p">(</span>
+            <span class="n">disable</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">autolog_disable</span><span class="p">,</span>
+            <span class="n">disable_for_unsupported_versions</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">autolog_disable_for_unsupported_versions</span><span class="p">,</span>
+            <span class="n">exclusive</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">autolog_exclusive</span><span class="p">,</span>
+            <span class="n">log_input_examples</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">autolog_log_input_examples</span><span class="p">,</span>
+            <span class="n">log_model_signatures</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">autolog_log_model_signatures</span><span class="p">,</span>
+            <span class="n">log_models</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">autolog_log_models</span><span class="p">,</span>
+            <span class="n">silent</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">autolog_silent</span><span class="p">,</span>
+        <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="MlflowService.client">
+<a class="viewcode-back" href="../../../_api/qto_categorizer_ml.io.html#qto_categorizer_ml.io.services.MlflowService.client">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">client</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">mt</span><span class="o">.</span><span class="n">MlflowClient</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Return a new Mlflow client.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            MlflowClient: the mlflow client.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">mt</span><span class="o">.</span><span class="n">MlflowClient</span><span class="p">(</span><span class="n">tracking_uri</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">tracking_uri</span><span class="p">,</span> <span class="n">registry_uri</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">registry_uri</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="MlflowService.run_context">
+<a class="viewcode-back" href="../../../_api/qto_categorizer_ml.io.html#qto_categorizer_ml.io.services.MlflowService.run_context">[docs]</a>
+    <span class="nd">@ctx</span><span class="o">.</span><span class="n">contextmanager</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">run_context</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">config</span><span class="p">:</span> <span class="n">RunConfig</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">T</span><span class="o">.</span><span class="n">Generator</span><span class="p">[</span><span class="n">mlflow</span><span class="o">.</span><span class="n">ActiveRun</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Yield an active Mlflow run and exit afterwards.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            config (RunConfig): run configuration.</span>
+
+<span class="sd">        Yields:</span>
+<span class="sd">            T.Generator[mlflow.ActiveRun, None, None]: active run context. Will be closed</span>
+<span class="sd">            at the end of context.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">with</span> <span class="n">mlflow</span><span class="o">.</span><span class="n">start_run</span><span class="p">(</span>
+            <span class="n">run_name</span><span class="o">=</span><span class="n">config</span><span class="o">.</span><span class="n">name</span><span class="p">,</span>
+            <span class="n">tags</span><span class="o">=</span><span class="n">config</span><span class="o">.</span><span class="n">tags</span><span class="p">,</span>
+            <span class="n">description</span><span class="o">=</span><span class="n">config</span><span class="o">.</span><span class="n">description</span><span class="p">,</span>
+            <span class="n">log_system_metrics</span><span class="o">=</span><span class="n">config</span><span class="o">.</span><span class="n">log_system_metrics</span><span class="p">,</span>
+        <span class="p">)</span> <span class="k">as</span> <span class="n">run</span><span class="p">:</span>
+            <span class="k">yield</span> <span class="n">run</span></div>
+</div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright data-corentinv.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

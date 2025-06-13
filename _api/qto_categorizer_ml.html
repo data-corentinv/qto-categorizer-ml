@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>qto_categorizer_ml package &mdash; Qto Categorizer ML 0.1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=fd3f3429" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=01f34227"></script>
+        <script src="../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="qto_categorizer_ml.core package" href="qto_categorizer_ml.core.html" />
+    <link rel="prev" title="qto_categorizer_ml" href="modules.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Qto Categorizer ML
+          </a>
+              <div class="version">
+                0.1.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../markdown.html">Markdown</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../restructured.html">RestructuredText</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">qto_categorizer_ml</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">qto_categorizer_ml package</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="qto_categorizer_ml.core.html">qto_categorizer_ml.core package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="qto_categorizer_ml.io.html">qto_categorizer_ml.io package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="qto_categorizer_ml.jobs.html">qto_categorizer_ml.jobs package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="qto_categorizer_ml.utils.html">qto_categorizer_ml.utils package</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Qto Categorizer ML</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">qto_categorizer_ml</a></li>
+      <li class="breadcrumb-item active">qto_categorizer_ml package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/_api/qto_categorizer_ml.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="qto-categorizer-ml-package">
+<h1>qto_categorizer_ml package<a class="headerlink" href="#qto-categorizer-ml-package" title="Link to this heading"></a></h1>
+<section id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Link to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="qto_categorizer_ml.core.html">qto_categorizer_ml.core package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="qto_categorizer_ml.core.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="qto_categorizer_ml.core.html#module-qto_categorizer_ml.core.metrics">qto_categorizer_ml.core.metrics module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="qto_categorizer_ml.core.html#qto_categorizer_ml.core.metrics.Metric"><code class="docutils literal notranslate"><span class="pre">Metric</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.core.html#qto_categorizer_ml.core.metrics.Metric.KIND"><code class="docutils literal notranslate"><span class="pre">Metric.KIND</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.core.html#qto_categorizer_ml.core.metrics.Metric.model_config"><code class="docutils literal notranslate"><span class="pre">Metric.model_config</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.core.html#qto_categorizer_ml.core.metrics.Metric.name"><code class="docutils literal notranslate"><span class="pre">Metric.name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.core.html#qto_categorizer_ml.core.metrics.Metric.score"><code class="docutils literal notranslate"><span class="pre">Metric.score()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.core.html#qto_categorizer_ml.core.metrics.Metric.scorer"><code class="docutils literal notranslate"><span class="pre">Metric.scorer()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="qto_categorizer_ml.core.html#qto_categorizer_ml.core.metrics.MetricKind"><code class="docutils literal notranslate"><span class="pre">MetricKind</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="qto_categorizer_ml.core.html#qto_categorizer_ml.core.metrics.SklearnMetric"><code class="docutils literal notranslate"><span class="pre">SklearnMetric</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.core.html#qto_categorizer_ml.core.metrics.SklearnMetric.KIND"><code class="docutils literal notranslate"><span class="pre">SklearnMetric.KIND</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.core.html#qto_categorizer_ml.core.metrics.SklearnMetric.greater_is_better"><code class="docutils literal notranslate"><span class="pre">SklearnMetric.greater_is_better</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.core.html#qto_categorizer_ml.core.metrics.SklearnMetric.model_config"><code class="docutils literal notranslate"><span class="pre">SklearnMetric.model_config</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.core.html#qto_categorizer_ml.core.metrics.SklearnMetric.name"><code class="docutils literal notranslate"><span class="pre">SklearnMetric.name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.core.html#qto_categorizer_ml.core.metrics.SklearnMetric.score"><code class="docutils literal notranslate"><span class="pre">SklearnMetric.score()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="qto_categorizer_ml.core.html#module-qto_categorizer_ml.core.models">qto_categorizer_ml.core.models module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="qto_categorizer_ml.core.html#qto_categorizer_ml.core.models.BaselineModel"><code class="docutils literal notranslate"><span class="pre">BaselineModel</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.core.html#qto_categorizer_ml.core.models.BaselineModel.KIND"><code class="docutils literal notranslate"><span class="pre">BaselineModel.KIND</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.core.html#qto_categorizer_ml.core.models.BaselineModel.corespondance_table_path"><code class="docutils literal notranslate"><span class="pre">BaselineModel.corespondance_table_path</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.core.html#qto_categorizer_ml.core.models.BaselineModel.fit"><code class="docutils literal notranslate"><span class="pre">BaselineModel.fit()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.core.html#qto_categorizer_ml.core.models.BaselineModel.le"><code class="docutils literal notranslate"><span class="pre">BaselineModel.le</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.core.html#qto_categorizer_ml.core.models.BaselineModel.model_config"><code class="docutils literal notranslate"><span class="pre">BaselineModel.model_config</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.core.html#qto_categorizer_ml.core.models.BaselineModel.pipeline"><code class="docutils literal notranslate"><span class="pre">BaselineModel.pipeline</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.core.html#qto_categorizer_ml.core.models.BaselineModel.predict"><code class="docutils literal notranslate"><span class="pre">BaselineModel.predict()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="qto_categorizer_ml.core.html#qto_categorizer_ml.core.models.Model"><code class="docutils literal notranslate"><span class="pre">Model</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.core.html#qto_categorizer_ml.core.models.Model.KIND"><code class="docutils literal notranslate"><span class="pre">Model.KIND</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.core.html#qto_categorizer_ml.core.models.Model.fit"><code class="docutils literal notranslate"><span class="pre">Model.fit()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.core.html#qto_categorizer_ml.core.models.Model.get_internal_model"><code class="docutils literal notranslate"><span class="pre">Model.get_internal_model()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.core.html#qto_categorizer_ml.core.models.Model.get_params"><code class="docutils literal notranslate"><span class="pre">Model.get_params()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.core.html#qto_categorizer_ml.core.models.Model.model_config"><code class="docutils literal notranslate"><span class="pre">Model.model_config</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.core.html#qto_categorizer_ml.core.models.Model.predict"><code class="docutils literal notranslate"><span class="pre">Model.predict()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.core.html#qto_categorizer_ml.core.models.Model.set_params"><code class="docutils literal notranslate"><span class="pre">Model.set_params()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="qto_categorizer_ml.core.html#qto_categorizer_ml.core.models.MostFrequentCategoryByMerchant"><code class="docutils literal notranslate"><span class="pre">MostFrequentCategoryByMerchant</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.core.html#qto_categorizer_ml.core.models.MostFrequentCategoryByMerchant.fit"><code class="docutils literal notranslate"><span class="pre">MostFrequentCategoryByMerchant.fit()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.core.html#qto_categorizer_ml.core.models.MostFrequentCategoryByMerchant.merchant_to_category_"><code class="docutils literal notranslate"><span class="pre">MostFrequentCategoryByMerchant.merchant_to_category_</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.core.html#qto_categorizer_ml.core.models.MostFrequentCategoryByMerchant.transform"><code class="docutils literal notranslate"><span class="pre">MostFrequentCategoryByMerchant.transform()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="qto_categorizer_ml.core.html#qto_categorizer_ml.core.models.SKLearnPipelineModel"><code class="docutils literal notranslate"><span class="pre">SKLearnPipelineModel</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.core.html#qto_categorizer_ml.core.models.SKLearnPipelineModel.KIND"><code class="docutils literal notranslate"><span class="pre">SKLearnPipelineModel.KIND</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.core.html#qto_categorizer_ml.core.models.SKLearnPipelineModel.fit"><code class="docutils literal notranslate"><span class="pre">SKLearnPipelineModel.fit()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.core.html#qto_categorizer_ml.core.models.SKLearnPipelineModel.le"><code class="docutils literal notranslate"><span class="pre">SKLearnPipelineModel.le</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.core.html#qto_categorizer_ml.core.models.SKLearnPipelineModel.max_depth"><code class="docutils literal notranslate"><span class="pre">SKLearnPipelineModel.max_depth</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.core.html#qto_categorizer_ml.core.models.SKLearnPipelineModel.max_features_desc"><code class="docutils literal notranslate"><span class="pre">SKLearnPipelineModel.max_features_desc</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.core.html#qto_categorizer_ml.core.models.SKLearnPipelineModel.max_features_merch"><code class="docutils literal notranslate"><span class="pre">SKLearnPipelineModel.max_features_merch</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.core.html#qto_categorizer_ml.core.models.SKLearnPipelineModel.model_config"><code class="docutils literal notranslate"><span class="pre">SKLearnPipelineModel.model_config</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.core.html#qto_categorizer_ml.core.models.SKLearnPipelineModel.n_components_desc"><code class="docutils literal notranslate"><span class="pre">SKLearnPipelineModel.n_components_desc</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.core.html#qto_categorizer_ml.core.models.SKLearnPipelineModel.n_components_merch"><code class="docutils literal notranslate"><span class="pre">SKLearnPipelineModel.n_components_merch</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.core.html#qto_categorizer_ml.core.models.SKLearnPipelineModel.n_estimators"><code class="docutils literal notranslate"><span class="pre">SKLearnPipelineModel.n_estimators</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.core.html#qto_categorizer_ml.core.models.SKLearnPipelineModel.n_jobs"><code class="docutils literal notranslate"><span class="pre">SKLearnPipelineModel.n_jobs</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.core.html#qto_categorizer_ml.core.models.SKLearnPipelineModel.pipeline"><code class="docutils literal notranslate"><span class="pre">SKLearnPipelineModel.pipeline</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.core.html#qto_categorizer_ml.core.models.SKLearnPipelineModel.predict"><code class="docutils literal notranslate"><span class="pre">SKLearnPipelineModel.predict()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.core.html#qto_categorizer_ml.core.models.SKLearnPipelineModel.random_state"><code class="docutils literal notranslate"><span class="pre">SKLearnPipelineModel.random_state</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="qto_categorizer_ml.core.html#module-qto_categorizer_ml.core.schemas">qto_categorizer_ml.core.schemas module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="qto_categorizer_ml.core.html#qto_categorizer_ml.core.schemas.FeatInputsSchema"><code class="docutils literal notranslate"><span class="pre">FeatInputsSchema</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.core.html#qto_categorizer_ml.core.schemas.FeatInputsSchema.AMOUNT"><code class="docutils literal notranslate"><span class="pre">FeatInputsSchema.AMOUNT</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.core.html#qto_categorizer_ml.core.schemas.FeatInputsSchema.Config"><code class="docutils literal notranslate"><span class="pre">FeatInputsSchema.Config</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.core.html#qto_categorizer_ml.core.schemas.FeatInputsSchema.DESCRIPTION"><code class="docutils literal notranslate"><span class="pre">FeatInputsSchema.DESCRIPTION</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.core.html#qto_categorizer_ml.core.schemas.FeatInputsSchema.MERCHANT_NAME"><code class="docutils literal notranslate"><span class="pre">FeatInputsSchema.MERCHANT_NAME</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.core.html#qto_categorizer_ml.core.schemas.FeatInputsSchema.TYPE_OF_PAYMENT"><code class="docutils literal notranslate"><span class="pre">FeatInputsSchema.TYPE_OF_PAYMENT</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="qto_categorizer_ml.core.html#qto_categorizer_ml.core.schemas.InputsSchema"><code class="docutils literal notranslate"><span class="pre">InputsSchema</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.core.html#qto_categorizer_ml.core.schemas.InputsSchema.AMOUNT"><code class="docutils literal notranslate"><span class="pre">InputsSchema.AMOUNT</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.core.html#qto_categorizer_ml.core.schemas.InputsSchema.CATEGORY"><code class="docutils literal notranslate"><span class="pre">InputsSchema.CATEGORY</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.core.html#qto_categorizer_ml.core.schemas.InputsSchema.Config"><code class="docutils literal notranslate"><span class="pre">InputsSchema.Config</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.core.html#qto_categorizer_ml.core.schemas.InputsSchema.DATE_EMITTED"><code class="docutils literal notranslate"><span class="pre">InputsSchema.DATE_EMITTED</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.core.html#qto_categorizer_ml.core.schemas.InputsSchema.DESCRIPTION"><code class="docutils literal notranslate"><span class="pre">InputsSchema.DESCRIPTION</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.core.html#qto_categorizer_ml.core.schemas.InputsSchema.MERCHANT_NAME"><code class="docutils literal notranslate"><span class="pre">InputsSchema.MERCHANT_NAME</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.core.html#qto_categorizer_ml.core.schemas.InputsSchema.SIDE"><code class="docutils literal notranslate"><span class="pre">InputsSchema.SIDE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.core.html#qto_categorizer_ml.core.schemas.InputsSchema.TRANSACTION_ID"><code class="docutils literal notranslate"><span class="pre">InputsSchema.TRANSACTION_ID</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.core.html#qto_categorizer_ml.core.schemas.InputsSchema.TYPE_OF_PAYMENT"><code class="docutils literal notranslate"><span class="pre">InputsSchema.TYPE_OF_PAYMENT</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="qto_categorizer_ml.core.html#qto_categorizer_ml.core.schemas.OutputsSchema"><code class="docutils literal notranslate"><span class="pre">OutputsSchema</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.core.html#qto_categorizer_ml.core.schemas.OutputsSchema.Config"><code class="docutils literal notranslate"><span class="pre">OutputsSchema.Config</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.core.html#qto_categorizer_ml.core.schemas.OutputsSchema.prediction"><code class="docutils literal notranslate"><span class="pre">OutputsSchema.prediction</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="qto_categorizer_ml.core.html#qto_categorizer_ml.core.schemas.Schema"><code class="docutils literal notranslate"><span class="pre">Schema</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.core.html#qto_categorizer_ml.core.schemas.Schema.Config"><code class="docutils literal notranslate"><span class="pre">Schema.Config</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.core.html#qto_categorizer_ml.core.schemas.Schema.check"><code class="docutils literal notranslate"><span class="pre">Schema.check()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="qto_categorizer_ml.core.html#qto_categorizer_ml.core.schemas.TargetsSchema"><code class="docutils literal notranslate"><span class="pre">TargetsSchema</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.core.html#qto_categorizer_ml.core.schemas.TargetsSchema.CATEGORY"><code class="docutils literal notranslate"><span class="pre">TargetsSchema.CATEGORY</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.core.html#qto_categorizer_ml.core.schemas.TargetsSchema.Config"><code class="docutils literal notranslate"><span class="pre">TargetsSchema.Config</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="qto_categorizer_ml.core.html#module-qto_categorizer_ml.core">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="qto_categorizer_ml.io.html">qto_categorizer_ml.io package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="qto_categorizer_ml.io.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="qto_categorizer_ml.io.html#module-qto_categorizer_ml.io.configs">qto_categorizer_ml.io.configs module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="qto_categorizer_ml.io.html#qto_categorizer_ml.io.configs.merge_configs"><code class="docutils literal notranslate"><span class="pre">merge_configs()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="qto_categorizer_ml.io.html#qto_categorizer_ml.io.configs.parse_file"><code class="docutils literal notranslate"><span class="pre">parse_file()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="qto_categorizer_ml.io.html#qto_categorizer_ml.io.configs.parse_string"><code class="docutils literal notranslate"><span class="pre">parse_string()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="qto_categorizer_ml.io.html#qto_categorizer_ml.io.configs.to_object"><code class="docutils literal notranslate"><span class="pre">to_object()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="qto_categorizer_ml.io.html#module-qto_categorizer_ml.io.datasets">qto_categorizer_ml.io.datasets module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="qto_categorizer_ml.io.html#qto_categorizer_ml.io.datasets.CSVReader"><code class="docutils literal notranslate"><span class="pre">CSVReader</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.io.html#qto_categorizer_ml.io.datasets.CSVReader.KIND"><code class="docutils literal notranslate"><span class="pre">CSVReader.KIND</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.io.html#qto_categorizer_ml.io.datasets.CSVReader.dtypes"><code class="docutils literal notranslate"><span class="pre">CSVReader.dtypes</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.io.html#qto_categorizer_ml.io.datasets.CSVReader.model_config"><code class="docutils literal notranslate"><span class="pre">CSVReader.model_config</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.io.html#qto_categorizer_ml.io.datasets.CSVReader.parse_dates"><code class="docutils literal notranslate"><span class="pre">CSVReader.parse_dates</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.io.html#qto_categorizer_ml.io.datasets.CSVReader.path"><code class="docutils literal notranslate"><span class="pre">CSVReader.path</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.io.html#qto_categorizer_ml.io.datasets.CSVReader.read"><code class="docutils literal notranslate"><span class="pre">CSVReader.read()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.io.html#qto_categorizer_ml.io.datasets.CSVReader.sep"><code class="docutils literal notranslate"><span class="pre">CSVReader.sep</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="qto_categorizer_ml.io.html#qto_categorizer_ml.io.datasets.CSVWriter"><code class="docutils literal notranslate"><span class="pre">CSVWriter</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.io.html#qto_categorizer_ml.io.datasets.CSVWriter.KIND"><code class="docutils literal notranslate"><span class="pre">CSVWriter.KIND</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.io.html#qto_categorizer_ml.io.datasets.CSVWriter.header"><code class="docutils literal notranslate"><span class="pre">CSVWriter.header</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.io.html#qto_categorizer_ml.io.datasets.CSVWriter.index"><code class="docutils literal notranslate"><span class="pre">CSVWriter.index</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.io.html#qto_categorizer_ml.io.datasets.CSVWriter.model_config"><code class="docutils literal notranslate"><span class="pre">CSVWriter.model_config</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.io.html#qto_categorizer_ml.io.datasets.CSVWriter.path"><code class="docutils literal notranslate"><span class="pre">CSVWriter.path</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.io.html#qto_categorizer_ml.io.datasets.CSVWriter.write"><code class="docutils literal notranslate"><span class="pre">CSVWriter.write()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="qto_categorizer_ml.io.html#qto_categorizer_ml.io.datasets.DeltalakeReader"><code class="docutils literal notranslate"><span class="pre">DeltalakeReader</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.io.html#qto_categorizer_ml.io.datasets.DeltalakeReader.KIND"><code class="docutils literal notranslate"><span class="pre">DeltalakeReader.KIND</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.io.html#qto_categorizer_ml.io.datasets.DeltalakeReader.model_config"><code class="docutils literal notranslate"><span class="pre">DeltalakeReader.model_config</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.io.html#qto_categorizer_ml.io.datasets.DeltalakeReader.path"><code class="docutils literal notranslate"><span class="pre">DeltalakeReader.path</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.io.html#qto_categorizer_ml.io.datasets.DeltalakeReader.read"><code class="docutils literal notranslate"><span class="pre">DeltalakeReader.read()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="qto_categorizer_ml.io.html#qto_categorizer_ml.io.datasets.DeltalakeWriter"><code class="docutils literal notranslate"><span class="pre">DeltalakeWriter</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.io.html#qto_categorizer_ml.io.datasets.DeltalakeWriter.KIND"><code class="docutils literal notranslate"><span class="pre">DeltalakeWriter.KIND</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.io.html#qto_categorizer_ml.io.datasets.DeltalakeWriter.model_config"><code class="docutils literal notranslate"><span class="pre">DeltalakeWriter.model_config</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.io.html#qto_categorizer_ml.io.datasets.DeltalakeWriter.path"><code class="docutils literal notranslate"><span class="pre">DeltalakeWriter.path</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.io.html#qto_categorizer_ml.io.datasets.DeltalakeWriter.write"><code class="docutils literal notranslate"><span class="pre">DeltalakeWriter.write()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="qto_categorizer_ml.io.html#qto_categorizer_ml.io.datasets.GlueReader"><code class="docutils literal notranslate"><span class="pre">GlueReader</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.io.html#qto_categorizer_ml.io.datasets.GlueReader.KIND"><code class="docutils literal notranslate"><span class="pre">GlueReader.KIND</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.io.html#qto_categorizer_ml.io.datasets.GlueReader.catalog_id"><code class="docutils literal notranslate"><span class="pre">GlueReader.catalog_id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.io.html#qto_categorizer_ml.io.datasets.GlueReader.database"><code class="docutils literal notranslate"><span class="pre">GlueReader.database</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.io.html#qto_categorizer_ml.io.datasets.GlueReader.model_config"><code class="docutils literal notranslate"><span class="pre">GlueReader.model_config</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.io.html#qto_categorizer_ml.io.datasets.GlueReader.read"><code class="docutils literal notranslate"><span class="pre">GlueReader.read()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.io.html#qto_categorizer_ml.io.datasets.GlueReader.table"><code class="docutils literal notranslate"><span class="pre">GlueReader.table</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="qto_categorizer_ml.io.html#qto_categorizer_ml.io.datasets.GlueWriter"><code class="docutils literal notranslate"><span class="pre">GlueWriter</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.io.html#qto_categorizer_ml.io.datasets.GlueWriter.KIND"><code class="docutils literal notranslate"><span class="pre">GlueWriter.KIND</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.io.html#qto_categorizer_ml.io.datasets.GlueWriter.catalog_id"><code class="docutils literal notranslate"><span class="pre">GlueWriter.catalog_id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.io.html#qto_categorizer_ml.io.datasets.GlueWriter.database"><code class="docutils literal notranslate"><span class="pre">GlueWriter.database</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.io.html#qto_categorizer_ml.io.datasets.GlueWriter.glue_table_settings"><code class="docutils literal notranslate"><span class="pre">GlueWriter.glue_table_settings</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.io.html#qto_categorizer_ml.io.datasets.GlueWriter.mode"><code class="docutils literal notranslate"><span class="pre">GlueWriter.mode</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.io.html#qto_categorizer_ml.io.datasets.GlueWriter.model_config"><code class="docutils literal notranslate"><span class="pre">GlueWriter.model_config</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.io.html#qto_categorizer_ml.io.datasets.GlueWriter.path"><code class="docutils literal notranslate"><span class="pre">GlueWriter.path</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.io.html#qto_categorizer_ml.io.datasets.GlueWriter.table"><code class="docutils literal notranslate"><span class="pre">GlueWriter.table</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.io.html#qto_categorizer_ml.io.datasets.GlueWriter.write"><code class="docutils literal notranslate"><span class="pre">GlueWriter.write()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="qto_categorizer_ml.io.html#qto_categorizer_ml.io.datasets.ParquetReader"><code class="docutils literal notranslate"><span class="pre">ParquetReader</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.io.html#qto_categorizer_ml.io.datasets.ParquetReader.KIND"><code class="docutils literal notranslate"><span class="pre">ParquetReader.KIND</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.io.html#qto_categorizer_ml.io.datasets.ParquetReader.engine"><code class="docutils literal notranslate"><span class="pre">ParquetReader.engine</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.io.html#qto_categorizer_ml.io.datasets.ParquetReader.model_config"><code class="docutils literal notranslate"><span class="pre">ParquetReader.model_config</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.io.html#qto_categorizer_ml.io.datasets.ParquetReader.path"><code class="docutils literal notranslate"><span class="pre">ParquetReader.path</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.io.html#qto_categorizer_ml.io.datasets.ParquetReader.read"><code class="docutils literal notranslate"><span class="pre">ParquetReader.read()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="qto_categorizer_ml.io.html#qto_categorizer_ml.io.datasets.ParquetWriter"><code class="docutils literal notranslate"><span class="pre">ParquetWriter</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.io.html#qto_categorizer_ml.io.datasets.ParquetWriter.KIND"><code class="docutils literal notranslate"><span class="pre">ParquetWriter.KIND</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.io.html#qto_categorizer_ml.io.datasets.ParquetWriter.engine"><code class="docutils literal notranslate"><span class="pre">ParquetWriter.engine</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.io.html#qto_categorizer_ml.io.datasets.ParquetWriter.model_config"><code class="docutils literal notranslate"><span class="pre">ParquetWriter.model_config</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.io.html#qto_categorizer_ml.io.datasets.ParquetWriter.path"><code class="docutils literal notranslate"><span class="pre">ParquetWriter.path</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.io.html#qto_categorizer_ml.io.datasets.ParquetWriter.write"><code class="docutils literal notranslate"><span class="pre">ParquetWriter.write()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="qto_categorizer_ml.io.html#qto_categorizer_ml.io.datasets.Reader"><code class="docutils literal notranslate"><span class="pre">Reader</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.io.html#qto_categorizer_ml.io.datasets.Reader.KIND"><code class="docutils literal notranslate"><span class="pre">Reader.KIND</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.io.html#qto_categorizer_ml.io.datasets.Reader.model_config"><code class="docutils literal notranslate"><span class="pre">Reader.model_config</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.io.html#qto_categorizer_ml.io.datasets.Reader.read"><code class="docutils literal notranslate"><span class="pre">Reader.read()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="qto_categorizer_ml.io.html#qto_categorizer_ml.io.datasets.Writer"><code class="docutils literal notranslate"><span class="pre">Writer</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.io.html#qto_categorizer_ml.io.datasets.Writer.KIND"><code class="docutils literal notranslate"><span class="pre">Writer.KIND</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.io.html#qto_categorizer_ml.io.datasets.Writer.model_config"><code class="docutils literal notranslate"><span class="pre">Writer.model_config</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.io.html#qto_categorizer_ml.io.datasets.Writer.write"><code class="docutils literal notranslate"><span class="pre">Writer.write()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="qto_categorizer_ml.io.html#module-qto_categorizer_ml.io.registries">qto_categorizer_ml.io.registries module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="qto_categorizer_ml.io.html#qto_categorizer_ml.io.registries.BuiltinLoader"><code class="docutils literal notranslate"><span class="pre">BuiltinLoader</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.io.html#qto_categorizer_ml.io.registries.BuiltinLoader.Adapter"><code class="docutils literal notranslate"><span class="pre">BuiltinLoader.Adapter</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.io.html#qto_categorizer_ml.io.registries.BuiltinLoader.KIND"><code class="docutils literal notranslate"><span class="pre">BuiltinLoader.KIND</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.io.html#qto_categorizer_ml.io.registries.BuiltinLoader.load"><code class="docutils literal notranslate"><span class="pre">BuiltinLoader.load()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.io.html#qto_categorizer_ml.io.registries.BuiltinLoader.model_config"><code class="docutils literal notranslate"><span class="pre">BuiltinLoader.model_config</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="qto_categorizer_ml.io.html#qto_categorizer_ml.io.registries.BuiltinSaver"><code class="docutils literal notranslate"><span class="pre">BuiltinSaver</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.io.html#qto_categorizer_ml.io.registries.BuiltinSaver.KIND"><code class="docutils literal notranslate"><span class="pre">BuiltinSaver.KIND</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.io.html#qto_categorizer_ml.io.registries.BuiltinSaver.flavor"><code class="docutils literal notranslate"><span class="pre">BuiltinSaver.flavor</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.io.html#qto_categorizer_ml.io.registries.BuiltinSaver.model_config"><code class="docutils literal notranslate"><span class="pre">BuiltinSaver.model_config</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.io.html#qto_categorizer_ml.io.registries.BuiltinSaver.save"><code class="docutils literal notranslate"><span class="pre">BuiltinSaver.save()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="qto_categorizer_ml.io.html#qto_categorizer_ml.io.registries.CustomLoader"><code class="docutils literal notranslate"><span class="pre">CustomLoader</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.io.html#qto_categorizer_ml.io.registries.CustomLoader.Adapter"><code class="docutils literal notranslate"><span class="pre">CustomLoader.Adapter</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.io.html#qto_categorizer_ml.io.registries.CustomLoader.KIND"><code class="docutils literal notranslate"><span class="pre">CustomLoader.KIND</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.io.html#qto_categorizer_ml.io.registries.CustomLoader.load"><code class="docutils literal notranslate"><span class="pre">CustomLoader.load()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.io.html#qto_categorizer_ml.io.registries.CustomLoader.model_config"><code class="docutils literal notranslate"><span class="pre">CustomLoader.model_config</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="qto_categorizer_ml.io.html#qto_categorizer_ml.io.registries.CustomSaver"><code class="docutils literal notranslate"><span class="pre">CustomSaver</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.io.html#qto_categorizer_ml.io.registries.CustomSaver.Adapter"><code class="docutils literal notranslate"><span class="pre">CustomSaver.Adapter</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.io.html#qto_categorizer_ml.io.registries.CustomSaver.KIND"><code class="docutils literal notranslate"><span class="pre">CustomSaver.KIND</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.io.html#qto_categorizer_ml.io.registries.CustomSaver.model_config"><code class="docutils literal notranslate"><span class="pre">CustomSaver.model_config</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.io.html#qto_categorizer_ml.io.registries.CustomSaver.save"><code class="docutils literal notranslate"><span class="pre">CustomSaver.save()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="qto_categorizer_ml.io.html#qto_categorizer_ml.io.registries.Loader"><code class="docutils literal notranslate"><span class="pre">Loader</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.io.html#qto_categorizer_ml.io.registries.Loader.Adapter"><code class="docutils literal notranslate"><span class="pre">Loader.Adapter</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.io.html#qto_categorizer_ml.io.registries.Loader.KIND"><code class="docutils literal notranslate"><span class="pre">Loader.KIND</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.io.html#qto_categorizer_ml.io.registries.Loader.load"><code class="docutils literal notranslate"><span class="pre">Loader.load()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.io.html#qto_categorizer_ml.io.registries.Loader.model_config"><code class="docutils literal notranslate"><span class="pre">Loader.model_config</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="qto_categorizer_ml.io.html#qto_categorizer_ml.io.registries.MlflowRegister"><code class="docutils literal notranslate"><span class="pre">MlflowRegister</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.io.html#qto_categorizer_ml.io.registries.MlflowRegister.KIND"><code class="docutils literal notranslate"><span class="pre">MlflowRegister.KIND</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.io.html#qto_categorizer_ml.io.registries.MlflowRegister.model_config"><code class="docutils literal notranslate"><span class="pre">MlflowRegister.model_config</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.io.html#qto_categorizer_ml.io.registries.MlflowRegister.register"><code class="docutils literal notranslate"><span class="pre">MlflowRegister.register()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="qto_categorizer_ml.io.html#qto_categorizer_ml.io.registries.Register"><code class="docutils literal notranslate"><span class="pre">Register</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.io.html#qto_categorizer_ml.io.registries.Register.KIND"><code class="docutils literal notranslate"><span class="pre">Register.KIND</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.io.html#qto_categorizer_ml.io.registries.Register.model_config"><code class="docutils literal notranslate"><span class="pre">Register.model_config</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.io.html#qto_categorizer_ml.io.registries.Register.register"><code class="docutils literal notranslate"><span class="pre">Register.register()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.io.html#qto_categorizer_ml.io.registries.Register.tags"><code class="docutils literal notranslate"><span class="pre">Register.tags</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="qto_categorizer_ml.io.html#qto_categorizer_ml.io.registries.RegisterKind"><code class="docutils literal notranslate"><span class="pre">RegisterKind</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="qto_categorizer_ml.io.html#qto_categorizer_ml.io.registries.Saver"><code class="docutils literal notranslate"><span class="pre">Saver</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.io.html#qto_categorizer_ml.io.registries.Saver.KIND"><code class="docutils literal notranslate"><span class="pre">Saver.KIND</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.io.html#qto_categorizer_ml.io.registries.Saver.model_config"><code class="docutils literal notranslate"><span class="pre">Saver.model_config</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.io.html#qto_categorizer_ml.io.registries.Saver.path"><code class="docutils literal notranslate"><span class="pre">Saver.path</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.io.html#qto_categorizer_ml.io.registries.Saver.save"><code class="docutils literal notranslate"><span class="pre">Saver.save()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="qto_categorizer_ml.io.html#qto_categorizer_ml.io.registries.uri_for_model"><code class="docutils literal notranslate"><span class="pre">uri_for_model()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="qto_categorizer_ml.io.html#module-qto_categorizer_ml.io.services">qto_categorizer_ml.io.services module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="qto_categorizer_ml.io.html#qto_categorizer_ml.io.services.AWSService"><code class="docutils literal notranslate"><span class="pre">AWSService</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.io.html#qto_categorizer_ml.io.services.AWSService.model_config"><code class="docutils literal notranslate"><span class="pre">AWSService.model_config</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.io.html#qto_categorizer_ml.io.services.AWSService.profile_name"><code class="docutils literal notranslate"><span class="pre">AWSService.profile_name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.io.html#qto_categorizer_ml.io.services.AWSService.region_name"><code class="docutils literal notranslate"><span class="pre">AWSService.region_name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.io.html#qto_categorizer_ml.io.services.AWSService.session"><code class="docutils literal notranslate"><span class="pre">AWSService.session()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.io.html#qto_categorizer_ml.io.services.AWSService.start"><code class="docutils literal notranslate"><span class="pre">AWSService.start()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="qto_categorizer_ml.io.html#qto_categorizer_ml.io.services.LoggerService"><code class="docutils literal notranslate"><span class="pre">LoggerService</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.io.html#qto_categorizer_ml.io.services.LoggerService.backtrace"><code class="docutils literal notranslate"><span class="pre">LoggerService.backtrace</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.io.html#qto_categorizer_ml.io.services.LoggerService.catch"><code class="docutils literal notranslate"><span class="pre">LoggerService.catch</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.io.html#qto_categorizer_ml.io.services.LoggerService.colorize"><code class="docutils literal notranslate"><span class="pre">LoggerService.colorize</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.io.html#qto_categorizer_ml.io.services.LoggerService.diagnose"><code class="docutils literal notranslate"><span class="pre">LoggerService.diagnose</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.io.html#qto_categorizer_ml.io.services.LoggerService.format"><code class="docutils literal notranslate"><span class="pre">LoggerService.format</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.io.html#qto_categorizer_ml.io.services.LoggerService.level"><code class="docutils literal notranslate"><span class="pre">LoggerService.level</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.io.html#qto_categorizer_ml.io.services.LoggerService.logger"><code class="docutils literal notranslate"><span class="pre">LoggerService.logger()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.io.html#qto_categorizer_ml.io.services.LoggerService.model_config"><code class="docutils literal notranslate"><span class="pre">LoggerService.model_config</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.io.html#qto_categorizer_ml.io.services.LoggerService.serialize"><code class="docutils literal notranslate"><span class="pre">LoggerService.serialize</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.io.html#qto_categorizer_ml.io.services.LoggerService.sink"><code class="docutils literal notranslate"><span class="pre">LoggerService.sink</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.io.html#qto_categorizer_ml.io.services.LoggerService.start"><code class="docutils literal notranslate"><span class="pre">LoggerService.start()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="qto_categorizer_ml.io.html#qto_categorizer_ml.io.services.MlflowService"><code class="docutils literal notranslate"><span class="pre">MlflowService</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.io.html#qto_categorizer_ml.io.services.MlflowService.RunConfig"><code class="docutils literal notranslate"><span class="pre">MlflowService.RunConfig</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.io.html#qto_categorizer_ml.io.services.MlflowService.autolog_disable"><code class="docutils literal notranslate"><span class="pre">MlflowService.autolog_disable</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.io.html#qto_categorizer_ml.io.services.MlflowService.autolog_disable_for_unsupported_versions"><code class="docutils literal notranslate"><span class="pre">MlflowService.autolog_disable_for_unsupported_versions</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.io.html#qto_categorizer_ml.io.services.MlflowService.autolog_exclusive"><code class="docutils literal notranslate"><span class="pre">MlflowService.autolog_exclusive</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.io.html#qto_categorizer_ml.io.services.MlflowService.autolog_log_datasets"><code class="docutils literal notranslate"><span class="pre">MlflowService.autolog_log_datasets</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.io.html#qto_categorizer_ml.io.services.MlflowService.autolog_log_input_examples"><code class="docutils literal notranslate"><span class="pre">MlflowService.autolog_log_input_examples</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.io.html#qto_categorizer_ml.io.services.MlflowService.autolog_log_model_signatures"><code class="docutils literal notranslate"><span class="pre">MlflowService.autolog_log_model_signatures</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.io.html#qto_categorizer_ml.io.services.MlflowService.autolog_log_models"><code class="docutils literal notranslate"><span class="pre">MlflowService.autolog_log_models</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.io.html#qto_categorizer_ml.io.services.MlflowService.autolog_silent"><code class="docutils literal notranslate"><span class="pre">MlflowService.autolog_silent</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.io.html#qto_categorizer_ml.io.services.MlflowService.client"><code class="docutils literal notranslate"><span class="pre">MlflowService.client()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.io.html#qto_categorizer_ml.io.services.MlflowService.experiment_name"><code class="docutils literal notranslate"><span class="pre">MlflowService.experiment_name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.io.html#qto_categorizer_ml.io.services.MlflowService.model_config"><code class="docutils literal notranslate"><span class="pre">MlflowService.model_config</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.io.html#qto_categorizer_ml.io.services.MlflowService.registry_name"><code class="docutils literal notranslate"><span class="pre">MlflowService.registry_name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.io.html#qto_categorizer_ml.io.services.MlflowService.registry_uri"><code class="docutils literal notranslate"><span class="pre">MlflowService.registry_uri</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.io.html#qto_categorizer_ml.io.services.MlflowService.run_context"><code class="docutils literal notranslate"><span class="pre">MlflowService.run_context()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.io.html#qto_categorizer_ml.io.services.MlflowService.start"><code class="docutils literal notranslate"><span class="pre">MlflowService.start()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.io.html#qto_categorizer_ml.io.services.MlflowService.tracking_uri"><code class="docutils literal notranslate"><span class="pre">MlflowService.tracking_uri</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="qto_categorizer_ml.io.html#qto_categorizer_ml.io.services.Service"><code class="docutils literal notranslate"><span class="pre">Service</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.io.html#qto_categorizer_ml.io.services.Service.model_config"><code class="docutils literal notranslate"><span class="pre">Service.model_config</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.io.html#qto_categorizer_ml.io.services.Service.start"><code class="docutils literal notranslate"><span class="pre">Service.start()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.io.html#qto_categorizer_ml.io.services.Service.stop"><code class="docutils literal notranslate"><span class="pre">Service.stop()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="qto_categorizer_ml.io.html#module-qto_categorizer_ml.io">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="qto_categorizer_ml.jobs.html">qto_categorizer_ml.jobs package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="qto_categorizer_ml.jobs.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="qto_categorizer_ml.jobs.html#module-qto_categorizer_ml.jobs.base">qto_categorizer_ml.jobs.base module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="qto_categorizer_ml.jobs.html#qto_categorizer_ml.jobs.base.Job"><code class="docutils literal notranslate"><span class="pre">Job</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.jobs.html#qto_categorizer_ml.jobs.base.Job.KIND"><code class="docutils literal notranslate"><span class="pre">Job.KIND</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.jobs.html#qto_categorizer_ml.jobs.base.Job.aws_service"><code class="docutils literal notranslate"><span class="pre">Job.aws_service</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.jobs.html#qto_categorizer_ml.jobs.base.Job.logger_service"><code class="docutils literal notranslate"><span class="pre">Job.logger_service</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.jobs.html#qto_categorizer_ml.jobs.base.Job.mlflow_service"><code class="docutils literal notranslate"><span class="pre">Job.mlflow_service</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.jobs.html#qto_categorizer_ml.jobs.base.Job.model_config"><code class="docutils literal notranslate"><span class="pre">Job.model_config</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.jobs.html#qto_categorizer_ml.jobs.base.Job.run"><code class="docutils literal notranslate"><span class="pre">Job.run()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="qto_categorizer_ml.jobs.html#module-qto_categorizer_ml.jobs.inference">qto_categorizer_ml.jobs.inference module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="qto_categorizer_ml.jobs.html#qto_categorizer_ml.jobs.inference.InferenceJob"><code class="docutils literal notranslate"><span class="pre">InferenceJob</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.jobs.html#qto_categorizer_ml.jobs.inference.InferenceJob.KIND"><code class="docutils literal notranslate"><span class="pre">InferenceJob.KIND</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.jobs.html#qto_categorizer_ml.jobs.inference.InferenceJob.inputs"><code class="docutils literal notranslate"><span class="pre">InferenceJob.inputs</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.jobs.html#qto_categorizer_ml.jobs.inference.InferenceJob.loader"><code class="docutils literal notranslate"><span class="pre">InferenceJob.loader</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.jobs.html#qto_categorizer_ml.jobs.inference.InferenceJob.model_config"><code class="docutils literal notranslate"><span class="pre">InferenceJob.model_config</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.jobs.html#qto_categorizer_ml.jobs.inference.InferenceJob.outputs"><code class="docutils literal notranslate"><span class="pre">InferenceJob.outputs</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.jobs.html#qto_categorizer_ml.jobs.inference.InferenceJob.run"><code class="docutils literal notranslate"><span class="pre">InferenceJob.run()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.jobs.html#qto_categorizer_ml.jobs.inference.InferenceJob.version_or_stage"><code class="docutils literal notranslate"><span class="pre">InferenceJob.version_or_stage</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="qto_categorizer_ml.jobs.html#module-qto_categorizer_ml.jobs.training">qto_categorizer_ml.jobs.training module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="qto_categorizer_ml.jobs.html#qto_categorizer_ml.jobs.training.TrainingJob"><code class="docutils literal notranslate"><span class="pre">TrainingJob</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.jobs.html#qto_categorizer_ml.jobs.training.TrainingJob.KIND"><code class="docutils literal notranslate"><span class="pre">TrainingJob.KIND</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.jobs.html#qto_categorizer_ml.jobs.training.TrainingJob.inputs"><code class="docutils literal notranslate"><span class="pre">TrainingJob.inputs</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.jobs.html#qto_categorizer_ml.jobs.training.TrainingJob.model"><code class="docutils literal notranslate"><span class="pre">TrainingJob.model</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.jobs.html#qto_categorizer_ml.jobs.training.TrainingJob.model_config"><code class="docutils literal notranslate"><span class="pre">TrainingJob.model_config</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.jobs.html#qto_categorizer_ml.jobs.training.TrainingJob.registry"><code class="docutils literal notranslate"><span class="pre">TrainingJob.registry</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.jobs.html#qto_categorizer_ml.jobs.training.TrainingJob.run"><code class="docutils literal notranslate"><span class="pre">TrainingJob.run()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.jobs.html#qto_categorizer_ml.jobs.training.TrainingJob.run_config"><code class="docutils literal notranslate"><span class="pre">TrainingJob.run_config</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.jobs.html#qto_categorizer_ml.jobs.training.TrainingJob.saver"><code class="docutils literal notranslate"><span class="pre">TrainingJob.saver</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.jobs.html#qto_categorizer_ml.jobs.training.TrainingJob.scorers"><code class="docutils literal notranslate"><span class="pre">TrainingJob.scorers</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.jobs.html#qto_categorizer_ml.jobs.training.TrainingJob.signer"><code class="docutils literal notranslate"><span class="pre">TrainingJob.signer</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.jobs.html#qto_categorizer_ml.jobs.training.TrainingJob.splitter"><code class="docutils literal notranslate"><span class="pre">TrainingJob.splitter</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="qto_categorizer_ml.jobs.html#module-qto_categorizer_ml.jobs.transition">qto_categorizer_ml.jobs.transition module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="qto_categorizer_ml.jobs.html#qto_categorizer_ml.jobs.transition.TransitionJob"><code class="docutils literal notranslate"><span class="pre">TransitionJob</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.jobs.html#qto_categorizer_ml.jobs.transition.TransitionJob.KIND"><code class="docutils literal notranslate"><span class="pre">TransitionJob.KIND</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.jobs.html#qto_categorizer_ml.jobs.transition.TransitionJob.archive_existing_versions"><code class="docutils literal notranslate"><span class="pre">TransitionJob.archive_existing_versions</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.jobs.html#qto_categorizer_ml.jobs.transition.TransitionJob.latest_version_stages"><code class="docutils literal notranslate"><span class="pre">TransitionJob.latest_version_stages</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.jobs.html#qto_categorizer_ml.jobs.transition.TransitionJob.model_config"><code class="docutils literal notranslate"><span class="pre">TransitionJob.model_config</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.jobs.html#qto_categorizer_ml.jobs.transition.TransitionJob.run"><code class="docutils literal notranslate"><span class="pre">TransitionJob.run()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.jobs.html#qto_categorizer_ml.jobs.transition.TransitionJob.stage"><code class="docutils literal notranslate"><span class="pre">TransitionJob.stage</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.jobs.html#qto_categorizer_ml.jobs.transition.TransitionJob.version"><code class="docutils literal notranslate"><span class="pre">TransitionJob.version</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="qto_categorizer_ml.jobs.html#module-qto_categorizer_ml.jobs.tuning">qto_categorizer_ml.jobs.tuning module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="qto_categorizer_ml.jobs.html#qto_categorizer_ml.jobs.tuning.TuningJob"><code class="docutils literal notranslate"><span class="pre">TuningJob</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.jobs.html#qto_categorizer_ml.jobs.tuning.TuningJob.KIND"><code class="docutils literal notranslate"><span class="pre">TuningJob.KIND</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.jobs.html#qto_categorizer_ml.jobs.tuning.TuningJob.inputs"><code class="docutils literal notranslate"><span class="pre">TuningJob.inputs</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.jobs.html#qto_categorizer_ml.jobs.tuning.TuningJob.metric"><code class="docutils literal notranslate"><span class="pre">TuningJob.metric</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.jobs.html#qto_categorizer_ml.jobs.tuning.TuningJob.model"><code class="docutils literal notranslate"><span class="pre">TuningJob.model</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.jobs.html#qto_categorizer_ml.jobs.tuning.TuningJob.model_config"><code class="docutils literal notranslate"><span class="pre">TuningJob.model_config</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.jobs.html#qto_categorizer_ml.jobs.tuning.TuningJob.run"><code class="docutils literal notranslate"><span class="pre">TuningJob.run()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.jobs.html#qto_categorizer_ml.jobs.tuning.TuningJob.run_config"><code class="docutils literal notranslate"><span class="pre">TuningJob.run_config</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.jobs.html#qto_categorizer_ml.jobs.tuning.TuningJob.searcher"><code class="docutils literal notranslate"><span class="pre">TuningJob.searcher</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.jobs.html#qto_categorizer_ml.jobs.tuning.TuningJob.splitter"><code class="docutils literal notranslate"><span class="pre">TuningJob.splitter</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.jobs.html#qto_categorizer_ml.jobs.tuning.TuningJob.targets"><code class="docutils literal notranslate"><span class="pre">TuningJob.targets</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="qto_categorizer_ml.jobs.html#module-qto_categorizer_ml.jobs">Module contents</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="qto_categorizer_ml.jobs.html#qto_categorizer_ml.jobs.InferenceJob"><code class="docutils literal notranslate"><span class="pre">InferenceJob</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.jobs.html#qto_categorizer_ml.jobs.InferenceJob.KIND"><code class="docutils literal notranslate"><span class="pre">InferenceJob.KIND</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.jobs.html#qto_categorizer_ml.jobs.InferenceJob.aws_service"><code class="docutils literal notranslate"><span class="pre">InferenceJob.aws_service</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.jobs.html#qto_categorizer_ml.jobs.InferenceJob.inputs"><code class="docutils literal notranslate"><span class="pre">InferenceJob.inputs</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.jobs.html#qto_categorizer_ml.jobs.InferenceJob.loader"><code class="docutils literal notranslate"><span class="pre">InferenceJob.loader</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.jobs.html#qto_categorizer_ml.jobs.InferenceJob.logger_service"><code class="docutils literal notranslate"><span class="pre">InferenceJob.logger_service</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.jobs.html#qto_categorizer_ml.jobs.InferenceJob.mlflow_service"><code class="docutils literal notranslate"><span class="pre">InferenceJob.mlflow_service</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.jobs.html#qto_categorizer_ml.jobs.InferenceJob.model_config"><code class="docutils literal notranslate"><span class="pre">InferenceJob.model_config</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.jobs.html#qto_categorizer_ml.jobs.InferenceJob.outputs"><code class="docutils literal notranslate"><span class="pre">InferenceJob.outputs</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.jobs.html#qto_categorizer_ml.jobs.InferenceJob.run"><code class="docutils literal notranslate"><span class="pre">InferenceJob.run()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.jobs.html#qto_categorizer_ml.jobs.InferenceJob.version_or_stage"><code class="docutils literal notranslate"><span class="pre">InferenceJob.version_or_stage</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="qto_categorizer_ml.jobs.html#qto_categorizer_ml.jobs.TrainingJob"><code class="docutils literal notranslate"><span class="pre">TrainingJob</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.jobs.html#qto_categorizer_ml.jobs.TrainingJob.KIND"><code class="docutils literal notranslate"><span class="pre">TrainingJob.KIND</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.jobs.html#qto_categorizer_ml.jobs.TrainingJob.aws_service"><code class="docutils literal notranslate"><span class="pre">TrainingJob.aws_service</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.jobs.html#qto_categorizer_ml.jobs.TrainingJob.inputs"><code class="docutils literal notranslate"><span class="pre">TrainingJob.inputs</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.jobs.html#qto_categorizer_ml.jobs.TrainingJob.logger_service"><code class="docutils literal notranslate"><span class="pre">TrainingJob.logger_service</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.jobs.html#qto_categorizer_ml.jobs.TrainingJob.mlflow_service"><code class="docutils literal notranslate"><span class="pre">TrainingJob.mlflow_service</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.jobs.html#qto_categorizer_ml.jobs.TrainingJob.model"><code class="docutils literal notranslate"><span class="pre">TrainingJob.model</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.jobs.html#qto_categorizer_ml.jobs.TrainingJob.model_config"><code class="docutils literal notranslate"><span class="pre">TrainingJob.model_config</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.jobs.html#qto_categorizer_ml.jobs.TrainingJob.registry"><code class="docutils literal notranslate"><span class="pre">TrainingJob.registry</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.jobs.html#qto_categorizer_ml.jobs.TrainingJob.run"><code class="docutils literal notranslate"><span class="pre">TrainingJob.run()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.jobs.html#qto_categorizer_ml.jobs.TrainingJob.run_config"><code class="docutils literal notranslate"><span class="pre">TrainingJob.run_config</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.jobs.html#qto_categorizer_ml.jobs.TrainingJob.saver"><code class="docutils literal notranslate"><span class="pre">TrainingJob.saver</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.jobs.html#qto_categorizer_ml.jobs.TrainingJob.scorers"><code class="docutils literal notranslate"><span class="pre">TrainingJob.scorers</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.jobs.html#qto_categorizer_ml.jobs.TrainingJob.signer"><code class="docutils literal notranslate"><span class="pre">TrainingJob.signer</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.jobs.html#qto_categorizer_ml.jobs.TrainingJob.splitter"><code class="docutils literal notranslate"><span class="pre">TrainingJob.splitter</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="qto_categorizer_ml.jobs.html#qto_categorizer_ml.jobs.TransitionJob"><code class="docutils literal notranslate"><span class="pre">TransitionJob</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.jobs.html#qto_categorizer_ml.jobs.TransitionJob.KIND"><code class="docutils literal notranslate"><span class="pre">TransitionJob.KIND</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.jobs.html#qto_categorizer_ml.jobs.TransitionJob.archive_existing_versions"><code class="docutils literal notranslate"><span class="pre">TransitionJob.archive_existing_versions</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.jobs.html#qto_categorizer_ml.jobs.TransitionJob.aws_service"><code class="docutils literal notranslate"><span class="pre">TransitionJob.aws_service</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.jobs.html#qto_categorizer_ml.jobs.TransitionJob.latest_version_stages"><code class="docutils literal notranslate"><span class="pre">TransitionJob.latest_version_stages</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.jobs.html#qto_categorizer_ml.jobs.TransitionJob.logger_service"><code class="docutils literal notranslate"><span class="pre">TransitionJob.logger_service</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.jobs.html#qto_categorizer_ml.jobs.TransitionJob.mlflow_service"><code class="docutils literal notranslate"><span class="pre">TransitionJob.mlflow_service</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.jobs.html#qto_categorizer_ml.jobs.TransitionJob.model_config"><code class="docutils literal notranslate"><span class="pre">TransitionJob.model_config</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.jobs.html#qto_categorizer_ml.jobs.TransitionJob.run"><code class="docutils literal notranslate"><span class="pre">TransitionJob.run()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.jobs.html#qto_categorizer_ml.jobs.TransitionJob.stage"><code class="docutils literal notranslate"><span class="pre">TransitionJob.stage</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.jobs.html#qto_categorizer_ml.jobs.TransitionJob.version"><code class="docutils literal notranslate"><span class="pre">TransitionJob.version</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="qto_categorizer_ml.jobs.html#qto_categorizer_ml.jobs.TuningJob"><code class="docutils literal notranslate"><span class="pre">TuningJob</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.jobs.html#qto_categorizer_ml.jobs.TuningJob.KIND"><code class="docutils literal notranslate"><span class="pre">TuningJob.KIND</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.jobs.html#qto_categorizer_ml.jobs.TuningJob.aws_service"><code class="docutils literal notranslate"><span class="pre">TuningJob.aws_service</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.jobs.html#qto_categorizer_ml.jobs.TuningJob.inputs"><code class="docutils literal notranslate"><span class="pre">TuningJob.inputs</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.jobs.html#qto_categorizer_ml.jobs.TuningJob.logger_service"><code class="docutils literal notranslate"><span class="pre">TuningJob.logger_service</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.jobs.html#qto_categorizer_ml.jobs.TuningJob.metric"><code class="docutils literal notranslate"><span class="pre">TuningJob.metric</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.jobs.html#qto_categorizer_ml.jobs.TuningJob.mlflow_service"><code class="docutils literal notranslate"><span class="pre">TuningJob.mlflow_service</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.jobs.html#qto_categorizer_ml.jobs.TuningJob.model"><code class="docutils literal notranslate"><span class="pre">TuningJob.model</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.jobs.html#qto_categorizer_ml.jobs.TuningJob.model_config"><code class="docutils literal notranslate"><span class="pre">TuningJob.model_config</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.jobs.html#qto_categorizer_ml.jobs.TuningJob.run"><code class="docutils literal notranslate"><span class="pre">TuningJob.run()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.jobs.html#qto_categorizer_ml.jobs.TuningJob.run_config"><code class="docutils literal notranslate"><span class="pre">TuningJob.run_config</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.jobs.html#qto_categorizer_ml.jobs.TuningJob.searcher"><code class="docutils literal notranslate"><span class="pre">TuningJob.searcher</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.jobs.html#qto_categorizer_ml.jobs.TuningJob.splitter"><code class="docutils literal notranslate"><span class="pre">TuningJob.splitter</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.jobs.html#qto_categorizer_ml.jobs.TuningJob.targets"><code class="docutils literal notranslate"><span class="pre">TuningJob.targets</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="qto_categorizer_ml.utils.html">qto_categorizer_ml.utils package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="qto_categorizer_ml.utils.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="qto_categorizer_ml.utils.html#module-qto_categorizer_ml.utils.searchers">qto_categorizer_ml.utils.searchers module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="qto_categorizer_ml.utils.html#qto_categorizer_ml.utils.searchers.GridCVSearcher"><code class="docutils literal notranslate"><span class="pre">GridCVSearcher</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.utils.html#qto_categorizer_ml.utils.searchers.GridCVSearcher.KIND"><code class="docutils literal notranslate"><span class="pre">GridCVSearcher.KIND</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.utils.html#qto_categorizer_ml.utils.searchers.GridCVSearcher.error_score"><code class="docutils literal notranslate"><span class="pre">GridCVSearcher.error_score</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.utils.html#qto_categorizer_ml.utils.searchers.GridCVSearcher.model_config"><code class="docutils literal notranslate"><span class="pre">GridCVSearcher.model_config</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.utils.html#qto_categorizer_ml.utils.searchers.GridCVSearcher.n_jobs"><code class="docutils literal notranslate"><span class="pre">GridCVSearcher.n_jobs</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.utils.html#qto_categorizer_ml.utils.searchers.GridCVSearcher.refit"><code class="docutils literal notranslate"><span class="pre">GridCVSearcher.refit</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.utils.html#qto_categorizer_ml.utils.searchers.GridCVSearcher.return_train_score"><code class="docutils literal notranslate"><span class="pre">GridCVSearcher.return_train_score</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.utils.html#qto_categorizer_ml.utils.searchers.GridCVSearcher.search"><code class="docutils literal notranslate"><span class="pre">GridCVSearcher.search()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.utils.html#qto_categorizer_ml.utils.searchers.GridCVSearcher.verbose"><code class="docutils literal notranslate"><span class="pre">GridCVSearcher.verbose</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="qto_categorizer_ml.utils.html#qto_categorizer_ml.utils.searchers.Searcher"><code class="docutils literal notranslate"><span class="pre">Searcher</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.utils.html#qto_categorizer_ml.utils.searchers.Searcher.KIND"><code class="docutils literal notranslate"><span class="pre">Searcher.KIND</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.utils.html#qto_categorizer_ml.utils.searchers.Searcher.model_config"><code class="docutils literal notranslate"><span class="pre">Searcher.model_config</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.utils.html#qto_categorizer_ml.utils.searchers.Searcher.param_grid"><code class="docutils literal notranslate"><span class="pre">Searcher.param_grid</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.utils.html#qto_categorizer_ml.utils.searchers.Searcher.search"><code class="docutils literal notranslate"><span class="pre">Searcher.search()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="qto_categorizer_ml.utils.html#qto_categorizer_ml.utils.searchers.SearcherKind"><code class="docutils literal notranslate"><span class="pre">SearcherKind</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="qto_categorizer_ml.utils.html#module-qto_categorizer_ml.utils.signers">qto_categorizer_ml.utils.signers module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="qto_categorizer_ml.utils.html#qto_categorizer_ml.utils.signers.InferSigner"><code class="docutils literal notranslate"><span class="pre">InferSigner</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.utils.html#qto_categorizer_ml.utils.signers.InferSigner.KIND"><code class="docutils literal notranslate"><span class="pre">InferSigner.KIND</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.utils.html#qto_categorizer_ml.utils.signers.InferSigner.model_config"><code class="docutils literal notranslate"><span class="pre">InferSigner.model_config</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.utils.html#qto_categorizer_ml.utils.signers.InferSigner.sign"><code class="docutils literal notranslate"><span class="pre">InferSigner.sign()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="qto_categorizer_ml.utils.html#qto_categorizer_ml.utils.signers.ManualSigner"><code class="docutils literal notranslate"><span class="pre">ManualSigner</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.utils.html#qto_categorizer_ml.utils.signers.ManualSigner.KIND"><code class="docutils literal notranslate"><span class="pre">ManualSigner.KIND</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.utils.html#qto_categorizer_ml.utils.signers.ManualSigner.inputs_specs"><code class="docutils literal notranslate"><span class="pre">ManualSigner.inputs_specs</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.utils.html#qto_categorizer_ml.utils.signers.ManualSigner.model_config"><code class="docutils literal notranslate"><span class="pre">ManualSigner.model_config</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.utils.html#qto_categorizer_ml.utils.signers.ManualSigner.outputs_specs"><code class="docutils literal notranslate"><span class="pre">ManualSigner.outputs_specs</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.utils.html#qto_categorizer_ml.utils.signers.ManualSigner.sign"><code class="docutils literal notranslate"><span class="pre">ManualSigner.sign()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="qto_categorizer_ml.utils.html#qto_categorizer_ml.utils.signers.PanderaSigner"><code class="docutils literal notranslate"><span class="pre">PanderaSigner</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.utils.html#qto_categorizer_ml.utils.signers.PanderaSigner.KIND"><code class="docutils literal notranslate"><span class="pre">PanderaSigner.KIND</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.utils.html#qto_categorizer_ml.utils.signers.PanderaSigner.PANDERA_MLFLOW_MAPPING"><code class="docutils literal notranslate"><span class="pre">PanderaSigner.PANDERA_MLFLOW_MAPPING</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.utils.html#qto_categorizer_ml.utils.signers.PanderaSigner.check_schema_name"><code class="docutils literal notranslate"><span class="pre">PanderaSigner.check_schema_name()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.utils.html#qto_categorizer_ml.utils.signers.PanderaSigner.inputs_schema_name"><code class="docutils literal notranslate"><span class="pre">PanderaSigner.inputs_schema_name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.utils.html#qto_categorizer_ml.utils.signers.PanderaSigner.model_config"><code class="docutils literal notranslate"><span class="pre">PanderaSigner.model_config</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.utils.html#qto_categorizer_ml.utils.signers.PanderaSigner.outputs_schema_name"><code class="docutils literal notranslate"><span class="pre">PanderaSigner.outputs_schema_name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.utils.html#qto_categorizer_ml.utils.signers.PanderaSigner.sign"><code class="docutils literal notranslate"><span class="pre">PanderaSigner.sign()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="qto_categorizer_ml.utils.html#qto_categorizer_ml.utils.signers.Signer"><code class="docutils literal notranslate"><span class="pre">Signer</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.utils.html#qto_categorizer_ml.utils.signers.Signer.KIND"><code class="docutils literal notranslate"><span class="pre">Signer.KIND</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.utils.html#qto_categorizer_ml.utils.signers.Signer.model_config"><code class="docutils literal notranslate"><span class="pre">Signer.model_config</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.utils.html#qto_categorizer_ml.utils.signers.Signer.sign"><code class="docutils literal notranslate"><span class="pre">Signer.sign()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="qto_categorizer_ml.utils.html#module-qto_categorizer_ml.utils.splitters">qto_categorizer_ml.utils.splitters module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="qto_categorizer_ml.utils.html#qto_categorizer_ml.utils.splitters.Splitter"><code class="docutils literal notranslate"><span class="pre">Splitter</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.utils.html#qto_categorizer_ml.utils.splitters.Splitter.KIND"><code class="docutils literal notranslate"><span class="pre">Splitter.KIND</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.utils.html#qto_categorizer_ml.utils.splitters.Splitter.get_n_splits"><code class="docutils literal notranslate"><span class="pre">Splitter.get_n_splits()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.utils.html#qto_categorizer_ml.utils.splitters.Splitter.model_config"><code class="docutils literal notranslate"><span class="pre">Splitter.model_config</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.utils.html#qto_categorizer_ml.utils.splitters.Splitter.split"><code class="docutils literal notranslate"><span class="pre">Splitter.split()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="qto_categorizer_ml.utils.html#qto_categorizer_ml.utils.splitters.SplitterKind"><code class="docutils literal notranslate"><span class="pre">SplitterKind</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="qto_categorizer_ml.utils.html#qto_categorizer_ml.utils.splitters.TrainTestSplitter"><code class="docutils literal notranslate"><span class="pre">TrainTestSplitter</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.utils.html#qto_categorizer_ml.utils.splitters.TrainTestSplitter.KIND"><code class="docutils literal notranslate"><span class="pre">TrainTestSplitter.KIND</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.utils.html#qto_categorizer_ml.utils.splitters.TrainTestSplitter.get_n_splits"><code class="docutils literal notranslate"><span class="pre">TrainTestSplitter.get_n_splits()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.utils.html#qto_categorizer_ml.utils.splitters.TrainTestSplitter.model_config"><code class="docutils literal notranslate"><span class="pre">TrainTestSplitter.model_config</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.utils.html#qto_categorizer_ml.utils.splitters.TrainTestSplitter.random_state"><code class="docutils literal notranslate"><span class="pre">TrainTestSplitter.random_state</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.utils.html#qto_categorizer_ml.utils.splitters.TrainTestSplitter.split"><code class="docutils literal notranslate"><span class="pre">TrainTestSplitter.split()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.utils.html#qto_categorizer_ml.utils.splitters.TrainTestSplitter.stratify"><code class="docutils literal notranslate"><span class="pre">TrainTestSplitter.stratify</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qto_categorizer_ml.utils.html#qto_categorizer_ml.utils.splitters.TrainTestSplitter.test_size"><code class="docutils literal notranslate"><span class="pre">TrainTestSplitter.test_size</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="qto_categorizer_ml.utils.html#module-qto_categorizer_ml.utils">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
+</section>
+<section id="module-qto_categorizer_ml.scripts">
+<span id="qto-categorizer-ml-scripts-module"></span><h2>qto_categorizer_ml.scripts module<a class="headerlink" href="#module-qto_categorizer_ml.scripts" title="Link to this heading"></a></h2>
+<p>Scripts for the CLI application.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="qto_categorizer_ml.scripts.main">
+<span class="sig-prename descclassname"><span class="pre">qto_categorizer_ml.scripts.</span></span><span class="sig-name descname"><span class="pre">main</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">argv</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="../_modules/qto_categorizer_ml/scripts.html#main"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#qto_categorizer_ml.scripts.main" title="Link to this definition"></a></dt>
+<dd><p>Main script for the application.</p>
+</dd></dl>
+
+</section>
+<section id="module-qto_categorizer_ml.settings">
+<span id="qto-categorizer-ml-settings-module"></span><h2>qto_categorizer_ml.settings module<a class="headerlink" href="#module-qto_categorizer_ml.settings" title="Link to this heading"></a></h2>
+<p>Define settings for the application.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="qto_categorizer_ml.settings.MainSettings">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">qto_categorizer_ml.settings.</span></span><span class="sig-name descname"><span class="pre">MainSettings</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">_case_sensitive</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_nested_model_default_partial_update</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_env_prefix</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_env_file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DotenvType</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">PosixPath('.')</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_env_file_encoding</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_env_ignore_empty</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_env_nested_delimiter</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_env_nested_max_split</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_env_parse_none_str</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_env_parse_enums</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_cli_prog_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_cli_parse_args</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_cli_settings_source</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">CliSettingsSource</span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_cli_parse_none_str</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_cli_hide_none_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_cli_avoid_json</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_cli_enforce_required</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_cli_use_class_docs_for_groups</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_cli_exit_on_error</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_cli_prefix</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_cli_flag_prefix_char</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_cli_implicit_flags</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_cli_ignore_unknown_args</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_cli_kebab_case</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_secrets_dir</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">PathType</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">job</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="qto_categorizer_ml.jobs.html#qto_categorizer_ml.jobs.tuning.TuningJob" title="qto_categorizer_ml.jobs.tuning.TuningJob"><span class="pre">TuningJob</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="qto_categorizer_ml.jobs.html#qto_categorizer_ml.jobs.training.TrainingJob" title="qto_categorizer_ml.jobs.training.TrainingJob"><span class="pre">TrainingJob</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="qto_categorizer_ml.jobs.html#qto_categorizer_ml.jobs.transition.TransitionJob" title="qto_categorizer_ml.jobs.transition.TransitionJob"><span class="pre">TransitionJob</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="qto_categorizer_ml.jobs.html#qto_categorizer_ml.jobs.inference.InferenceJob" title="qto_categorizer_ml.jobs.inference.InferenceJob"><span class="pre">InferenceJob</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/qto_categorizer_ml/settings.html#MainSettings"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#qto_categorizer_ml.settings.MainSettings" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#qto_categorizer_ml.settings.Settings" title="qto_categorizer_ml.settings.Settings"><code class="xref py py-class docutils literal notranslate"><span class="pre">Settings</span></code></a></p>
+<p>Main settings for the application.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>job</strong> (<em>jobs.JobKind</em>) – job to run.</p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qto_categorizer_ml.settings.MainSettings.job">
+<span class="sig-name descname"><span class="pre">job</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="qto_categorizer_ml.jobs.html#qto_categorizer_ml.jobs.tuning.TuningJob" title="qto_categorizer_ml.jobs.tuning.TuningJob"><span class="pre">TuningJob</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="qto_categorizer_ml.jobs.html#qto_categorizer_ml.jobs.training.TrainingJob" title="qto_categorizer_ml.jobs.training.TrainingJob"><span class="pre">TrainingJob</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="qto_categorizer_ml.jobs.html#qto_categorizer_ml.jobs.transition.TransitionJob" title="qto_categorizer_ml.jobs.transition.TransitionJob"><span class="pre">TransitionJob</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="qto_categorizer_ml.jobs.html#qto_categorizer_ml.jobs.inference.InferenceJob" title="qto_categorizer_ml.jobs.inference.InferenceJob"><span class="pre">InferenceJob</span></a></em><a class="headerlink" href="#qto_categorizer_ml.settings.MainSettings.job" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qto_categorizer_ml.settings.MainSettings.model_config">
+<span class="sig-name descname"><span class="pre">model_config</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">SettingsConfigDict</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'arbitrary_types_allowed':</span> <span class="pre">True,</span> <span class="pre">'case_sensitive':</span> <span class="pre">False,</span> <span class="pre">'cli_avoid_json':</span> <span class="pre">False,</span> <span class="pre">'cli_enforce_required':</span> <span class="pre">False,</span> <span class="pre">'cli_exit_on_error':</span> <span class="pre">True,</span> <span class="pre">'cli_flag_prefix_char':</span> <span class="pre">'-',</span> <span class="pre">'cli_hide_none_type':</span> <span class="pre">False,</span> <span class="pre">'cli_ignore_unknown_args':</span> <span class="pre">False,</span> <span class="pre">'cli_implicit_flags':</span> <span class="pre">False,</span> <span class="pre">'cli_kebab_case':</span> <span class="pre">False,</span> <span class="pre">'cli_parse_args':</span> <span class="pre">None,</span> <span class="pre">'cli_parse_none_str':</span> <span class="pre">None,</span> <span class="pre">'cli_prefix':</span> <span class="pre">'',</span> <span class="pre">'cli_prog_name':</span> <span class="pre">None,</span> <span class="pre">'cli_use_class_docs_for_groups':</span> <span class="pre">False,</span> <span class="pre">'enable_decoding':</span> <span class="pre">True,</span> <span class="pre">'env_file':</span> <span class="pre">None,</span> <span class="pre">'env_file_encoding':</span> <span class="pre">None,</span> <span class="pre">'env_ignore_empty':</span> <span class="pre">False,</span> <span class="pre">'env_nested_delimiter':</span> <span class="pre">None,</span> <span class="pre">'env_nested_max_split':</span> <span class="pre">None,</span> <span class="pre">'env_parse_enums':</span> <span class="pre">None,</span> <span class="pre">'env_parse_none_str':</span> <span class="pre">None,</span> <span class="pre">'env_prefix':</span> <span class="pre">'',</span> <span class="pre">'extra':</span> <span class="pre">'forbid',</span> <span class="pre">'frozen':</span> <span class="pre">True,</span> <span class="pre">'json_file':</span> <span class="pre">None,</span> <span class="pre">'json_file_encoding':</span> <span class="pre">None,</span> <span class="pre">'nested_model_default_partial_update':</span> <span class="pre">False,</span> <span class="pre">'protected_namespaces':</span> <span class="pre">('model_validate',</span> <span class="pre">'model_dump',</span> <span class="pre">'settings_customise_sources'),</span> <span class="pre">'secrets_dir':</span> <span class="pre">None,</span> <span class="pre">'strict':</span> <span class="pre">True,</span> <span class="pre">'toml_file':</span> <span class="pre">None,</span> <span class="pre">'validate_default':</span> <span class="pre">True,</span> <span class="pre">'yaml_file':</span> <span class="pre">None,</span> <span class="pre">'yaml_file_encoding':</span> <span class="pre">None}</span></em><a class="headerlink" href="#qto_categorizer_ml.settings.MainSettings.model_config" title="Link to this definition"></a></dt>
+<dd><p>Configuration for the model, should be a dictionary conforming to [<cite>ConfigDict</cite>][pydantic.config.ConfigDict].</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="qto_categorizer_ml.settings.Settings">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">qto_categorizer_ml.settings.</span></span><span class="sig-name descname"><span class="pre">Settings</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">_case_sensitive</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_nested_model_default_partial_update</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_env_prefix</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_env_file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DotenvType</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">PosixPath('.')</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_env_file_encoding</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_env_ignore_empty</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_env_nested_delimiter</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_env_nested_max_split</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_env_parse_none_str</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_env_parse_enums</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_cli_prog_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_cli_parse_args</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_cli_settings_source</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">CliSettingsSource</span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_cli_parse_none_str</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_cli_hide_none_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_cli_avoid_json</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_cli_enforce_required</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_cli_use_class_docs_for_groups</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_cli_exit_on_error</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_cli_prefix</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_cli_flag_prefix_char</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_cli_implicit_flags</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_cli_ignore_unknown_args</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_cli_kebab_case</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_secrets_dir</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">PathType</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/qto_categorizer_ml/settings.html#Settings"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#qto_categorizer_ml.settings.Settings" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">BaseSettings</span></code></p>
+<p>Base class for application settings.</p>
+<p>Use settings to provide high-level preferences.
+i.e., to separate settings from initialization (e.g., CLI).</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qto_categorizer_ml.settings.Settings.model_config">
+<span class="sig-name descname"><span class="pre">model_config</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">SettingsConfigDict</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'arbitrary_types_allowed':</span> <span class="pre">True,</span> <span class="pre">'case_sensitive':</span> <span class="pre">False,</span> <span class="pre">'cli_avoid_json':</span> <span class="pre">False,</span> <span class="pre">'cli_enforce_required':</span> <span class="pre">False,</span> <span class="pre">'cli_exit_on_error':</span> <span class="pre">True,</span> <span class="pre">'cli_flag_prefix_char':</span> <span class="pre">'-',</span> <span class="pre">'cli_hide_none_type':</span> <span class="pre">False,</span> <span class="pre">'cli_ignore_unknown_args':</span> <span class="pre">False,</span> <span class="pre">'cli_implicit_flags':</span> <span class="pre">False,</span> <span class="pre">'cli_kebab_case':</span> <span class="pre">False,</span> <span class="pre">'cli_parse_args':</span> <span class="pre">None,</span> <span class="pre">'cli_parse_none_str':</span> <span class="pre">None,</span> <span class="pre">'cli_prefix':</span> <span class="pre">'',</span> <span class="pre">'cli_prog_name':</span> <span class="pre">None,</span> <span class="pre">'cli_use_class_docs_for_groups':</span> <span class="pre">False,</span> <span class="pre">'enable_decoding':</span> <span class="pre">True,</span> <span class="pre">'env_file':</span> <span class="pre">None,</span> <span class="pre">'env_file_encoding':</span> <span class="pre">None,</span> <span class="pre">'env_ignore_empty':</span> <span class="pre">False,</span> <span class="pre">'env_nested_delimiter':</span> <span class="pre">None,</span> <span class="pre">'env_nested_max_split':</span> <span class="pre">None,</span> <span class="pre">'env_parse_enums':</span> <span class="pre">None,</span> <span class="pre">'env_parse_none_str':</span> <span class="pre">None,</span> <span class="pre">'env_prefix':</span> <span class="pre">'',</span> <span class="pre">'extra':</span> <span class="pre">'forbid',</span> <span class="pre">'frozen':</span> <span class="pre">True,</span> <span class="pre">'json_file':</span> <span class="pre">None,</span> <span class="pre">'json_file_encoding':</span> <span class="pre">None,</span> <span class="pre">'nested_model_default_partial_update':</span> <span class="pre">False,</span> <span class="pre">'protected_namespaces':</span> <span class="pre">('model_validate',</span> <span class="pre">'model_dump',</span> <span class="pre">'settings_customise_sources'),</span> <span class="pre">'secrets_dir':</span> <span class="pre">None,</span> <span class="pre">'strict':</span> <span class="pre">True,</span> <span class="pre">'toml_file':</span> <span class="pre">None,</span> <span class="pre">'validate_default':</span> <span class="pre">True,</span> <span class="pre">'yaml_file':</span> <span class="pre">None,</span> <span class="pre">'yaml_file_encoding':</span> <span class="pre">None}</span></em><a class="headerlink" href="#qto_categorizer_ml.settings.Settings.model_config" title="Link to this definition"></a></dt>
+<dd><p>Configuration for the model, should be a dictionary conforming to [<cite>ConfigDict</cite>][pydantic.config.ConfigDict].</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-qto_categorizer_ml">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-qto_categorizer_ml" title="Link to this heading"></a></h2>
+<p>Qto categorizer ML</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="modules.html" class="btn btn-neutral float-left" title="qto_categorizer_ml" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="qto_categorizer_ml.core.html" class="btn btn-neutral float-right" title="qto_categorizer_ml.core package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright data-corentinv.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>qto_categorizer_ml.core.models &mdash; Qto Categorizer ML 0.1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css?v=fd3f3429" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../_static/documentation_options.js?v=01f34227"></script>
+        <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            Qto Categorizer ML
+          </a>
+              <div class="version">
+                0.1.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../markdown.html">Markdown</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../restructured.html">RestructuredText</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../_api/modules.html">qto_categorizer_ml</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Qto Categorizer ML</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">qto_categorizer_ml.core.models</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for qto_categorizer_ml.core.models</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;Define trainable machine learning models.&quot;&quot;&quot;</span>
+
+<span class="c1"># %% IMPORTS</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">abc</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">T</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pydantic</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pdt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">typing_extensions</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">TX</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn</span><span class="w"> </span><span class="kn">import</span> <span class="n">ensemble</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.base</span><span class="w"> </span><span class="kn">import</span> <span class="n">BaseEstimator</span><span class="p">,</span> <span class="n">TransformerMixin</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.compose</span><span class="w"> </span><span class="kn">import</span> <span class="n">ColumnTransformer</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.decomposition</span><span class="w"> </span><span class="kn">import</span> <span class="n">TruncatedSVD</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.feature_extraction.text</span><span class="w"> </span><span class="kn">import</span> <span class="n">TfidfVectorizer</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.pipeline</span><span class="w"> </span><span class="kn">import</span> <span class="n">Pipeline</span><span class="p">,</span> <span class="n">make_pipeline</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.preprocessing</span><span class="w"> </span><span class="kn">import</span> <span class="n">LabelEncoder</span><span class="p">,</span> <span class="n">OneHotEncoder</span><span class="p">,</span> <span class="n">StandardScaler</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">qto_categorizer_ml.core</span><span class="w"> </span><span class="kn">import</span> <span class="n">schemas</span>
+
+<span class="c1"># %% TYPES</span>
+
+<span class="c1"># Model params</span>
+<span class="n">ParamKey</span> <span class="o">=</span> <span class="nb">str</span>
+<span class="n">ParamValue</span> <span class="o">=</span> <span class="n">T</span><span class="o">.</span><span class="n">Any</span>
+<span class="n">Params</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">[</span><span class="n">ParamKey</span><span class="p">,</span> <span class="n">ParamValue</span><span class="p">]</span>
+
+<span class="c1"># %% MODELS</span>
+
+
+<div class="viewcode-block" id="Model">
+<a class="viewcode-back" href="../../../_api/qto_categorizer_ml.core.html#qto_categorizer_ml.core.models.Model">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">Model</span><span class="p">(</span><span class="n">abc</span><span class="o">.</span><span class="n">ABC</span><span class="p">,</span> <span class="n">pdt</span><span class="o">.</span><span class="n">BaseModel</span><span class="p">,</span> <span class="n">strict</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">frozen</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">extra</span><span class="o">=</span><span class="s2">&quot;forbid&quot;</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Base class for a project model.</span>
+
+<span class="sd">    Use a model to adapt AI/ML frameworks.</span>
+<span class="sd">    e.g., to swap easily one model with another.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">KIND</span><span class="p">:</span> <span class="nb">str</span>
+
+<div class="viewcode-block" id="Model.get_params">
+<a class="viewcode-back" href="../../../_api/qto_categorizer_ml.core.html#qto_categorizer_ml.core.models.Model.get_params">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_params</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">deep</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Params</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get the model params.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            deep (bool, optional): ignored. Defaults to True.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            Params: internal model parameters.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">params</span><span class="p">:</span> <span class="n">Params</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">model_dump</span><span class="p">()</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">key</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;_&quot;</span><span class="p">)</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">key</span><span class="o">.</span><span class="n">isupper</span><span class="p">():</span>
+                <span class="n">params</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+        <span class="k">return</span> <span class="n">params</span></div>
+
+
+<div class="viewcode-block" id="Model.set_params">
+<a class="viewcode-back" href="../../../_api/qto_categorizer_ml.core.html#qto_categorizer_ml.core.models.Model.set_params">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">set_params</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">params</span><span class="p">:</span> <span class="n">ParamValue</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">TX</span><span class="o">.</span><span class="n">Self</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Set the model params in place.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            TX.Self: instance of the model.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">params</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="nb">setattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span></div>
+
+
+<div class="viewcode-block" id="Model.fit">
+<a class="viewcode-back" href="../../../_api/qto_categorizer_ml.core.html#qto_categorizer_ml.core.models.Model.fit">[docs]</a>
+    <span class="nd">@abc</span><span class="o">.</span><span class="n">abstractmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">inputs</span><span class="p">:</span> <span class="n">schemas</span><span class="o">.</span><span class="n">Inputs</span><span class="p">,</span> <span class="n">targets</span><span class="p">:</span> <span class="n">schemas</span><span class="o">.</span><span class="n">Targets</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">TX</span><span class="o">.</span><span class="n">Self</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Fit the model on the given inputs and targets.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            inputs (schemas.Inputs): model training inputs.</span>
+<span class="sd">            targets (schemas.Targets): model training targets.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            TX.Self: instance of the model.</span>
+<span class="sd">        &quot;&quot;&quot;</span></div>
+
+
+<div class="viewcode-block" id="Model.predict">
+<a class="viewcode-back" href="../../../_api/qto_categorizer_ml.core.html#qto_categorizer_ml.core.models.Model.predict">[docs]</a>
+    <span class="nd">@abc</span><span class="o">.</span><span class="n">abstractmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">inputs</span><span class="p">:</span> <span class="n">schemas</span><span class="o">.</span><span class="n">Inputs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">schemas</span><span class="o">.</span><span class="n">Outputs</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Generate outputs with the model for the given inputs.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            inputs (schemas.Inputs): model prediction inputs.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            schemas.Outputs: model prediction outputs.</span>
+<span class="sd">        &quot;&quot;&quot;</span></div>
+
+
+<div class="viewcode-block" id="Model.get_internal_model">
+<a class="viewcode-back" href="../../../_api/qto_categorizer_ml.core.html#qto_categorizer_ml.core.models.Model.get_internal_model">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_internal_model</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">T</span><span class="o">.</span><span class="n">Any</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Return the internal model in the object.</span>
+
+<span class="sd">        Raises:</span>
+<span class="sd">            NotImplementedError: method not implemented.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            T.Any: any internal model (either empty or fitted).</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span></div>
+</div>
+
+
+
+<span class="c1"># %%BASELINE</span>
+
+
+<div class="viewcode-block" id="MostFrequentCategoryByMerchant">
+<a class="viewcode-back" href="../../../_api/qto_categorizer_ml.core.html#qto_categorizer_ml.core.models.MostFrequentCategoryByMerchant">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">MostFrequentCategoryByMerchant</span><span class="p">(</span><span class="n">BaseEstimator</span><span class="p">,</span> <span class="n">TransformerMixin</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Move to another dir&quot;&quot;&quot;</span>
+
+    <span class="n">merchant_to_category_</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="p">{}</span>
+
+<div class="viewcode-block" id="MostFrequentCategoryByMerchant.fit">
+<a class="viewcode-back" href="../../../_api/qto_categorizer_ml.core.html#qto_categorizer_ml.core.models.MostFrequentCategoryByMerchant.fit">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Fit method.&quot;&quot;&quot;</span>
+        <span class="n">df</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+        <span class="n">df</span><span class="p">[</span><span class="s2">&quot;CATEGORY&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">y</span>
+
+        <span class="n">merchant_label_counts</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s2">&quot;MERCHANT_NAME&quot;</span><span class="p">,</span> <span class="s2">&quot;CATEGORY&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">size</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;count&quot;</span><span class="p">)</span>
+        <span class="p">)</span>
+        <span class="n">most_frequent</span> <span class="o">=</span> <span class="n">merchant_label_counts</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s2">&quot;count&quot;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">(</span>
+            <span class="s2">&quot;MERCHANT_NAME&quot;</span>
+        <span class="p">)</span>
+
+        <span class="c1"># Dictionnaire de correspondance MERCHANT_NAME -&gt; catégorie la plus fréquente</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">merchant_to_category_</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
+            <span class="nb">zip</span><span class="p">(</span><span class="n">most_frequent</span><span class="p">[</span><span class="s2">&quot;MERCHANT_NAME&quot;</span><span class="p">],</span> <span class="n">most_frequent</span><span class="p">[</span><span class="s2">&quot;CATEGORY&quot;</span><span class="p">])</span>
+        <span class="p">)</span>
+
+        <span class="k">return</span> <span class="bp">self</span></div>
+
+
+<div class="viewcode-block" id="MostFrequentCategoryByMerchant.transform">
+<a class="viewcode-back" href="../../../_api/qto_categorizer_ml.core.html#qto_categorizer_ml.core.models.MostFrequentCategoryByMerchant.transform">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Transform method.&quot;&quot;&quot;</span>
+        <span class="n">X_</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+        <span class="n">X_</span><span class="p">[</span><span class="s2">&quot;MOST_FREQUENT_CATEGORY&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">X_</span><span class="p">[</span><span class="s2">&quot;MERCHANT_NAME&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">merchant_to_category_</span><span class="p">)</span>
+        <span class="n">outputs</span> <span class="o">=</span> <span class="n">X_</span><span class="o">.</span><span class="n">MOST_FREQUENT_CATEGORY</span><span class="o">.</span><span class="n">values</span>
+        <span class="c1"># return [int(i) for i in np.nan_to_num(outputs, nan=25.0)]</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">nan_to_num</span><span class="p">(</span><span class="n">outputs</span><span class="p">,</span> <span class="n">nan</span><span class="o">=</span><span class="mf">25.0</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="BaselineModel">
+<a class="viewcode-back" href="../../../_api/qto_categorizer_ml.core.html#qto_categorizer_ml.core.models.BaselineModel">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">BaselineModel</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Baseline model: takes to most frequent category of a marchant).</span>
+<span class="sd">    Accuracy estimated to be ~60%.</span>
+
+<span class="sd">    Parameters:</span>
+<span class="sd">        corespondance_table_path (str): path to save the corespondance table.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">KIND</span><span class="p">:</span> <span class="n">T</span><span class="o">.</span><span class="n">Literal</span><span class="p">[</span><span class="s2">&quot;BaselineModel&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;BaselineModel&quot;</span>
+
+    <span class="c1"># params</span>
+    <span class="n">corespondance_table_path</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;data/corespondance_table.csv&quot;</span>
+    <span class="n">pipeline</span><span class="p">:</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">le</span><span class="p">:</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+
+<div class="viewcode-block" id="BaselineModel.fit">
+<a class="viewcode-back" href="../../../_api/qto_categorizer_ml.core.html#qto_categorizer_ml.core.models.BaselineModel.fit">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">inputs</span><span class="p">,</span> <span class="n">targets</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">le</span> <span class="o">=</span> <span class="n">LabelEncoder</span><span class="p">()</span>
+        <span class="n">targets_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">le</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">targets</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">pipeline</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">([(</span><span class="s2">&quot;merchant_category_encoder&quot;</span><span class="p">,</span> <span class="n">MostFrequentCategoryByMerchant</span><span class="p">())])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pipeline</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">inputs</span><span class="p">,</span> <span class="n">targets_</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="BaselineModel.predict">
+<a class="viewcode-back" href="../../../_api/qto_categorizer_ml.core.html#qto_categorizer_ml.core.models.BaselineModel.predict">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">inputs</span><span class="p">):</span>
+        <span class="n">outputs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">pipeline</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">inputs</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_decode_target</span><span class="p">(</span><span class="n">outputs</span><span class="p">)</span></div>
+
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_encode_target</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">outputs</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">le</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">outputs</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_decode_target</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">outputs_encoded</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">le</span><span class="o">.</span><span class="n">inverse_transform</span><span class="p">(</span><span class="n">outputs_encoded</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="SKLearnPipelineModel">
+<a class="viewcode-back" href="../../../_api/qto_categorizer_ml.core.html#qto_categorizer_ml.core.models.SKLearnPipelineModel">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">SKLearnPipelineModel</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;SKLearn Pipeline model: takes to most frequent category of a marchant).</span>
+
+<span class="sd">    Parameters:</span>
+<span class="sd">        max_features_desc (int): Maximum number of features to keep in the TfidfVectorizer for the DESCRIPTION column.</span>
+<span class="sd">        max_features_merch (int): Maximum number of features to keep in the TfidfVectorizer for the MERCHANT_NAME column.</span>
+<span class="sd">        n_components_desc (int): Number of components to retain after dimensionality reduction (e.g., TruncatedSVD) on DESCRIPTION vectors.</span>
+<span class="sd">        n_components_merch (int): Number of components to retain after dimensionality reduction on MERCHANT_NAME vectors.</span>
+<span class="sd">        random_state (int): Random seed for reproducibility across training runs.</span>
+<span class="sd">        n_estimators (int): Number of trees in the RandomForestClassifier.</span>
+<span class="sd">        max_depth (int): Maximum depth of each tree in the forest.</span>
+<span class="sd">        n_jobs (int): Number of CPU cores to use for parallel processing. Use -1 to use all available cores.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">KIND</span><span class="p">:</span> <span class="n">T</span><span class="o">.</span><span class="n">Literal</span><span class="p">[</span><span class="s2">&quot;SKLearnPipelineModel&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;SKLearnPipelineModel&quot;</span>
+
+    <span class="c1"># params</span>
+
+    <span class="n">max_features_desc</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1000</span>
+    <span class="n">n_components_desc</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">50</span>
+    <span class="n">max_features_merch</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">500</span>
+    <span class="n">n_components_merch</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">30</span>
+    <span class="n">random_state</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">42</span>
+    <span class="n">n_estimators</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">200</span>
+    <span class="n">max_depth</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">30</span>
+    <span class="n">n_jobs</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+
+    <span class="n">pipeline</span><span class="p">:</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">le</span><span class="p">:</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">data</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">**</span><span class="n">data</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pipeline</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_create_pipeline</span><span class="p">()</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_create_pipeline</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Pipeline</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Create SKLearn Pipeline.&quot;&quot;&quot;</span>
+        <span class="n">desc_pipe</span> <span class="o">=</span> <span class="n">make_pipeline</span><span class="p">(</span>
+            <span class="n">TfidfVectorizer</span><span class="p">(</span><span class="n">max_features</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">max_features_desc</span><span class="p">),</span>
+            <span class="n">TruncatedSVD</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">n_components_desc</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">random_state</span><span class="p">),</span>
+        <span class="p">)</span>
+
+        <span class="n">merch_pipe</span> <span class="o">=</span> <span class="n">make_pipeline</span><span class="p">(</span>
+            <span class="n">TfidfVectorizer</span><span class="p">(</span><span class="n">max_features</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">max_features_merch</span><span class="p">),</span>
+            <span class="n">TruncatedSVD</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">n_components_merch</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">random_state</span><span class="p">),</span>
+        <span class="p">)</span>
+
+        <span class="n">type_pipe</span> <span class="o">=</span> <span class="n">make_pipeline</span><span class="p">(</span><span class="n">OneHotEncoder</span><span class="p">(</span><span class="n">handle_unknown</span><span class="o">=</span><span class="s2">&quot;ignore&quot;</span><span class="p">))</span>
+
+        <span class="n">preprocessor</span> <span class="o">=</span> <span class="n">ColumnTransformer</span><span class="p">(</span>
+            <span class="n">transformers</span><span class="o">=</span><span class="p">[</span>
+                <span class="p">(</span><span class="s2">&quot;num&quot;</span><span class="p">,</span> <span class="n">StandardScaler</span><span class="p">(),</span> <span class="p">[</span><span class="s2">&quot;AMOUNT&quot;</span><span class="p">]),</span>
+                <span class="p">(</span><span class="s2">&quot;cat&quot;</span><span class="p">,</span> <span class="n">type_pipe</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;TYPE_OF_PAYMENT&quot;</span><span class="p">]),</span>
+                <span class="p">(</span><span class="s2">&quot;desc&quot;</span><span class="p">,</span> <span class="n">desc_pipe</span><span class="p">,</span> <span class="s2">&quot;DESCRIPTION&quot;</span><span class="p">),</span>
+                <span class="p">(</span><span class="s2">&quot;merchant&quot;</span><span class="p">,</span> <span class="n">merch_pipe</span><span class="p">,</span> <span class="s2">&quot;MERCHANT_NAME&quot;</span><span class="p">),</span>
+            <span class="p">]</span>
+        <span class="p">)</span>
+
+        <span class="n">pipeline</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">(</span>
+            <span class="n">steps</span><span class="o">=</span><span class="p">[</span>
+                <span class="p">(</span><span class="s2">&quot;preprocessor&quot;</span><span class="p">,</span> <span class="n">preprocessor</span><span class="p">),</span>
+                <span class="p">(</span>
+                    <span class="s2">&quot;classifier&quot;</span><span class="p">,</span>
+                    <span class="n">ensemble</span><span class="o">.</span><span class="n">RandomForestClassifier</span><span class="p">(</span>
+                        <span class="n">n_estimators</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">n_estimators</span><span class="p">,</span>
+                        <span class="n">max_depth</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">max_depth</span><span class="p">,</span>
+                        <span class="n">n_jobs</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">n_jobs</span><span class="p">,</span>
+                        <span class="n">random_state</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">random_state</span><span class="p">,</span>
+                    <span class="p">),</span>
+                <span class="p">),</span>
+            <span class="p">]</span>
+        <span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">pipeline</span>
+
+<div class="viewcode-block" id="SKLearnPipelineModel.fit">
+<a class="viewcode-back" href="../../../_api/qto_categorizer_ml.core.html#qto_categorizer_ml.core.models.SKLearnPipelineModel.fit">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">inputs</span><span class="p">,</span> <span class="n">targets</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Fit sklearn pipeline.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">le</span> <span class="o">=</span> <span class="n">LabelEncoder</span><span class="p">()</span>
+        <span class="n">targets_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">le</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">targets</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">pipeline</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_create_pipeline</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pipeline</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">inputs</span><span class="p">,</span> <span class="n">targets_</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="SKLearnPipelineModel.predict">
+<a class="viewcode-back" href="../../../_api/qto_categorizer_ml.core.html#qto_categorizer_ml.core.models.SKLearnPipelineModel.predict">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">inputs</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Generate prediction from sklearn pipeline.&quot;&quot;&quot;</span>
+        <span class="n">outputs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">pipeline</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">inputs</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_decode_target</span><span class="p">(</span><span class="n">outputs</span><span class="p">)</span></div>
+
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_encode_target</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">outputs</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Encode target.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">le</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">outputs</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_decode_target</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">outputs_encoded</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Decode target.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">le</span><span class="o">.</span><span class="n">inverse_transform</span><span class="p">(</span><span class="n">outputs_encoded</span><span class="p">)</span></div>
+
+
+
+<span class="n">ModelKind</span> <span class="o">=</span> <span class="n">BaselineModel</span> <span class="o">|</span> <span class="n">SKLearnPipelineModel</span>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright data-corentinv.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

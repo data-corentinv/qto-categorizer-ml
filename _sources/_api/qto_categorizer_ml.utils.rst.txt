@@ -1,0 +1,37 @@
+qto\_categorizer\_ml.utils package
+==================================
+
+Submodules
+----------
+
+qto\_categorizer\_ml.utils.searchers module
+-------------------------------------------
+
+.. automodule:: qto_categorizer_ml.utils.searchers
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+qto\_categorizer\_ml.utils.signers module
+-----------------------------------------
+
+.. automodule:: qto_categorizer_ml.utils.signers
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+qto\_categorizer\_ml.utils.splitters module
+-------------------------------------------
+
+.. automodule:: qto_categorizer_ml.utils.splitters
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Module contents
+---------------
+
+.. automodule:: qto_categorizer_ml.utils
+   :members:
+   :undoc-members:
+   :show-inheritance:

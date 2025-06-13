@@ -1,0 +1,40 @@
+qto\_categorizer\_ml package
+============================
+
+Subpackages
+-----------
+
+.. toctree::
+   :maxdepth: 4
+
+   qto_categorizer_ml.core
+   qto_categorizer_ml.io
+   qto_categorizer_ml.jobs
+   qto_categorizer_ml.utils
+
+Submodules
+----------
+
+qto\_categorizer\_ml.scripts module
+-----------------------------------
+
+.. automodule:: qto_categorizer_ml.scripts
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+qto\_categorizer\_ml.settings module
+------------------------------------
+
+.. automodule:: qto_categorizer_ml.settings
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Module contents
+---------------
+
+.. automodule:: qto_categorizer_ml
+   :members:
+   :undoc-members:
+   :show-inheritance:

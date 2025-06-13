@@ -1,0 +1,45 @@
+qto\_categorizer\_ml.io package
+===============================
+
+Submodules
+----------
+
+qto\_categorizer\_ml.io.configs module
+--------------------------------------
+
+.. automodule:: qto_categorizer_ml.io.configs
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+qto\_categorizer\_ml.io.datasets module
+---------------------------------------
+
+.. automodule:: qto_categorizer_ml.io.datasets
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+qto\_categorizer\_ml.io.registries module
+-----------------------------------------
+
+.. automodule:: qto_categorizer_ml.io.registries
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+qto\_categorizer\_ml.io.services module
+---------------------------------------
+
+.. automodule:: qto_categorizer_ml.io.services
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Module contents
+---------------
+
+.. automodule:: qto_categorizer_ml.io
+   :members:
+   :undoc-members:
+   :show-inheritance:

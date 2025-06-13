@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>qto_categorizer_ml.core package &mdash; Qto Categorizer ML 0.1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=fd3f3429" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=01f34227"></script>
+        <script src="../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="qto_categorizer_ml.io package" href="qto_categorizer_ml.io.html" />
+    <link rel="prev" title="qto_categorizer_ml package" href="qto_categorizer_ml.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Qto Categorizer ML
+          </a>
+              <div class="version">
+                0.1.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../markdown.html">Markdown</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../restructured.html">RestructuredText</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">qto_categorizer_ml</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="qto_categorizer_ml.html">qto_categorizer_ml package</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">qto_categorizer_ml.core package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="qto_categorizer_ml.io.html">qto_categorizer_ml.io package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="qto_categorizer_ml.jobs.html">qto_categorizer_ml.jobs package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="qto_categorizer_ml.utils.html">qto_categorizer_ml.utils package</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Qto Categorizer ML</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">qto_categorizer_ml</a></li>
+          <li class="breadcrumb-item"><a href="qto_categorizer_ml.html">qto_categorizer_ml package</a></li>
+      <li class="breadcrumb-item active">qto_categorizer_ml.core package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/_api/qto_categorizer_ml.core.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="qto-categorizer-ml-core-package">
+<h1>qto_categorizer_ml.core package<a class="headerlink" href="#qto-categorizer-ml-core-package" title="Link to this heading"></a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
+</section>
+<section id="module-qto_categorizer_ml.core.metrics">
+<span id="qto-categorizer-ml-core-metrics-module"></span><h2>qto_categorizer_ml.core.metrics module<a class="headerlink" href="#module-qto_categorizer_ml.core.metrics" title="Link to this heading"></a></h2>
+<p>Evaluate model performances with metrics.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="qto_categorizer_ml.core.metrics.Metric">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">qto_categorizer_ml.core.metrics.</span></span><span class="sig-name descname"><span class="pre">Metric</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">KIND</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/qto_categorizer_ml/core/metrics.html#Metric"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#qto_categorizer_ml.core.metrics.Metric" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">BaseModel</span></code></p>
+<p>Base class for a project metric.</p>
+<p>Use metrics to evaluate model performance.
+e.g., accuracy, precision, recall, MAE, F1, …</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>name</strong> (<em>str</em>) – name of the metric for the reporting.</p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qto_categorizer_ml.core.metrics.Metric.KIND">
+<span class="sig-name descname"><span class="pre">KIND</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#qto_categorizer_ml.core.metrics.Metric.KIND" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qto_categorizer_ml.core.metrics.Metric.model_config">
+<span class="sig-name descname"><span class="pre">model_config</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">ConfigDict</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'extra':</span> <span class="pre">'forbid',</span> <span class="pre">'frozen':</span> <span class="pre">True,</span> <span class="pre">'strict':</span> <span class="pre">True}</span></em><a class="headerlink" href="#qto_categorizer_ml.core.metrics.Metric.model_config" title="Link to this definition"></a></dt>
+<dd><p>Configuration for the model, should be a dictionary conforming to [<cite>ConfigDict</cite>][pydantic.config.ConfigDict].</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qto_categorizer_ml.core.metrics.Metric.name">
+<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#qto_categorizer_ml.core.metrics.Metric.name" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="qto_categorizer_ml.core.metrics.Metric.score">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">score</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">targets</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#qto_categorizer_ml.core.schemas.TargetsSchema" title="qto_categorizer_ml.core.schemas.TargetsSchema"><span class="pre">TargetsSchema</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outputs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#qto_categorizer_ml.core.schemas.OutputsSchema" title="qto_categorizer_ml.core.schemas.OutputsSchema"><span class="pre">OutputsSchema</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="reference internal" href="../_modules/qto_categorizer_ml/core/metrics.html#Metric.score"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#qto_categorizer_ml.core.metrics.Metric.score" title="Link to this definition"></a></dt>
+<dd><p>Score the outputs against the targets.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>targets</strong> (<em>schemas.Targets</em>) – expected values.</p></li>
+<li><p><strong>outputs</strong> (<em>schemas.Outputs</em>) – predicted values.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>single result from the metric computation.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="qto_categorizer_ml.core.metrics.Metric.scorer">
+<span class="sig-name descname"><span class="pre">scorer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#qto_categorizer_ml.core.models.Model" title="qto_categorizer_ml.core.models.Model"><span class="pre">Model</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">inputs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#qto_categorizer_ml.core.schemas.InputsSchema" title="qto_categorizer_ml.core.schemas.InputsSchema"><span class="pre">InputsSchema</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">targets</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#qto_categorizer_ml.core.schemas.TargetsSchema" title="qto_categorizer_ml.core.schemas.TargetsSchema"><span class="pre">TargetsSchema</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="reference internal" href="../_modules/qto_categorizer_ml/core/metrics.html#Metric.scorer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#qto_categorizer_ml.core.metrics.Metric.scorer" title="Link to this definition"></a></dt>
+<dd><p>Score the model outputs against the targets.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>model</strong> (<a class="reference internal" href="#qto_categorizer_ml.core.models.Model" title="qto_categorizer_ml.core.models.Model"><em>models.Model</em></a>) – model to evaluate.</p></li>
+<li><p><strong>inputs</strong> (<em>schemas.Inputs</em>) – model inputs values.</p></li>
+<li><p><strong>targets</strong> (<em>schemas.Targets</em>) – model expected values.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>single result from the metric computation.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qto_categorizer_ml.core.metrics.MetricKind">
+<span class="sig-prename descclassname"><span class="pre">qto_categorizer_ml.core.metrics.</span></span><span class="sig-name descname"><span class="pre">MetricKind</span></span><a class="headerlink" href="#qto_categorizer_ml.core.metrics.MetricKind" title="Link to this definition"></a></dt>
+<dd><p>alias of <a class="reference internal" href="#qto_categorizer_ml.core.metrics.SklearnMetric" title="qto_categorizer_ml.core.metrics.SklearnMetric"><code class="xref py py-class docutils literal notranslate"><span class="pre">SklearnMetric</span></code></a></p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="qto_categorizer_ml.core.metrics.SklearnMetric">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">qto_categorizer_ml.core.metrics.</span></span><span class="sig-name descname"><span class="pre">SklearnMetric</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">KIND</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Literal</span><span class="p"><span class="pre">[</span></span><span class="s"><span class="pre">'SklearnMetric'</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'SklearnMetric'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'accuracy_score'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">greater_is_better</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/qto_categorizer_ml/core/metrics.html#SklearnMetric"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#qto_categorizer_ml.core.metrics.SklearnMetric" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#qto_categorizer_ml.core.metrics.Metric" title="qto_categorizer_ml.core.metrics.Metric"><code class="xref py py-class docutils literal notranslate"><span class="pre">Metric</span></code></a></p>
+<p>Compute metrics with sklearn.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<em>str</em>) – name of the sklearn metric.</p></li>
+<li><p><strong>greater_is_better</strong> (<em>bool</em>) – maximize or minimize.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qto_categorizer_ml.core.metrics.SklearnMetric.KIND">
+<span class="sig-name descname"><span class="pre">KIND</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Literal</span><span class="p"><span class="pre">[</span></span><span class="s"><span class="pre">'SklearnMetric'</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#qto_categorizer_ml.core.metrics.SklearnMetric.KIND" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qto_categorizer_ml.core.metrics.SklearnMetric.greater_is_better">
+<span class="sig-name descname"><span class="pre">greater_is_better</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#qto_categorizer_ml.core.metrics.SklearnMetric.greater_is_better" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qto_categorizer_ml.core.metrics.SklearnMetric.model_config">
+<span class="sig-name descname"><span class="pre">model_config</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">ConfigDict</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'extra':</span> <span class="pre">'forbid',</span> <span class="pre">'frozen':</span> <span class="pre">True,</span> <span class="pre">'strict':</span> <span class="pre">True}</span></em><a class="headerlink" href="#qto_categorizer_ml.core.metrics.SklearnMetric.model_config" title="Link to this definition"></a></dt>
+<dd><p>Configuration for the model, should be a dictionary conforming to [<cite>ConfigDict</cite>][pydantic.config.ConfigDict].</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qto_categorizer_ml.core.metrics.SklearnMetric.name">
+<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#qto_categorizer_ml.core.metrics.SklearnMetric.name" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="qto_categorizer_ml.core.metrics.SklearnMetric.score">
+<span class="sig-name descname"><span class="pre">score</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">targets</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#qto_categorizer_ml.core.schemas.TargetsSchema" title="qto_categorizer_ml.core.schemas.TargetsSchema"><span class="pre">TargetsSchema</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outputs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#qto_categorizer_ml.core.schemas.OutputsSchema" title="qto_categorizer_ml.core.schemas.OutputsSchema"><span class="pre">OutputsSchema</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="reference internal" href="../_modules/qto_categorizer_ml/core/metrics.html#SklearnMetric.score"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#qto_categorizer_ml.core.metrics.SklearnMetric.score" title="Link to this definition"></a></dt>
+<dd><p>Score the outputs against the targets.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>targets</strong> (<em>schemas.Targets</em>) – expected values.</p></li>
+<li><p><strong>outputs</strong> (<em>schemas.Outputs</em>) – predicted values.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>single result from the metric computation.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-qto_categorizer_ml.core.models">
+<span id="qto-categorizer-ml-core-models-module"></span><h2>qto_categorizer_ml.core.models module<a class="headerlink" href="#module-qto_categorizer_ml.core.models" title="Link to this heading"></a></h2>
+<p>Define trainable machine learning models.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="qto_categorizer_ml.core.models.BaselineModel">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">qto_categorizer_ml.core.models.</span></span><span class="sig-name descname"><span class="pre">BaselineModel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">KIND</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Literal</span><span class="p"><span class="pre">[</span></span><span class="s"><span class="pre">'BaselineModel'</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'BaselineModel'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">corespondance_table_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'data/corespondance_table.csv'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pipeline</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">le</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/qto_categorizer_ml/core/models.html#BaselineModel"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#qto_categorizer_ml.core.models.BaselineModel" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#qto_categorizer_ml.core.models.Model" title="qto_categorizer_ml.core.models.Model"><code class="xref py py-class docutils literal notranslate"><span class="pre">Model</span></code></a></p>
+<p>Baseline model: takes to most frequent category of a marchant).
+Accuracy estimated to be ~60%.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>corespondance_table_path</strong> (<em>str</em>) – path to save the corespondance table.</p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qto_categorizer_ml.core.models.BaselineModel.KIND">
+<span class="sig-name descname"><span class="pre">KIND</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Literal</span><span class="p"><span class="pre">[</span></span><span class="s"><span class="pre">'BaselineModel'</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#qto_categorizer_ml.core.models.BaselineModel.KIND" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qto_categorizer_ml.core.models.BaselineModel.corespondance_table_path">
+<span class="sig-name descname"><span class="pre">corespondance_table_path</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#qto_categorizer_ml.core.models.BaselineModel.corespondance_table_path" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="qto_categorizer_ml.core.models.BaselineModel.fit">
+<span class="sig-name descname"><span class="pre">fit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">inputs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">targets</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/qto_categorizer_ml/core/models.html#BaselineModel.fit"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#qto_categorizer_ml.core.models.BaselineModel.fit" title="Link to this definition"></a></dt>
+<dd><p>Fit the model on the given inputs and targets.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>inputs</strong> (<em>schemas.Inputs</em>) – model training inputs.</p></li>
+<li><p><strong>targets</strong> (<em>schemas.Targets</em>) – model training targets.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>instance of the model.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>TX.Self</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qto_categorizer_ml.core.models.BaselineModel.le">
+<span class="sig-name descname"><span class="pre">le</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#qto_categorizer_ml.core.models.BaselineModel.le" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qto_categorizer_ml.core.models.BaselineModel.model_config">
+<span class="sig-name descname"><span class="pre">model_config</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">ConfigDict</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'extra':</span> <span class="pre">'forbid',</span> <span class="pre">'frozen':</span> <span class="pre">False,</span> <span class="pre">'strict':</span> <span class="pre">True}</span></em><a class="headerlink" href="#qto_categorizer_ml.core.models.BaselineModel.model_config" title="Link to this definition"></a></dt>
+<dd><p>Configuration for the model, should be a dictionary conforming to [<cite>ConfigDict</cite>][pydantic.config.ConfigDict].</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qto_categorizer_ml.core.models.BaselineModel.pipeline">
+<span class="sig-name descname"><span class="pre">pipeline</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#qto_categorizer_ml.core.models.BaselineModel.pipeline" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="qto_categorizer_ml.core.models.BaselineModel.predict">
+<span class="sig-name descname"><span class="pre">predict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">inputs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/qto_categorizer_ml/core/models.html#BaselineModel.predict"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#qto_categorizer_ml.core.models.BaselineModel.predict" title="Link to this definition"></a></dt>
+<dd><p>Generate outputs with the model for the given inputs.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>inputs</strong> (<em>schemas.Inputs</em>) – model prediction inputs.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>model prediction outputs.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>schemas.Outputs</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="qto_categorizer_ml.core.models.Model">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">qto_categorizer_ml.core.models.</span></span><span class="sig-name descname"><span class="pre">Model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">KIND</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/qto_categorizer_ml/core/models.html#Model"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#qto_categorizer_ml.core.models.Model" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">BaseModel</span></code></p>
+<p>Base class for a project model.</p>
+<p>Use a model to adapt AI/ML frameworks.
+e.g., to swap easily one model with another.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qto_categorizer_ml.core.models.Model.KIND">
+<span class="sig-name descname"><span class="pre">KIND</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#qto_categorizer_ml.core.models.Model.KIND" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="qto_categorizer_ml.core.models.Model.fit">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">fit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">inputs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#qto_categorizer_ml.core.schemas.InputsSchema" title="qto_categorizer_ml.core.schemas.InputsSchema"><span class="pre">InputsSchema</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">targets</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#qto_categorizer_ml.core.schemas.TargetsSchema" title="qto_categorizer_ml.core.schemas.TargetsSchema"><span class="pre">TargetsSchema</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Self</span></span></span><a class="reference internal" href="../_modules/qto_categorizer_ml/core/models.html#Model.fit"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#qto_categorizer_ml.core.models.Model.fit" title="Link to this definition"></a></dt>
+<dd><p>Fit the model on the given inputs and targets.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>inputs</strong> (<em>schemas.Inputs</em>) – model training inputs.</p></li>
+<li><p><strong>targets</strong> (<em>schemas.Targets</em>) – model training targets.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>instance of the model.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>TX.Self</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="qto_categorizer_ml.core.models.Model.get_internal_model">
+<span class="sig-name descname"><span class="pre">get_internal_model</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Any</span></span></span><a class="reference internal" href="../_modules/qto_categorizer_ml/core/models.html#Model.get_internal_model"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#qto_categorizer_ml.core.models.Model.get_internal_model" title="Link to this definition"></a></dt>
+<dd><p>Return the internal model in the object.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>NotImplementedError</strong> – method not implemented.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>any internal model (either empty or fitted).</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>T.Any</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="qto_categorizer_ml.core.models.Model.get_params">
+<span class="sig-name descname"><span class="pre">get_params</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">deep</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/qto_categorizer_ml/core/models.html#Model.get_params"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#qto_categorizer_ml.core.models.Model.get_params" title="Link to this definition"></a></dt>
+<dd><p>Get the model params.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>deep</strong> (<em>bool</em><em>, </em><em>optional</em>) – ignored. Defaults to True.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>internal model parameters.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Params</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qto_categorizer_ml.core.models.Model.model_config">
+<span class="sig-name descname"><span class="pre">model_config</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">ConfigDict</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'extra':</span> <span class="pre">'forbid',</span> <span class="pre">'frozen':</span> <span class="pre">False,</span> <span class="pre">'strict':</span> <span class="pre">True}</span></em><a class="headerlink" href="#qto_categorizer_ml.core.models.Model.model_config" title="Link to this definition"></a></dt>
+<dd><p>Configuration for the model, should be a dictionary conforming to [<cite>ConfigDict</cite>][pydantic.config.ConfigDict].</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="qto_categorizer_ml.core.models.Model.predict">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">predict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">inputs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#qto_categorizer_ml.core.schemas.InputsSchema" title="qto_categorizer_ml.core.schemas.InputsSchema"><span class="pre">InputsSchema</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DataFrame</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#qto_categorizer_ml.core.schemas.OutputsSchema" title="qto_categorizer_ml.core.schemas.OutputsSchema"><span class="pre">OutputsSchema</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/qto_categorizer_ml/core/models.html#Model.predict"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#qto_categorizer_ml.core.models.Model.predict" title="Link to this definition"></a></dt>
+<dd><p>Generate outputs with the model for the given inputs.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>inputs</strong> (<em>schemas.Inputs</em>) – model prediction inputs.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>model prediction outputs.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>schemas.Outputs</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="qto_categorizer_ml.core.models.Model.set_params">
+<span class="sig-name descname"><span class="pre">set_params</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">params</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Self</span></span></span><a class="reference internal" href="../_modules/qto_categorizer_ml/core/models.html#Model.set_params"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#qto_categorizer_ml.core.models.Model.set_params" title="Link to this definition"></a></dt>
+<dd><p>Set the model params in place.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>instance of the model.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>TX.Self</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="qto_categorizer_ml.core.models.MostFrequentCategoryByMerchant">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">qto_categorizer_ml.core.models.</span></span><span class="sig-name descname"><span class="pre">MostFrequentCategoryByMerchant</span></span><a class="reference internal" href="../_modules/qto_categorizer_ml/core/models.html#MostFrequentCategoryByMerchant"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#qto_categorizer_ml.core.models.MostFrequentCategoryByMerchant" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">BaseEstimator</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">TransformerMixin</span></code></p>
+<p>Move to another dir</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="qto_categorizer_ml.core.models.MostFrequentCategoryByMerchant.fit">
+<span class="sig-name descname"><span class="pre">fit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/qto_categorizer_ml/core/models.html#MostFrequentCategoryByMerchant.fit"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#qto_categorizer_ml.core.models.MostFrequentCategoryByMerchant.fit" title="Link to this definition"></a></dt>
+<dd><p>Fit method.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qto_categorizer_ml.core.models.MostFrequentCategoryByMerchant.merchant_to_category_">
+<span class="sig-name descname"><span class="pre">merchant_to_category_</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">dict</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{}</span></em><a class="headerlink" href="#qto_categorizer_ml.core.models.MostFrequentCategoryByMerchant.merchant_to_category_" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="qto_categorizer_ml.core.models.MostFrequentCategoryByMerchant.transform">
+<span class="sig-name descname"><span class="pre">transform</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/qto_categorizer_ml/core/models.html#MostFrequentCategoryByMerchant.transform"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#qto_categorizer_ml.core.models.MostFrequentCategoryByMerchant.transform" title="Link to this definition"></a></dt>
+<dd><p>Transform method.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="qto_categorizer_ml.core.models.SKLearnPipelineModel">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">qto_categorizer_ml.core.models.</span></span><span class="sig-name descname"><span class="pre">SKLearnPipelineModel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">KIND</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Literal</span><span class="p"><span class="pre">[</span></span><span class="s"><span class="pre">'SKLearnPipelineModel'</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'SKLearnPipelineModel'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_features_desc</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_components_desc</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">50</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_features_merch</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">500</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_components_merch</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">30</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">random_state</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">42</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_estimators</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">200</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_depth</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">30</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_jobs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">-1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pipeline</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">le</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/qto_categorizer_ml/core/models.html#SKLearnPipelineModel"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#qto_categorizer_ml.core.models.SKLearnPipelineModel" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#qto_categorizer_ml.core.models.Model" title="qto_categorizer_ml.core.models.Model"><code class="xref py py-class docutils literal notranslate"><span class="pre">Model</span></code></a></p>
+<p>SKLearn Pipeline model: takes to most frequent category of a marchant).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>max_features_desc</strong> (<em>int</em>) – Maximum number of features to keep in the TfidfVectorizer for the DESCRIPTION column.</p></li>
+<li><p><strong>max_features_merch</strong> (<em>int</em>) – Maximum number of features to keep in the TfidfVectorizer for the MERCHANT_NAME column.</p></li>
+<li><p><strong>n_components_desc</strong> (<em>int</em>) – Number of components to retain after dimensionality reduction (e.g., TruncatedSVD) on DESCRIPTION vectors.</p></li>
+<li><p><strong>n_components_merch</strong> (<em>int</em>) – Number of components to retain after dimensionality reduction on MERCHANT_NAME vectors.</p></li>
+<li><p><strong>random_state</strong> (<em>int</em>) – Random seed for reproducibility across training runs.</p></li>
+<li><p><strong>n_estimators</strong> (<em>int</em>) – Number of trees in the RandomForestClassifier.</p></li>
+<li><p><strong>max_depth</strong> (<em>int</em>) – Maximum depth of each tree in the forest.</p></li>
+<li><p><strong>n_jobs</strong> (<em>int</em>) – Number of CPU cores to use for parallel processing. Use -1 to use all available cores.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qto_categorizer_ml.core.models.SKLearnPipelineModel.KIND">
+<span class="sig-name descname"><span class="pre">KIND</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Literal</span><span class="p"><span class="pre">[</span></span><span class="s"><span class="pre">'SKLearnPipelineModel'</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#qto_categorizer_ml.core.models.SKLearnPipelineModel.KIND" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="qto_categorizer_ml.core.models.SKLearnPipelineModel.fit">
+<span class="sig-name descname"><span class="pre">fit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">inputs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">targets</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/qto_categorizer_ml/core/models.html#SKLearnPipelineModel.fit"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#qto_categorizer_ml.core.models.SKLearnPipelineModel.fit" title="Link to this definition"></a></dt>
+<dd><p>Fit sklearn pipeline.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qto_categorizer_ml.core.models.SKLearnPipelineModel.le">
+<span class="sig-name descname"><span class="pre">le</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#qto_categorizer_ml.core.models.SKLearnPipelineModel.le" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qto_categorizer_ml.core.models.SKLearnPipelineModel.max_depth">
+<span class="sig-name descname"><span class="pre">max_depth</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#qto_categorizer_ml.core.models.SKLearnPipelineModel.max_depth" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qto_categorizer_ml.core.models.SKLearnPipelineModel.max_features_desc">
+<span class="sig-name descname"><span class="pre">max_features_desc</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#qto_categorizer_ml.core.models.SKLearnPipelineModel.max_features_desc" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qto_categorizer_ml.core.models.SKLearnPipelineModel.max_features_merch">
+<span class="sig-name descname"><span class="pre">max_features_merch</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#qto_categorizer_ml.core.models.SKLearnPipelineModel.max_features_merch" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qto_categorizer_ml.core.models.SKLearnPipelineModel.model_config">
+<span class="sig-name descname"><span class="pre">model_config</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">ConfigDict</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'extra':</span> <span class="pre">'forbid',</span> <span class="pre">'frozen':</span> <span class="pre">False,</span> <span class="pre">'strict':</span> <span class="pre">True}</span></em><a class="headerlink" href="#qto_categorizer_ml.core.models.SKLearnPipelineModel.model_config" title="Link to this definition"></a></dt>
+<dd><p>Configuration for the model, should be a dictionary conforming to [<cite>ConfigDict</cite>][pydantic.config.ConfigDict].</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qto_categorizer_ml.core.models.SKLearnPipelineModel.n_components_desc">
+<span class="sig-name descname"><span class="pre">n_components_desc</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#qto_categorizer_ml.core.models.SKLearnPipelineModel.n_components_desc" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qto_categorizer_ml.core.models.SKLearnPipelineModel.n_components_merch">
+<span class="sig-name descname"><span class="pre">n_components_merch</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#qto_categorizer_ml.core.models.SKLearnPipelineModel.n_components_merch" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qto_categorizer_ml.core.models.SKLearnPipelineModel.n_estimators">
+<span class="sig-name descname"><span class="pre">n_estimators</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#qto_categorizer_ml.core.models.SKLearnPipelineModel.n_estimators" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qto_categorizer_ml.core.models.SKLearnPipelineModel.n_jobs">
+<span class="sig-name descname"><span class="pre">n_jobs</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#qto_categorizer_ml.core.models.SKLearnPipelineModel.n_jobs" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qto_categorizer_ml.core.models.SKLearnPipelineModel.pipeline">
+<span class="sig-name descname"><span class="pre">pipeline</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#qto_categorizer_ml.core.models.SKLearnPipelineModel.pipeline" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="qto_categorizer_ml.core.models.SKLearnPipelineModel.predict">
+<span class="sig-name descname"><span class="pre">predict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">inputs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/qto_categorizer_ml/core/models.html#SKLearnPipelineModel.predict"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#qto_categorizer_ml.core.models.SKLearnPipelineModel.predict" title="Link to this definition"></a></dt>
+<dd><p>Generate prediction from sklearn pipeline.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qto_categorizer_ml.core.models.SKLearnPipelineModel.random_state">
+<span class="sig-name descname"><span class="pre">random_state</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#qto_categorizer_ml.core.models.SKLearnPipelineModel.random_state" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-qto_categorizer_ml.core.schemas">
+<span id="qto-categorizer-ml-core-schemas-module"></span><h2>qto_categorizer_ml.core.schemas module<a class="headerlink" href="#module-qto_categorizer_ml.core.schemas" title="Link to this heading"></a></h2>
+<p>Define and validate dataframe schemas.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="qto_categorizer_ml.core.schemas.FeatInputsSchema">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">qto_categorizer_ml.core.schemas.</span></span><span class="sig-name descname"><span class="pre">FeatInputsSchema</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/qto_categorizer_ml/core/schemas.html#FeatInputsSchema"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#qto_categorizer_ml.core.schemas.FeatInputsSchema" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#qto_categorizer_ml.core.schemas.Schema" title="qto_categorizer_ml.core.schemas.Schema"><code class="xref py py-class docutils literal notranslate"><span class="pre">Schema</span></code></a></p>
+<p>Schema for the project inputs.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qto_categorizer_ml.core.schemas.FeatInputsSchema.AMOUNT">
+<span class="sig-name descname"><span class="pre">AMOUNT</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Series</span><span class="p"><span class="pre">[</span></span><span class="pre">Float</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'AMOUNT'</span></em><a class="headerlink" href="#qto_categorizer_ml.core.schemas.FeatInputsSchema.AMOUNT" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="qto_categorizer_ml.core.schemas.FeatInputsSchema.Config">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Config</span></span><a class="headerlink" href="#qto_categorizer_ml.core.schemas.FeatInputsSchema.Config" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">BaseConfig</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qto_categorizer_ml.core.schemas.FeatInputsSchema.Config.name">
+<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'FeatInputsSchema'</span></em><a class="headerlink" href="#qto_categorizer_ml.core.schemas.FeatInputsSchema.Config.name" title="Link to this definition"></a></dt>
+<dd><p>name of schema</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qto_categorizer_ml.core.schemas.FeatInputsSchema.DESCRIPTION">
+<span class="sig-name descname"><span class="pre">DESCRIPTION</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Series</span><span class="p"><span class="pre">[</span></span><span class="pre">String</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'DESCRIPTION'</span></em><a class="headerlink" href="#qto_categorizer_ml.core.schemas.FeatInputsSchema.DESCRIPTION" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qto_categorizer_ml.core.schemas.FeatInputsSchema.MERCHANT_NAME">
+<span class="sig-name descname"><span class="pre">MERCHANT_NAME</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Series</span><span class="p"><span class="pre">[</span></span><span class="pre">String</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'MERCHANT_NAME'</span></em><a class="headerlink" href="#qto_categorizer_ml.core.schemas.FeatInputsSchema.MERCHANT_NAME" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qto_categorizer_ml.core.schemas.FeatInputsSchema.TYPE_OF_PAYMENT">
+<span class="sig-name descname"><span class="pre">TYPE_OF_PAYMENT</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Series</span><span class="p"><span class="pre">[</span></span><span class="pre">String</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'TYPE_OF_PAYMENT'</span></em><a class="headerlink" href="#qto_categorizer_ml.core.schemas.FeatInputsSchema.TYPE_OF_PAYMENT" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="qto_categorizer_ml.core.schemas.InputsSchema">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">qto_categorizer_ml.core.schemas.</span></span><span class="sig-name descname"><span class="pre">InputsSchema</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/qto_categorizer_ml/core/schemas.html#InputsSchema"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#qto_categorizer_ml.core.schemas.InputsSchema" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#qto_categorizer_ml.core.schemas.Schema" title="qto_categorizer_ml.core.schemas.Schema"><code class="xref py py-class docutils literal notranslate"><span class="pre">Schema</span></code></a></p>
+<p>Schema for the project inputs.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qto_categorizer_ml.core.schemas.InputsSchema.AMOUNT">
+<span class="sig-name descname"><span class="pre">AMOUNT</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Series</span><span class="p"><span class="pre">[</span></span><span class="pre">Float</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'AMOUNT'</span></em><a class="headerlink" href="#qto_categorizer_ml.core.schemas.InputsSchema.AMOUNT" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qto_categorizer_ml.core.schemas.InputsSchema.CATEGORY">
+<span class="sig-name descname"><span class="pre">CATEGORY</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Series</span><span class="p"><span class="pre">[</span></span><span class="pre">String</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'CATEGORY'</span></em><a class="headerlink" href="#qto_categorizer_ml.core.schemas.InputsSchema.CATEGORY" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="qto_categorizer_ml.core.schemas.InputsSchema.Config">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Config</span></span><a class="headerlink" href="#qto_categorizer_ml.core.schemas.InputsSchema.Config" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">BaseConfig</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qto_categorizer_ml.core.schemas.InputsSchema.Config.name">
+<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'InputsSchema'</span></em><a class="headerlink" href="#qto_categorizer_ml.core.schemas.InputsSchema.Config.name" title="Link to this definition"></a></dt>
+<dd><p>name of schema</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qto_categorizer_ml.core.schemas.InputsSchema.DATE_EMITTED">
+<span class="sig-name descname"><span class="pre">DATE_EMITTED</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Series</span><span class="p"><span class="pre">[</span></span><span class="pre">Timestamp</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'DATE_EMITTED'</span></em><a class="headerlink" href="#qto_categorizer_ml.core.schemas.InputsSchema.DATE_EMITTED" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qto_categorizer_ml.core.schemas.InputsSchema.DESCRIPTION">
+<span class="sig-name descname"><span class="pre">DESCRIPTION</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Series</span><span class="p"><span class="pre">[</span></span><span class="pre">String</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'DESCRIPTION'</span></em><a class="headerlink" href="#qto_categorizer_ml.core.schemas.InputsSchema.DESCRIPTION" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qto_categorizer_ml.core.schemas.InputsSchema.MERCHANT_NAME">
+<span class="sig-name descname"><span class="pre">MERCHANT_NAME</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Series</span><span class="p"><span class="pre">[</span></span><span class="pre">String</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'MERCHANT_NAME'</span></em><a class="headerlink" href="#qto_categorizer_ml.core.schemas.InputsSchema.MERCHANT_NAME" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qto_categorizer_ml.core.schemas.InputsSchema.SIDE">
+<span class="sig-name descname"><span class="pre">SIDE</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Series</span><span class="p"><span class="pre">[</span></span><span class="pre">Int</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'SIDE'</span></em><a class="headerlink" href="#qto_categorizer_ml.core.schemas.InputsSchema.SIDE" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qto_categorizer_ml.core.schemas.InputsSchema.TRANSACTION_ID">
+<span class="sig-name descname"><span class="pre">TRANSACTION_ID</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Series</span><span class="p"><span class="pre">[</span></span><span class="pre">String</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'TRANSACTION_ID'</span></em><a class="headerlink" href="#qto_categorizer_ml.core.schemas.InputsSchema.TRANSACTION_ID" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qto_categorizer_ml.core.schemas.InputsSchema.TYPE_OF_PAYMENT">
+<span class="sig-name descname"><span class="pre">TYPE_OF_PAYMENT</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Series</span><span class="p"><span class="pre">[</span></span><span class="pre">String</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'TYPE_OF_PAYMENT'</span></em><a class="headerlink" href="#qto_categorizer_ml.core.schemas.InputsSchema.TYPE_OF_PAYMENT" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="qto_categorizer_ml.core.schemas.OutputsSchema">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">qto_categorizer_ml.core.schemas.</span></span><span class="sig-name descname"><span class="pre">OutputsSchema</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/qto_categorizer_ml/core/schemas.html#OutputsSchema"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#qto_categorizer_ml.core.schemas.OutputsSchema" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#qto_categorizer_ml.core.schemas.Schema" title="qto_categorizer_ml.core.schemas.Schema"><code class="xref py py-class docutils literal notranslate"><span class="pre">Schema</span></code></a></p>
+<p>Schema for the project outputs.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="qto_categorizer_ml.core.schemas.OutputsSchema.Config">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Config</span></span><a class="headerlink" href="#qto_categorizer_ml.core.schemas.OutputsSchema.Config" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">BaseConfig</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qto_categorizer_ml.core.schemas.OutputsSchema.Config.name">
+<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'OutputsSchema'</span></em><a class="headerlink" href="#qto_categorizer_ml.core.schemas.OutputsSchema.Config.name" title="Link to this definition"></a></dt>
+<dd><p>name of schema</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qto_categorizer_ml.core.schemas.OutputsSchema.prediction">
+<span class="sig-name descname"><span class="pre">prediction</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Series</span><span class="p"><span class="pre">[</span></span><span class="pre">String</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'prediction'</span></em><a class="headerlink" href="#qto_categorizer_ml.core.schemas.OutputsSchema.prediction" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="qto_categorizer_ml.core.schemas.Schema">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">qto_categorizer_ml.core.schemas.</span></span><span class="sig-name descname"><span class="pre">Schema</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/qto_categorizer_ml/core/schemas.html#Schema"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#qto_categorizer_ml.core.schemas.Schema" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrameModel</span></code></p>
+<p>Base class for a dataframe schema.</p>
+<p>Use a schema to type your dataframe object.
+e.g., to communicate and validate its fields.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="qto_categorizer_ml.core.schemas.Schema.Config">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Config</span></span><a class="reference internal" href="../_modules/qto_categorizer_ml/core/schemas.html#Schema.Config"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#qto_categorizer_ml.core.schemas.Schema.Config" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Default configurations for all schemas.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>coerce</strong> (<em>bool</em>) – convert data type if possible.</p></li>
+<li><p><strong>strict</strong> (<em>bool</em>) – ensure the data type is correct.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qto_categorizer_ml.core.schemas.Schema.Config.coerce">
+<span class="sig-name descname"><span class="pre">coerce</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">True</span></em><a class="headerlink" href="#qto_categorizer_ml.core.schemas.Schema.Config.coerce" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qto_categorizer_ml.core.schemas.Schema.Config.name">
+<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Schema'</span></em><a class="headerlink" href="#qto_categorizer_ml.core.schemas.Schema.Config.name" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qto_categorizer_ml.core.schemas.Schema.Config.strict">
+<span class="sig-name descname"><span class="pre">strict</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">True</span></em><a class="headerlink" href="#qto_categorizer_ml.core.schemas.Schema.Config.strict" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="qto_categorizer_ml.core.schemas.Schema.check">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">check</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DataFrame</span><span class="p"><span class="pre">[</span></span><span class="pre">TSchema</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/qto_categorizer_ml/core/schemas.html#Schema.check"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#qto_categorizer_ml.core.schemas.Schema.check" title="Link to this definition"></a></dt>
+<dd><p>Check the dataframe with this schema.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>data</strong> (<em>pd.DataFrame</em>) – dataframe to check.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>validated dataframe.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>papd.DataFrame[TSchema]</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="qto_categorizer_ml.core.schemas.TargetsSchema">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">qto_categorizer_ml.core.schemas.</span></span><span class="sig-name descname"><span class="pre">TargetsSchema</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/qto_categorizer_ml/core/schemas.html#TargetsSchema"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#qto_categorizer_ml.core.schemas.TargetsSchema" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#qto_categorizer_ml.core.schemas.Schema" title="qto_categorizer_ml.core.schemas.Schema"><code class="xref py py-class docutils literal notranslate"><span class="pre">Schema</span></code></a></p>
+<p>Schema for the project targets.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qto_categorizer_ml.core.schemas.TargetsSchema.CATEGORY">
+<span class="sig-name descname"><span class="pre">CATEGORY</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Series</span><span class="p"><span class="pre">[</span></span><span class="pre">String</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'CATEGORY'</span></em><a class="headerlink" href="#qto_categorizer_ml.core.schemas.TargetsSchema.CATEGORY" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="qto_categorizer_ml.core.schemas.TargetsSchema.Config">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Config</span></span><a class="headerlink" href="#qto_categorizer_ml.core.schemas.TargetsSchema.Config" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">BaseConfig</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qto_categorizer_ml.core.schemas.TargetsSchema.Config.name">
+<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'TargetsSchema'</span></em><a class="headerlink" href="#qto_categorizer_ml.core.schemas.TargetsSchema.Config.name" title="Link to this definition"></a></dt>
+<dd><p>name of schema</p>
+</dd></dl>
+
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-qto_categorizer_ml.core">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-qto_categorizer_ml.core" title="Link to this heading"></a></h2>
+<p>Core components of the project.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="qto_categorizer_ml.html" class="btn btn-neutral float-left" title="qto_categorizer_ml package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="qto_categorizer_ml.io.html" class="btn btn-neutral float-right" title="qto_categorizer_ml.io package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright data-corentinv.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>qto_categorizer_ml.io.registries &mdash; Qto Categorizer ML 0.1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css?v=fd3f3429" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../_static/documentation_options.js?v=01f34227"></script>
+        <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            Qto Categorizer ML
+          </a>
+              <div class="version">
+                0.1.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../markdown.html">Markdown</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../restructured.html">RestructuredText</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../_api/modules.html">qto_categorizer_ml</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Qto Categorizer ML</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">qto_categorizer_ml.io.registries</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for qto_categorizer_ml.io.registries</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;Adapters, savers, loaders, and registers for models in Mlflow Registry.&quot;&quot;&quot;</span>
+
+<span class="c1"># %% IMPORTS</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">abc</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">T</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">mlflow</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pydantic</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pdt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">typing_extensions</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">TX</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">qto_categorizer_ml.core</span><span class="w"> </span><span class="kn">import</span> <span class="n">models</span><span class="p">,</span> <span class="n">schemas</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">qto_categorizer_ml.utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">signers</span>
+
+<span class="c1"># %% TYPES</span>
+
+<span class="c1"># Results of model registry operations</span>
+<span class="n">Info</span><span class="p">:</span> <span class="n">T</span><span class="o">.</span><span class="n">TypeAlias</span> <span class="o">=</span> <span class="n">mlflow</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">ModelInfo</span>
+<span class="n">Alias</span><span class="p">:</span> <span class="n">T</span><span class="o">.</span><span class="n">TypeAlias</span> <span class="o">=</span> <span class="n">mlflow</span><span class="o">.</span><span class="n">entities</span><span class="o">.</span><span class="n">model_registry</span><span class="o">.</span><span class="n">ModelVersion</span>
+<span class="n">Version</span><span class="p">:</span> <span class="n">T</span><span class="o">.</span><span class="n">TypeAlias</span> <span class="o">=</span> <span class="n">mlflow</span><span class="o">.</span><span class="n">entities</span><span class="o">.</span><span class="n">model_registry</span><span class="o">.</span><span class="n">ModelVersion</span>
+
+<span class="c1"># %% HELPERS</span>
+
+
+<div class="viewcode-block" id="uri_for_model">
+<a class="viewcode-back" href="../../../_api/qto_categorizer_ml.io.html#qto_categorizer_ml.io.registries.uri_for_model">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">uri_for_model</span><span class="p">(</span><span class="n">model_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">version_or_stage</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Create a model URI from a model name and version/stage.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        model_name (str): name of the model.</span>
+<span class="sd">        version_or_stage (str): version or stage.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        str: model URI (models:/model_name/version_or_stage).</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;models:/</span><span class="si">{</span><span class="n">model_name</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">version_or_stage</span><span class="si">}</span><span class="s2">&quot;</span></div>
+
+
+
+<span class="c1"># %% SAVERS</span>
+
+
+<div class="viewcode-block" id="Saver">
+<a class="viewcode-back" href="../../../_api/qto_categorizer_ml.io.html#qto_categorizer_ml.io.registries.Saver">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">Saver</span><span class="p">(</span><span class="n">abc</span><span class="o">.</span><span class="n">ABC</span><span class="p">,</span> <span class="n">pdt</span><span class="o">.</span><span class="n">BaseModel</span><span class="p">,</span> <span class="n">strict</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">frozen</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">extra</span><span class="o">=</span><span class="s2">&quot;forbid&quot;</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Base class for saving models in registry.</span>
+
+<span class="sd">    Separate model definition from serialization.</span>
+<span class="sd">    e.g., to switch between serialization flavors.</span>
+
+<span class="sd">    Parameters:</span>
+<span class="sd">        path (str): model path inside the Mlflow store.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">KIND</span><span class="p">:</span> <span class="nb">str</span>
+
+    <span class="n">path</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;model&quot;</span>
+
+<div class="viewcode-block" id="Saver.save">
+<a class="viewcode-back" href="../../../_api/qto_categorizer_ml.io.html#qto_categorizer_ml.io.registries.Saver.save">[docs]</a>
+    <span class="nd">@abc</span><span class="o">.</span><span class="n">abstractmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">save</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="p">:</span> <span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">,</span> <span class="n">signature</span><span class="p">:</span> <span class="n">signers</span><span class="o">.</span><span class="n">Signature</span><span class="p">,</span> <span class="n">input_example</span><span class="p">:</span> <span class="n">schemas</span><span class="o">.</span><span class="n">Inputs</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Info</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Save a model in the model registry.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            model (models.Model): project model to save.</span>
+<span class="sd">            signature (signers.Signature): model signature.</span>
+<span class="sd">            input_example (schemas.Inputs): sample of inputs.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            Info: model saving information.</span>
+<span class="sd">        &quot;&quot;&quot;</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="CustomSaver">
+<a class="viewcode-back" href="../../../_api/qto_categorizer_ml.io.html#qto_categorizer_ml.io.registries.CustomSaver">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">CustomSaver</span><span class="p">(</span><span class="n">Saver</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Saver for project models using the Mlflow PyFunc module.</span>
+
+<span class="sd">    https://mlflow.org/docs/latest/python_api/mlflow.pyfunc.html</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">KIND</span><span class="p">:</span> <span class="n">T</span><span class="o">.</span><span class="n">Literal</span><span class="p">[</span><span class="s2">&quot;CustomSaver&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;CustomSaver&quot;</span>
+
+<div class="viewcode-block" id="CustomSaver.Adapter">
+<a class="viewcode-back" href="../../../_api/qto_categorizer_ml.io.html#qto_categorizer_ml.io.registries.CustomSaver.Adapter">[docs]</a>
+    <span class="k">class</span><span class="w"> </span><span class="nc">Adapter</span><span class="p">(</span><span class="n">mlflow</span><span class="o">.</span><span class="n">pyfunc</span><span class="o">.</span><span class="n">PythonModel</span><span class="p">):</span>  <span class="c1"># type: ignore[misc]</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Adapt a custom model to the Mlflow PyFunc flavor for saving operations.</span>
+
+<span class="sd">        https://mlflow.org/docs/latest/python_api/mlflow.pyfunc.html?#mlflow.pyfunc.PythonModel</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="p">:</span> <span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+<span class="w">            </span><span class="sd">&quot;&quot;&quot;Initialize the custom saver adapter.</span>
+
+<span class="sd">            Args:</span>
+<span class="sd">                model (models.Model): project model.</span>
+<span class="sd">            &quot;&quot;&quot;</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="n">model</span>
+
+<div class="viewcode-block" id="CustomSaver.Adapter.predict">
+<a class="viewcode-back" href="../../../_api/qto_categorizer_ml.io.html#qto_categorizer_ml.io.registries.CustomSaver.Adapter.predict">[docs]</a>
+        <span class="k">def</span><span class="w"> </span><span class="nf">predict</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span>
+            <span class="n">context</span><span class="p">:</span> <span class="n">mlflow</span><span class="o">.</span><span class="n">pyfunc</span><span class="o">.</span><span class="n">PythonModelContext</span><span class="p">,</span>
+            <span class="n">model_input</span><span class="p">:</span> <span class="n">schemas</span><span class="o">.</span><span class="n">Inputs</span><span class="p">,</span>
+            <span class="n">params</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">T</span><span class="o">.</span><span class="n">Any</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">schemas</span><span class="o">.</span><span class="n">Outputs</span><span class="p">:</span>
+<span class="w">            </span><span class="sd">&quot;&quot;&quot;Generate predictions with a custom model for the given inputs.</span>
+
+<span class="sd">            Args:</span>
+<span class="sd">                context (mlflow.pyfunc.PythonModelContext): mlflow context.</span>
+<span class="sd">                model_input (schemas.Inputs): inputs for the mlflow model.</span>
+<span class="sd">                params(dict[str, T.Any] | None): additional parameters.</span>
+
+<span class="sd">            Returns:</span>
+<span class="sd">                schemas.Outputs: validated outputs of the project model.</span>
+<span class="sd">            &quot;&quot;&quot;</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">inputs</span><span class="o">=</span><span class="n">model_input</span><span class="p">)</span></div>
+</div>
+
+
+<div class="viewcode-block" id="CustomSaver.save">
+<a class="viewcode-back" href="../../../_api/qto_categorizer_ml.io.html#qto_categorizer_ml.io.registries.CustomSaver.save">[docs]</a>
+    <span class="nd">@TX</span><span class="o">.</span><span class="n">override</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">save</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="p">:</span> <span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">,</span> <span class="n">signature</span><span class="p">:</span> <span class="n">signers</span><span class="o">.</span><span class="n">Signature</span><span class="p">,</span> <span class="n">input_example</span><span class="p">:</span> <span class="n">schemas</span><span class="o">.</span><span class="n">Inputs</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Info</span><span class="p">:</span>
+        <span class="n">adapter</span> <span class="o">=</span> <span class="n">CustomSaver</span><span class="o">.</span><span class="n">Adapter</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="n">model</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">mlflow</span><span class="o">.</span><span class="n">pyfunc</span><span class="o">.</span><span class="n">log_model</span><span class="p">(</span>
+            <span class="n">python_model</span><span class="o">=</span><span class="n">adapter</span><span class="p">,</span>
+            <span class="n">signature</span><span class="o">=</span><span class="n">signature</span><span class="p">,</span>
+            <span class="n">artifact_path</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">path</span><span class="p">,</span>
+            <span class="n">input_example</span><span class="o">=</span><span class="n">input_example</span><span class="p">,</span>
+        <span class="p">)</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="BuiltinSaver">
+<a class="viewcode-back" href="../../../_api/qto_categorizer_ml.io.html#qto_categorizer_ml.io.registries.BuiltinSaver">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">BuiltinSaver</span><span class="p">(</span><span class="n">Saver</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Saver for built-in models using an Mlflow flavor module.</span>
+
+<span class="sd">    https://mlflow.org/docs/latest/models.html#built-in-model-flavors</span>
+
+<span class="sd">    Parameters:</span>
+<span class="sd">        flavor (str): Mlflow flavor module to use for the serialization.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">KIND</span><span class="p">:</span> <span class="n">T</span><span class="o">.</span><span class="n">Literal</span><span class="p">[</span><span class="s2">&quot;BuiltinSaver&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;BuiltinSaver&quot;</span>
+
+    <span class="n">flavor</span><span class="p">:</span> <span class="nb">str</span>
+
+<div class="viewcode-block" id="BuiltinSaver.save">
+<a class="viewcode-back" href="../../../_api/qto_categorizer_ml.io.html#qto_categorizer_ml.io.registries.BuiltinSaver.save">[docs]</a>
+    <span class="nd">@TX</span><span class="o">.</span><span class="n">override</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">save</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">model</span><span class="p">:</span> <span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">,</span>
+        <span class="n">signature</span><span class="p">:</span> <span class="n">signers</span><span class="o">.</span><span class="n">Signature</span><span class="p">,</span>
+        <span class="n">input_example</span><span class="p">:</span> <span class="n">schemas</span><span class="o">.</span><span class="n">Inputs</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">mlflow</span><span class="o">.</span><span class="n">entities</span><span class="o">.</span><span class="n">model_registry</span><span class="o">.</span><span class="n">ModelVersion</span><span class="p">:</span>
+        <span class="n">builtin_model</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">get_internal_model</span><span class="p">()</span>
+        <span class="n">module</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">mlflow</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">flavor</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">module</span><span class="o">.</span><span class="n">log_model</span><span class="p">(</span>
+            <span class="n">builtin_model</span><span class="p">,</span> <span class="n">artifact_path</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">path</span><span class="p">,</span> <span class="n">signature</span><span class="o">=</span><span class="n">signature</span><span class="p">,</span> <span class="n">input_example</span><span class="o">=</span><span class="n">input_example</span>
+        <span class="p">)</span></div>
+</div>
+
+
+
+<span class="n">SaverKind</span> <span class="o">=</span> <span class="n">CustomSaver</span> <span class="o">|</span> <span class="n">BuiltinSaver</span>
+
+<span class="c1"># %% LOADERS</span>
+
+
+<div class="viewcode-block" id="Loader">
+<a class="viewcode-back" href="../../../_api/qto_categorizer_ml.io.html#qto_categorizer_ml.io.registries.Loader">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">Loader</span><span class="p">(</span><span class="n">abc</span><span class="o">.</span><span class="n">ABC</span><span class="p">,</span> <span class="n">pdt</span><span class="o">.</span><span class="n">BaseModel</span><span class="p">,</span> <span class="n">strict</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">frozen</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">extra</span><span class="o">=</span><span class="s2">&quot;forbid&quot;</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Base class for loading models from registry.</span>
+
+<span class="sd">    Separate model definition from deserialization.</span>
+<span class="sd">    e.g., to switch between deserialization flavors.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">KIND</span><span class="p">:</span> <span class="nb">str</span>
+
+<div class="viewcode-block" id="Loader.Adapter">
+<a class="viewcode-back" href="../../../_api/qto_categorizer_ml.io.html#qto_categorizer_ml.io.registries.Loader.Adapter">[docs]</a>
+    <span class="k">class</span><span class="w"> </span><span class="nc">Adapter</span><span class="p">(</span><span class="n">abc</span><span class="o">.</span><span class="n">ABC</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Adapt any model for the project inference.&quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="Loader.Adapter.predict">
+<a class="viewcode-back" href="../../../_api/qto_categorizer_ml.io.html#qto_categorizer_ml.io.registries.Loader.Adapter.predict">[docs]</a>
+        <span class="nd">@abc</span><span class="o">.</span><span class="n">abstractmethod</span>
+        <span class="k">def</span><span class="w"> </span><span class="nf">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">inputs</span><span class="p">:</span> <span class="n">schemas</span><span class="o">.</span><span class="n">Inputs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">schemas</span><span class="o">.</span><span class="n">Outputs</span><span class="p">:</span>
+<span class="w">            </span><span class="sd">&quot;&quot;&quot;Generate predictions with the internal model for the given inputs.</span>
+
+<span class="sd">            Args:</span>
+<span class="sd">                inputs (schemas.Inputs): validated inputs for the project model.</span>
+
+<span class="sd">            Returns:</span>
+<span class="sd">                schemas.Outputs: validated outputs of the project model.</span>
+<span class="sd">            &quot;&quot;&quot;</span></div>
+</div>
+
+
+<div class="viewcode-block" id="Loader.load">
+<a class="viewcode-back" href="../../../_api/qto_categorizer_ml.io.html#qto_categorizer_ml.io.registries.Loader.load">[docs]</a>
+    <span class="nd">@abc</span><span class="o">.</span><span class="n">abstractmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">load</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">uri</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;Loader.Adapter&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Load a model from the model registry.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            uri (str): URI of a model to load.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            Loader.Adapter: model loaded.</span>
+<span class="sd">        &quot;&quot;&quot;</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="CustomLoader">
+<a class="viewcode-back" href="../../../_api/qto_categorizer_ml.io.html#qto_categorizer_ml.io.registries.CustomLoader">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">CustomLoader</span><span class="p">(</span><span class="n">Loader</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Loader for custom models using the Mlflow PyFunc module.</span>
+
+<span class="sd">    https://mlflow.org/docs/latest/python_api/mlflow.pyfunc.html</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">KIND</span><span class="p">:</span> <span class="n">T</span><span class="o">.</span><span class="n">Literal</span><span class="p">[</span><span class="s2">&quot;CustomLoader&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;CustomLoader&quot;</span>
+
+<div class="viewcode-block" id="CustomLoader.Adapter">
+<a class="viewcode-back" href="../../../_api/qto_categorizer_ml.io.html#qto_categorizer_ml.io.registries.CustomLoader.Adapter">[docs]</a>
+    <span class="k">class</span><span class="w"> </span><span class="nc">Adapter</span><span class="p">(</span><span class="n">Loader</span><span class="o">.</span><span class="n">Adapter</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Adapt a custom model for the project inference.&quot;&quot;&quot;</span>
+
+        <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="p">:</span> <span class="n">mlflow</span><span class="o">.</span><span class="n">pyfunc</span><span class="o">.</span><span class="n">PyFuncModel</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">            </span><span class="sd">&quot;&quot;&quot;Initialize the adapter from an mlflow pyfunc model.</span>
+
+<span class="sd">            Args:</span>
+<span class="sd">                model (mlflow.pyfunc.PyFuncModel): mlflow pyfunc model.</span>
+<span class="sd">            &quot;&quot;&quot;</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="n">model</span>
+
+<div class="viewcode-block" id="CustomLoader.Adapter.predict">
+<a class="viewcode-back" href="../../../_api/qto_categorizer_ml.io.html#qto_categorizer_ml.io.registries.CustomLoader.Adapter.predict">[docs]</a>
+        <span class="nd">@TX</span><span class="o">.</span><span class="n">override</span>
+        <span class="k">def</span><span class="w"> </span><span class="nf">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">inputs</span><span class="p">:</span> <span class="n">schemas</span><span class="o">.</span><span class="n">Inputs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">schemas</span><span class="o">.</span><span class="n">Outputs</span><span class="p">:</span>
+            <span class="c1"># model validation is already done in predict</span>
+            <span class="n">outputs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">inputs</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">T</span><span class="o">.</span><span class="n">cast</span><span class="p">(</span><span class="n">schemas</span><span class="o">.</span><span class="n">Outputs</span><span class="p">,</span> <span class="n">outputs</span><span class="p">)</span></div>
+</div>
+
+
+<div class="viewcode-block" id="CustomLoader.load">
+<a class="viewcode-back" href="../../../_api/qto_categorizer_ml.io.html#qto_categorizer_ml.io.registries.CustomLoader.load">[docs]</a>
+    <span class="nd">@TX</span><span class="o">.</span><span class="n">override</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">load</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">uri</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;CustomLoader.Adapter&quot;</span><span class="p">:</span>
+        <span class="n">model</span> <span class="o">=</span> <span class="n">mlflow</span><span class="o">.</span><span class="n">pyfunc</span><span class="o">.</span><span class="n">load_model</span><span class="p">(</span><span class="n">model_uri</span><span class="o">=</span><span class="n">uri</span><span class="p">)</span>
+        <span class="n">adapter</span> <span class="o">=</span> <span class="n">CustomLoader</span><span class="o">.</span><span class="n">Adapter</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="n">model</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">adapter</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="BuiltinLoader">
+<a class="viewcode-back" href="../../../_api/qto_categorizer_ml.io.html#qto_categorizer_ml.io.registries.BuiltinLoader">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">BuiltinLoader</span><span class="p">(</span><span class="n">Loader</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Loader for built-in models using the Mlflow PyFunc module.</span>
+
+<span class="sd">    Note: use Mlflow PyFunc instead of flavors to use standard API.</span>
+
+<span class="sd">    https://mlflow.org/docs/latest/models.html#built-in-model-flavors</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">KIND</span><span class="p">:</span> <span class="n">T</span><span class="o">.</span><span class="n">Literal</span><span class="p">[</span><span class="s2">&quot;BuiltinLoader&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;BuiltinLoader&quot;</span>
+
+<div class="viewcode-block" id="BuiltinLoader.Adapter">
+<a class="viewcode-back" href="../../../_api/qto_categorizer_ml.io.html#qto_categorizer_ml.io.registries.BuiltinLoader.Adapter">[docs]</a>
+    <span class="k">class</span><span class="w"> </span><span class="nc">Adapter</span><span class="p">(</span><span class="n">Loader</span><span class="o">.</span><span class="n">Adapter</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Adapt a builtin model for the project inference.&quot;&quot;&quot;</span>
+
+        <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="p">:</span> <span class="n">mlflow</span><span class="o">.</span><span class="n">pyfunc</span><span class="o">.</span><span class="n">PyFuncModel</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">            </span><span class="sd">&quot;&quot;&quot;Initialize the adapter from an mlflow pyfunc model.</span>
+
+<span class="sd">            Args:</span>
+<span class="sd">                model (mlflow.pyfunc.PyFuncModel): mlflow pyfunc model.</span>
+<span class="sd">            &quot;&quot;&quot;</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="n">model</span>
+
+<div class="viewcode-block" id="BuiltinLoader.Adapter.predict">
+<a class="viewcode-back" href="../../../_api/qto_categorizer_ml.io.html#qto_categorizer_ml.io.registries.BuiltinLoader.Adapter.predict">[docs]</a>
+        <span class="nd">@TX</span><span class="o">.</span><span class="n">override</span>
+        <span class="k">def</span><span class="w"> </span><span class="nf">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">inputs</span><span class="p">:</span> <span class="n">schemas</span><span class="o">.</span><span class="n">Inputs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">schemas</span><span class="o">.</span><span class="n">Outputs</span><span class="p">:</span>
+            <span class="n">columns</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">schemas</span><span class="o">.</span><span class="n">OutputsSchema</span><span class="o">.</span><span class="n">to_schema</span><span class="p">()</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+            <span class="n">outputs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">inputs</span><span class="p">)</span>  <span class="c1"># unchecked!</span>
+            <span class="k">return</span> <span class="n">schemas</span><span class="o">.</span><span class="n">Outputs</span><span class="p">(</span><span class="n">outputs</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="n">columns</span><span class="p">)</span></div>
+</div>
+
+
+<div class="viewcode-block" id="BuiltinLoader.load">
+<a class="viewcode-back" href="../../../_api/qto_categorizer_ml.io.html#qto_categorizer_ml.io.registries.BuiltinLoader.load">[docs]</a>
+    <span class="nd">@TX</span><span class="o">.</span><span class="n">override</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">load</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">uri</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;BuiltinLoader.Adapter&quot;</span><span class="p">:</span>
+        <span class="n">model</span> <span class="o">=</span> <span class="n">mlflow</span><span class="o">.</span><span class="n">pyfunc</span><span class="o">.</span><span class="n">load_model</span><span class="p">(</span><span class="n">model_uri</span><span class="o">=</span><span class="n">uri</span><span class="p">)</span>
+        <span class="n">adapter</span> <span class="o">=</span> <span class="n">BuiltinLoader</span><span class="o">.</span><span class="n">Adapter</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="n">model</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">adapter</span></div>
+</div>
+
+
+
+<span class="n">LoaderKind</span> <span class="o">=</span> <span class="n">CustomLoader</span> <span class="o">|</span> <span class="n">BuiltinLoader</span>
+
+<span class="c1"># %% REGISTERS</span>
+
+
+<div class="viewcode-block" id="Register">
+<a class="viewcode-back" href="../../../_api/qto_categorizer_ml.io.html#qto_categorizer_ml.io.registries.Register">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">Register</span><span class="p">(</span><span class="n">abc</span><span class="o">.</span><span class="n">ABC</span><span class="p">,</span> <span class="n">pdt</span><span class="o">.</span><span class="n">BaseModel</span><span class="p">,</span> <span class="n">strict</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">frozen</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">extra</span><span class="o">=</span><span class="s2">&quot;forbid&quot;</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Base class for registring models to a location.</span>
+
+<span class="sd">    Separate model definition from its registration.</span>
+<span class="sd">    e.g., to change the model registry backend.</span>
+
+<span class="sd">    Parameters:</span>
+<span class="sd">        tags (dict[str, T.Any]): tags for the model.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">KIND</span><span class="p">:</span> <span class="nb">str</span>
+
+    <span class="n">tags</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">T</span><span class="o">.</span><span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+
+<div class="viewcode-block" id="Register.register">
+<a class="viewcode-back" href="../../../_api/qto_categorizer_ml.io.html#qto_categorizer_ml.io.registries.Register.register">[docs]</a>
+    <span class="nd">@abc</span><span class="o">.</span><span class="n">abstractmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">register</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">model_uri</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Version</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Register a model given its location (URI).</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            name (str): name of the model to register.</span>
+<span class="sd">            model_uri (str): URI of a model to register.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            Version: information about the registered model.</span>
+<span class="sd">        &quot;&quot;&quot;</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="MlflowRegister">
+<a class="viewcode-back" href="../../../_api/qto_categorizer_ml.io.html#qto_categorizer_ml.io.registries.MlflowRegister">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">MlflowRegister</span><span class="p">(</span><span class="n">Register</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Register for models in the Mlflow Model Registry.</span>
+
+<span class="sd">    https://mlflow.org/docs/latest/model-registry.html</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">KIND</span><span class="p">:</span> <span class="n">T</span><span class="o">.</span><span class="n">Literal</span><span class="p">[</span><span class="s2">&quot;MlflowRegister&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;MlflowRegister&quot;</span>
+
+<div class="viewcode-block" id="MlflowRegister.register">
+<a class="viewcode-back" href="../../../_api/qto_categorizer_ml.io.html#qto_categorizer_ml.io.registries.MlflowRegister.register">[docs]</a>
+    <span class="nd">@TX</span><span class="o">.</span><span class="n">override</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">register</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">model_uri</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Version</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">mlflow</span><span class="o">.</span><span class="n">register_model</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span> <span class="n">model_uri</span><span class="o">=</span><span class="n">model_uri</span><span class="p">,</span> <span class="n">tags</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">tags</span><span class="p">)</span></div>
+</div>
+
+
+
+<span class="n">RegisterKind</span> <span class="o">=</span> <span class="n">MlflowRegister</span>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright data-corentinv.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
