@@ -196,6 +196,10 @@ class SKLearnPipelineModel(Model):
     pipeline: None = None
     le: None = None
 
+    def __init__(self, **data):
+        super().__init__(**data)
+        self.pipeline = self._create_pipeline()
+
     def _create_pipeline(self) -> Pipeline:
         """Create SKLearn Pipeline."""
         desc_pipe = make_pipeline(
