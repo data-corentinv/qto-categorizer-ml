@@ -1,6 +1,6 @@
 # Qto Categorizer ML
 
-**Qto Categorizer ML** is a CLI-based machine learning system designed to automatically categorize financial transactions for Qto’s business customers. Qto offers financial management services to SMEs and freelancers, and accurate transaction categorization is essential to help users understand and control their spending.
+**Qto Categorizer ML** is a CLI-based machine learning system designed to automatically categorize financial transactions for Qto's business customers. Qto offers financial management services to SMEs and freelancers, and accurate transaction categorization is essential to help users understand and control their spending.
 
 Note that this package could replace or complements the existing rule-based system with a more accurate, scalable, and robust ML-based pipeline.
 
@@ -19,6 +19,9 @@ Note that this package could replace or complements the existing rule-based syst
     - [Generate Sphinx documentation](#generate-sphinx-documentation)
     - [Bump package version](#bump-package-version)
   - [Code structure](#code-structure)
+  - [Release Process](#release-process)
+    - [Major Release Process](#major-release-process)
+    - [Minor Release Process](#minor-release-process)
   - [Requirements](#requirements)
   - [Notes](#notes)
   - [Useful links](#useful-links)
@@ -115,6 +118,14 @@ qto_categorizer_ml/
 ├── __main__.py         # Entrypoint for CLI
 └── __init__.py
 ```
+
+## Release Process
+
+### Major Release Process
+![Major Release Process](_static/github-flow-major-release.png)
+
+### Minor Release Process
+![Minor Release Process](_static/github-flow-minor-release.png)
 
 ## Requirements
 
