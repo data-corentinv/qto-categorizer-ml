@@ -19,6 +19,7 @@ def test_schema(capsys: pc.CaptureFixture[str]) -> None:
     assert capture.err == "", "Captured error should be empty!"
     assert json.loads(capture.out), "Captured output should be a JSON!"
 
+
 def test_main__no_configs() -> None:
     # given
     argv: list[str] = []

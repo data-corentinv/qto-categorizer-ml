@@ -6,6 +6,7 @@ from qto_categorizer_ml.utils import signers
 
 # %% SIGNERS
 
+
 def test_manual_signer(inputs: schemas.Inputs, outputs: schemas.Outputs) -> None:
     def specs_to_dict(specs: list[dict[str, str]]) -> dict[str, str]:
         """Convert a list of mlflow signature specs to a dict."""
@@ -35,6 +36,7 @@ def test_manual_signer(inputs: schemas.Inputs, outputs: schemas.Outputs) -> None
     assert specs_to_dict(signature.outputs.to_dict()) == specs_to_dict(
         outputs_specs
     ), "Signature outputs should match outputs specs."
+
 
 def test_pandera_signer__invalid_schema() -> None:
     # given

@@ -102,11 +102,11 @@ class Model(abc.ABC, pdt.BaseModel, strict=True, frozen=False, extra="forbid"):
 
 class MostFrequentCategoryByMerchant(BaseEstimator, TransformerMixin):
     """Move to another dir"""
+
     merchant_to_category_: dict = {}
 
     def fit(self, X, y):
-        """ Fit method.
-        """
+        """Fit method."""
         df = X.copy()
         df["CATEGORY"] = y
 
@@ -125,8 +125,7 @@ class MostFrequentCategoryByMerchant(BaseEstimator, TransformerMixin):
         return self
 
     def transform(self, X):
-        """ Transform method.
-        """
+        """Transform method."""
         X_ = X.copy()
         X_["MOST_FREQUENT_CATEGORY"] = X_["MERCHANT_NAME"].map(self.merchant_to_category_)
         outputs = X_.MOST_FREQUENT_CATEGORY.values
@@ -135,7 +134,7 @@ class MostFrequentCategoryByMerchant(BaseEstimator, TransformerMixin):
 
 
 class BaselineModel(Model):
-    """Baseline model: takes to most frequent category of a marchant). 
+    """Baseline model: takes to most frequent category of a marchant).
     Accuracy estimated to be ~60%.
 
     Parameters:
