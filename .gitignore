@@ -4,11 +4,6 @@
 /dist/
 /build/
 
-# Future
-/.github/
-README_old.md
-databricks.yml
-
 # Cache
 .cache/
 .coverage*

@@ -88,7 +88,7 @@ make reporters
 
 ```bash
 make documenters
-open docs/build
+open docs/build # open index.html file
 ```
 
 ### Bump package version

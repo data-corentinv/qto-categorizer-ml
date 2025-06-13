@@ -1,0 +1,20 @@
+# Publish the release artifacts.
+# Release artifacts:
+#   * should have X.Y.Z versions
+#   * should be fully tested and validated
+#   * should be published on the 'release' artifact repository
+#   * are immutable and cannot be deleted once published on the 'release' artifact repository.
+# name: Publish release artifacts
+# on:
+#   release:
+#     types:
+#       - edited
+#       - published
+# permissions:
+#   id-token: write
+#   contents: read
+
+# env:
+#   ENV: release
+
+# jobs: # TODO: Add jobs
