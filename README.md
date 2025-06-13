@@ -105,8 +105,6 @@ make bump-package PACKAGE_VERSION=0.1.0dev1
 DDD architecture
   * Reference: <https://en.wikipedia.org/wiki/Domain-driven_design>
 
-![ddd](_static/image.png)
-
 ```
 qto_categorizer_ml/
 ├── core/               # Core ML logic: pipeline, transformers, models
