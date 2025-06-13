@@ -4,12 +4,6 @@
 
 Note that this package could replace or complements the existing rule-based system with a more accurate, scalable, and robust ML-based pipeline.
 
-TODO: 
-- clean notebooks
-- create API
-- add figure in readme (code strucutre, CICD, bump-versions)
-- consumer/producer kafka
-
 ## Table of Contents (ToC)
 
 - [Qto Categorizer ML](#qto-categorizer-ml)
@@ -24,9 +18,10 @@ TODO:
     - [Generate reporters (Sonar)](#generate-reporters-sonar)
     - [Generate Sphinx documentation](#generate-sphinx-documentation)
     - [Bump package version](#bump-package-version)
-  - [Project structure](#project-structure)
+  - [Code structure](#code-structure)
   - [Requirements](#requirements)
   - [Notes](#notes)
+  - [Useful links](#useful-links)
 
 ## Quick start
 
@@ -102,7 +97,12 @@ open docs/build
 make bump-package PACKAGE_VERSION=0.1.0dev1
 ```
 
-## Project structure
+## Code structure
+
+DDD architecture
+  * Reference: <https://en.wikipedia.org/wiki/Domain-driven_design>
+
+![ddd](_static/image.png)
 
 ```
 qto_categorizer_ml/
@@ -130,3 +130,9 @@ qto_categorizer_ml/
   - S3 for data storage (configured via AWS credentials in `env/`)
   - Remote MLflow servers (e.g., Databricks, SageMaker)
   - Environment-specific variables managed through Hydra and `.env` files
+
+## Useful links
+
+- [Github - qto-categorizer-ml](https://github.com/data-corentinv/qto-categorizer-ml)
+- [Github - qto-categorizer-api](https://github.com/data-corentinv/qto-categorizer-api)
+- [Github -qto-categorizer-depl](https://github.com/data-corentinv/qto-categorizer-depl)
